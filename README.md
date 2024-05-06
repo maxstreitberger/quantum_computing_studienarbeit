@@ -1,4 +1,4 @@
-# Studienarbeit
+# Studienarbeit in Quantum Computing Hardware
 
 ## Install
 The installation can be done via Anaconda or a Python Virtual Environment. For my setup, I used the latter. For instructions on installing devsim with Anaconda, please refer to the installation guide on the [devsim GitHub page](https://github.com/devsim/devsim/blob/main/INSTALL.md).
