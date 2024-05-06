@@ -7,3 +7,9 @@
 ```
 pip install mkl numpy devsim pyvista panel wurlitzer
 ```
+### Basic Test
+You should now be able to run an example in the testing directory.
+```
+cd venv/devsim_data/testing
+python3 cap2.py
+```
