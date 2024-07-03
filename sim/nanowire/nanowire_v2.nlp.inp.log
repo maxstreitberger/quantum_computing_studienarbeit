@@ -1,0 +1,799 @@
+$ Algebraic Preprocessor (Aprepro) version 6.05 (2022/01/10)
+
+Import State File nanowire_v2.e
+
+start output parameters
+      Output State File nanowire_v2.nlp.exo
+      Output cell average variables in nanowire for scalar "Electron Mobility,Hole Mobility,Doping,Acceptor Concentration,Donor Concentration,Intrinsic Concentration,Band Gap,Effective Band Gap,Electron Affinity,Effective Electron Affinity,Conduction Band,Valence Band,Intrinsic Fermi Level,Electron Effective DOS,Hole Effective DOS,Reference Energy,Negative Potential Gradient X,Negative Potential Gradient Y"
+end output parameters
+
+lattice temperature=1.4
+
+start Physics Block channelSemiconductor
+      geometry block is nanowire
+      material model is channelSiliconParameter
+
+      standard discretization type is drift diffusion cvfem
+      start quantum correction
+            electron density correction is on
+            hole density correction is on
+            electron simplified formulation is on
+            hole simplified formulation is on
+      end quantum correction
+
+end Physics Block Semiconductor
+
+start Physics Block insulator
+      geometry block is ox_1
+      geometry block is ox_2
+      standard discretization type is laplace cvfem
+      material model is SiO2Parameter
+end Physics Block insulator
+
+start Material Block channelSiliconParameter
+      material name is Silicon
+      relative permittivity = 11.9
+      start uniform doping named Function1
+            type is acceptor
+            concentration = 1e16
+      end uniform doping
+end Material Block siliconParameter
+
+start Material Block SiO2Parameter
+      material name is SiO2
+      relative permittivity = 3.9
+end Material Block
+
+initial conditions for ELECTRIC_POTENTIAL in ox_1 is uninitialized
+initial conditions for ELECTRIC_POTENTIAL in ox_2 is uninitialized
+initial conditions for ELECTRIC_POTENTIAL in nanowire is equilibrium potential
+
+initial conditions for ELECTRON_DENSITY in nanowire is equilibrium density
+initial conditions for HOLE_DENSITY in nanowire is equilibrium density
+initial conditions for ELECTRON_QUANTUM_POTENTIAL in nanowire is equilibrium potential
+initial conditions for HOLE_QUANTUM_POTENTIAL in nanowire is equilibrium potential
+
+
+BC is ohmic for source on nanowire fixed at 0
+BC is ohmic for drain on nanowire fixed at 0
+BC is contact on insulator for gate_1 on ox_1 with work function 4.5 fixed at 0
+BC is contact on insulator for gate_2 on ox_2 with work function 4.5 fixed at 0
+
+#start solver block
+#    use solver pack 1
+#end solver block
+
+tpetra is on
+start solver block
+   start tpetra block
+     problem type is steady state
+     verbosity level is high
+     maximum number nonlinear iterations = 30
+     nonlinear solver residual tolerance = 1e-9
+   end
+end solver block
+
+
+p=0 | ***********************************************************************
+p=0 |              Charon: 2.2
+p=0 | TCAD code for simulation of semiconductor physics 
+p=0 | 
+p=0 | Copyright 2020 National Technology & Engineering Solutions of Sandia,
+p=0 | LLC (NTESS). Under the terms of Contract DE-NA0003525 with NTESS, the
+p=0 | U.S. Government retains certain rights in this software.
+p=0 | Questions? Contact the Charon team via email:
+p=0 |     charon@sandia.gov
+p=0 | ***********************************************************************
+p=0 | Mesh -> 
+p=0 |  Source = Exodus File   [unused]
+p=0 |  Exodus File -> 
+p=0 |   Restart Index = -1   [unused]
+p=0 |   File Name = nanowire_v2.e   [unused]
+p=0 | Closure Models -> 
+p=0 |  Lattice Temperature = 1.4   [unused]
+p=0 |  Concentration Scaling = 1e+16   [unused]
+p=0 |  channelSiliconParameter -> 
+p=0 |   Material Name = Silicon   [unused]
+p=0 |   Doping -> 
+p=0 |    Value = Function   [unused]
+p=0 |    Function1 -> 
+p=0 |     Function Type = Uniform   [unused]
+p=0 |     Doping Type = Acceptor   [unused]
+p=0 |     Doping Value = 1e+16   [unused]
+p=0 |   Relative Permittivity -> 
+p=0 |    Value = 11.9   [unused]
+p=0 |  SiO2Parameter -> 
+p=0 |   Material Name = SiO2   [unused]
+p=0 |   Relative Permittivity -> 
+p=0 |    Value = 3.9   [unused]
+p=0 | Assembly -> 
+p=0 |  Use Tpetra = 1   [unused]
+p=0 | Solution Control -> 
+p=0 |  Piro Solver = NOX   [unused]
+p=0 |  Compute Sensitivities = 0   [unused]
+p=0 |  Jacobian Operator = Have Jacobian   [unused]
+p=0 |  NOX -> 
+p=0 |   Nonlinear Solver = Line Search Based   [unused]
+p=0 |   Direction -> 
+p=0 |    Method = Newton   [unused]
+p=0 |    Newton -> 
+p=0 |     Forcing Term Method = Constant   [unused]
+p=0 |     Rescue Bad Newton Solve = 1   [unused]
+p=0 |     Linear Solver -> 
+p=0 |      Tolerance = 1e-06   [unused]
+p=0 |     Stratimikos Linear Solver -> 
+p=0 |      Stratimikos -> 
+p=0 |       Linear Solver Type = AztecOO   [unused]
+p=0 |       Preconditioner Type = Ifpack2   [unused]
+p=0 |       Linear Solver Types -> 
+p=0 |        AztecOO -> 
+p=0 |         Forward Solve -> 
+p=0 |          Max Iterations = 300   [unused]
+p=0 |          AztecOO Settings -> 
+p=0 |           Size of Krylov Subspace = 200   [unused]
+p=0 |           RCM Reordering = Disabled   [unused]
+p=0 |           Overlap = 0   [unused]
+p=0 |           Aztec Solver = GMRES   [unused]
+p=0 |           Convergence Test = r0   [unused]
+p=0 |           Output Frequency = 20   [unused]
+p=0 |        Belos -> 
+p=0 |         Solver Type = Block GMRES   [unused]
+p=0 |         VerboseObject -> 
+p=0 |          Verbosity Level = high   [unused]
+p=0 |         Solver Types -> 
+p=0 |          Block GMRES -> 
+p=0 |           Convergence Tolerance = 1e-06   [unused]
+p=0 |           Output Frequency = 20   [unused]
+p=0 |           Output Style = 1   [unused]
+p=0 |           Verbosity = 33   [unused]
+p=0 |           Block Size = 1   [unused]
+p=0 |           Num Blocks = 100   [unused]
+p=0 |           Maximum Iterations = 300   [unused]
+p=0 |           Flexible Gmres = 0   [unused]
+p=0 |       Preconditioner Types -> 
+p=0 |        Teko -> 
+p=0 |         Inverse Type = GS   [unused]
+p=0 |         Write Block Operator = 0   [unused]
+p=0 |         Test Block Operator = 0   [unused]
+p=0 |         Inverse Factory Library -> 
+p=0 |          GS -> 
+p=0 |           Type = Block Gauss-Seidel   [unused]
+p=0 |           Use Upper Triangle = 1   [unused]
+p=0 |           Inverse Type 1 = ILU_tpetra   [unused]
+p=0 |           Inverse Type 2 = Id   [unused]
+p=0 |          ILU_tpetra -> 
+p=0 |           Type = Ifpack2   [unused]
+p=0 |           Overlap = 1   [unused]
+p=0 |           Ifpack2 Settings -> 
+p=0 |            fact: drop tolerance = 0   [unused]
+p=0 |            fact: ilut level-of-fill = 1   [unused]
+p=0 |          Id -> 
+p=0 |           Type = Identity   [unused]
+p=0 |        Ifpack2 -> 
+p=0 |         Prec Type = ILUT   [unused]
+p=0 |         Ifpack2 Settings -> 
+p=0 |          schwarz: overlap level = 1   [unused]
+p=0 |          schwarz: use reordering = 0   [unused]
+p=0 |          schwarz: combine mode = add   [unused]
+p=0 |          fact: ilut level-of-fill = 3   [unused]
+p=0 |          fact: iluk level-of-fill = 3   [unused]
+p=0 |          fact: iluk level-of-overlap = 1   [unused]
+p=0 |   Status Tests -> 
+p=0 |    Test Type = Combo   [unused]
+p=0 |    Combo Type = OR   [unused]
+p=0 |    Number of Tests = 3   [unused]
+p=0 |    Test 0 -> 
+p=0 |     Test Type = Combo   [unused]
+p=0 |     Combo Type = AND   [unused]
+p=0 |     Number of Tests = 2   [unused]
+p=0 |     Test 0 -> 
+p=0 |      Test Type = NormF   [unused]
+p=0 |      Tolerance = 1e-09   [unused]
+p=0 |     Test 1 -> 
+p=0 |      Test Type = NormWRMS   [unused]
+p=0 |      Tolerance = 1   [unused]
+p=0 |      Relative Tolerance = 1e-07   [unused]
+p=0 |      Absolute Tolerance = 1e-14   [unused]
+p=0 |      Alpha = 0   [unused]
+p=0 |      Beta = 1   [unused]
+p=0 |    Test 1 -> 
+p=0 |     Maximum Iterations = 30   [unused]
+p=0 |     Test Type = MaxIters   [unused]
+p=0 |    Test 2 -> 
+p=0 |     Test Type = FiniteValue   [unused]
+p=0 |     Vector Type = F Vector   [unused]
+p=0 |   Thyra Group Options -> 
+p=0 |    Function Scaling = Row Sum   [unused]
+p=0 |   Line Search -> 
+p=0 |    Method = Full Step   [unused]
+p=0 |    Full Step -> 
+p=0 |     Full Step = 1   [unused]
+p=0 |   Printing -> 
+p=0 |    Output Precision = 3   [unused]
+p=0 |    Output Processor = 0   [unused]
+p=0 |    Output Information -> 
+p=0 |     Error = 1   [unused]
+p=0 |     Warning = 1   [unused]
+p=0 |     Inner Iteration = 1   [unused]
+p=0 |     Outer Iteration = 1   [unused]
+p=0 |     Outer Iteration StatusTest = 1   [unused]
+p=0 |     Parameters = 1   [unused]
+p=0 |     Details = 1   [unused]
+p=0 |     Linear Solver Details = 1   [unused]
+p=0 |     Stepper Iteration = 1   [unused]
+p=0 |     Stepper Details = 1   [unused]
+p=0 |     Stepper Parameters = 1   [unused]
+p=0 |   Solver Options -> 
+p=0 |    Status Test Check Type = Minimal   [unused]
+p=0 |  Tempus -> 
+p=0 |   Integrator Name = Default Integrator   [unused]
+p=0 |   Default Stepper -> 
+p=0 |    Stepper Type = Backward Euler   [unused]
+p=0 |    Solver Name = Default Solver   [unused]
+p=0 |    Default Solver -> 
+p=0 |     NOX -> 
+p=0 |      Nonlinear Solver = Line Search Based   [unused]
+p=0 |      Status Tests -> 
+p=0 |       Test Type = Combo   [unused]
+p=0 |       Combo Type = OR   [unused]
+p=0 |       Number of Tests = 3   [unused]
+p=0 |       Test 0 -> 
+p=0 |        Test Type = Combo   [unused]
+p=0 |        Combo Type = AND   [unused]
+p=0 |        Number of Tests = 2   [unused]
+p=0 |        Test 0 -> 
+p=0 |         Test Type = NormF   [unused]
+p=0 |         Tolerance = 0.0001   [unused]
+p=0 |        Test 1 -> 
+p=0 |         Test Type = NormWRMS   [unused]
+p=0 |         Tolerance = 1   [unused]
+p=0 |         Relative Tolerance = 1e-07   [unused]
+p=0 |         Absolute Tolerance = 1e-14   [unused]
+p=0 |         Alpha = 0   [unused]
+p=0 |         Beta = 1   [unused]
+p=0 |       Test 1 -> 
+p=0 |        Maximum Iterations = 30   [unused]
+p=0 |        Test Type = MaxIters   [unused]
+p=0 |       Test 2 -> 
+p=0 |        Test Type = FiniteValue   [unused]
+p=0 |        Vector Type = F Vector   [unused]
+p=0 |      Thyra Group Options -> 
+p=0 |       Function Scaling = Row Sum   [unused]
+p=0 |      Line Search -> 
+p=0 |       Method = Full Step   [unused]
+p=0 |       Full Step -> 
+p=0 |        Full Step = 1   [unused]
+p=0 |      Printing -> 
+p=0 |       Output Precision = 3   [unused]
+p=0 |       Output Processor = 0   [unused]
+p=0 |       Output Information -> 
+p=0 |        Error = 1   [unused]
+p=0 |        Warning = 1   [unused]
+p=0 |        Inner Iteration = 1   [unused]
+p=0 |        Outer Iteration = 1   [unused]
+p=0 |        Outer Iteration StatusTest = 1   [unused]
+p=0 |        Parameters = 1   [unused]
+p=0 |        Details = 1   [unused]
+p=0 |        Linear Solver Details = 1   [unused]
+p=0 |        Stepper Iteration = 1   [unused]
+p=0 |        Stepper Details = 1   [unused]
+p=0 |        Stepper Parameters = 1   [unused]
+p=0 |      Solver Options -> 
+p=0 |       Status Test Check Type = Minimal   [unused]
+p=0 |   Default Integrator -> 
+p=0 |    Integrator Type = Integrator Basic   [unused]
+p=0 |    Stepper Name = Default Stepper   [unused]
+p=0 |    Time Step Control -> 
+p=0 |     Output Index Interval = 0   [unused]
+p=0 |     Initial Time Step = 1e-05   [unused]
+p=0 |  Rythmos -> 
+p=0 |   Final Time = 0.00055   [unused]
+p=0 |   Stepper Type = Backward Euler   [unused]
+p=0 |   Nonlinear Solver Type = NOX   [unused]
+p=0 |   Rythmos Integration Control -> 
+p=0 |    Take Variable Steps = 1   [unused]
+p=0 |   Rythmos Step Control Strategy -> 
+p=0 |    Initial Step Size = 1e-05   [unused]
+p=0 |    Min Step Size = 1e-07   [unused]
+p=0 |    Max Step Size = 0.0001   [unused]
+p=0 |    Number of Constant First Order Steps = 5   [unused]
+p=0 |    Step Size Decrease Factor = 0.2   [unused]
+p=0 |    Step Size Increase Factor = 1.5   [unused]
+p=0 |    Min Order = 1   [unused]
+p=0 |    Max Order = 1   [unused]
+p=0 |   Rythmos Stepper -> 
+p=0 |    VerboseObject -> 
+p=0 |     Verbosity Level = none   [unused]
+p=0 |   Rythmos Integrator -> 
+p=0 |    VerboseObject -> 
+p=0 |     Verbosity Level = none   [unused]
+p=0 | Output -> 
+p=0 |  File Name = nanowire_v2.nlp.exo   [unused]
+p=0 |  Cell Average Quantities -> 
+p=0 |   nanowire = Electron Mobility,Hole Mobility,Doping,Acceptor Concentration,Donor Concentration,Intrinsic Concentration,Band Gap,Effective Band Gap,Electron Affinity,Effective Electron Affinity,Conduction Band,Valence Band,Intrinsic Fermi Level,Electron Effective DOS,Hole Effective DOS,Reference Energy,Negative Potential Gradient X,Negative Potential Gradient Y   [unused]
+p=0 | Block ID to Physics ID Mapping -> 
+p=0 |  nanowire = channelSemiconductor   [unused]
+p=0 |  ox_1 = insulator   [unused]
+p=0 |  ox_2 = insulator   [unused]
+p=0 | Physics Blocks -> 
+p=0 |  channelSemiconductor -> 
+p=0 |   child0 -> 
+p=0 |    Model ID = channelSiliconParameter   [unused]
+p=0 |    Type = SGCVFEM Drift Diffusion   [unused]
+p=0 |    Basis Type = HGrad   [unused]
+p=0 |    Basis Order = 1   [unused]
+p=0 |    Integration Order = 2   [unused]
+p=0 |    Options -> 
+p=0 |     Solve Electron = True   [unused]
+p=0 |     Solve Hole = True   [unused]
+p=0 |    Quantum Correction -> 
+p=0 |     Electron Quantum Correction = 1   [unused]
+p=0 |     Hole Quantum Correction = 1   [unused]
+p=0 |     Electron Model Type = Simplified   [unused]
+p=0 |     Hole Model Type = Simplified   [unused]
+p=0 |  insulator -> 
+p=0 |   child0 -> 
+p=0 |    Type = SGCVFEM Laplace   [unused]
+p=0 |    Basis Type = HGrad   [unused]
+p=0 |    Basis Order = 1   [unused]
+p=0 |    Integration Order = 2   [unused]
+p=0 |    Model ID = SiO2Parameter   [unused]
+p=0 | Initial Conditions -> 
+p=0 |  ox_1 -> 
+p=0 |   ELECTRIC_POTENTIAL -> 
+p=0 |    Value = 0   [unused]
+p=0 |  ox_2 -> 
+p=0 |   ELECTRIC_POTENTIAL -> 
+p=0 |    Value = 0   [unused]
+p=0 |  nanowire -> 
+p=0 |   ELECTRIC_POTENTIAL -> 
+p=0 |    Value = Equilibrium Potential   [unused]
+p=0 |   ELECTRON_DENSITY -> 
+p=0 |    Value = Equilibrium Density   [unused]
+p=0 |   HOLE_DENSITY -> 
+p=0 |    Value = Equilibrium Density   [unused]
+p=0 |   ELECTRON_QUANTUM_POTENTIAL -> 
+p=0 |    Value = Equilibrium Potential   [unused]
+p=0 |   HOLE_QUANTUM_POTENTIAL -> 
+p=0 |    Value = Equilibrium Potential   [unused]
+p=0 | Boundary Conditions -> 
+p=0 |  child0 -> 
+p=0 |   Type = Dirichlet   [unused]
+p=0 |   Sideset ID = source   [unused]
+p=0 |   Element Block ID = nanowire   [unused]
+p=0 |   Equation Set Name = ALL_DOFS   [unused]
+p=0 |   Strategy = Ohmic Contact   [unused]
+p=0 |   Data -> 
+p=0 |    Voltage = 0   [unused]
+p=0 |  child1 -> 
+p=0 |   Type = Dirichlet   [unused]
+p=0 |   Sideset ID = drain   [unused]
+p=0 |   Element Block ID = nanowire   [unused]
+p=0 |   Equation Set Name = ALL_DOFS   [unused]
+p=0 |   Strategy = Ohmic Contact   [unused]
+p=0 |   Data -> 
+p=0 |    Voltage = 0   [unused]
+p=0 |  child2 -> 
+p=0 |   Type = Dirichlet   [unused]
+p=0 |   Sideset ID = gate_1   [unused]
+p=0 |   Element Block ID = ox_1   [unused]
+p=0 |   Equation Set Name = ELECTRIC_POTENTIAL   [unused]
+p=0 |   Strategy = Contact On Insulator   [unused]
+p=0 |   Data -> 
+p=0 |    Work Function = 4.5   [unused]
+p=0 |    Voltage = 0   [unused]
+p=0 |  child3 -> 
+p=0 |   Type = Dirichlet   [unused]
+p=0 |   Sideset ID = gate_2   [unused]
+p=0 |   Element Block ID = ox_2   [unused]
+p=0 |   Equation Set Name = ELECTRIC_POTENTIAL   [unused]
+p=0 |   Strategy = Contact On Insulator   [unused]
+p=0 |   Data -> 
+p=0 |    Work Function = 4.5   [unused]
+p=0 |    Voltage = 0   [unused]
+p=0 | 
+
+Coordinate Scaling X0 = 0.0001 [cm]
+Concentration Scaling C0 = 1e+16 [1/cm^3]
+Diffusion Coefficient Scaling D0 = 25.8 [cm^2/s]
+Temperature Scaling T0 = 1.4 [K]
+Voltage Scaling V0 = 0.000120643 [V]
+Mobility Scaling Mu0 = 213854 [cm^2/(V.s)]
+Source Scaling R0 = 2.58e+25 [1/(cm^3.s)]
+Time Scaling t0 = 3.87597e-10 [s]
+Electric Field Scaling E0 = 1.20643 [V/cm]
+Current Density Scaling J0 = 413.362 [A/cm^2]
+Heat Generation Scaling H0 = 1.4e+08 [W/cm^3]
+Heat Capacity Scaling cL0 = 0.0387597 [J/(cm^3.K)]
+Thermal Conductivity Scaling kL0 = 1 [W/(K.cm)]
+Laplacian Scaling Lambda2 = 6.66714e-07 [unitless]
+
+STK Mesh data:
+   Spatial dim = 3
+   Entity counts (Nodes, Edges, Faces, Cells) = ( 54877, 157276, 150220, 47820 )
+   Element blocks = "nanowire" "ox_1" "ox_2" 
+   Sidesets = "drain" "gate_1" "gate_2" "source" 
+   Nodesets = 
+Degree of freedom load balancing: Max, Min, Mean, StdDev = 63717, 53445, 58192.2, 4634.98
+
+************************************************************************
+
+-- Parameters Passed to Nonlinear Solver --
+
+     Nonlinear Solver = Line Search Based
+     Direction -> 
+      Method = Newton
+      Newton -> 
+       Forcing Term Method = Constant
+       Rescue Bad Newton Solve = 1
+       Linear Solver -> 
+        Tolerance = 1e-06
+       Stratimikos Linear Solver -> 
+        Stratimikos -> 
+         Linear Solver Type = AztecOO   [unused]
+         Preconditioner Type = Ifpack2   [unused]
+         Linear Solver Types -> 
+          AztecOO -> 
+           Forward Solve -> 
+            Max Iterations = 300   [unused]
+            AztecOO Settings -> 
+             Size of Krylov Subspace = 200   [unused]
+             RCM Reordering = Disabled   [unused]
+             Overlap = 0   [unused]
+             Aztec Solver = GMRES   [unused]
+             Convergence Test = r0   [unused]
+             Output Frequency = 20   [unused]
+          Belos -> 
+           Solver Type = Block GMRES   [unused]
+           VerboseObject -> 
+            Verbosity Level = high   [unused]
+           Solver Types -> 
+            Block GMRES -> 
+             Convergence Tolerance = 1e-06   [unused]
+             Output Frequency = 20   [unused]
+             Output Style = 1   [unused]
+             Verbosity = 33   [unused]
+             Block Size = 1   [unused]
+             Num Blocks = 100   [unused]
+             Maximum Iterations = 300   [unused]
+             Flexible Gmres = 0   [unused]
+         Preconditioner Types -> 
+          Teko -> 
+           Inverse Type = GS   [unused]
+           Write Block Operator = 0   [unused]
+           Test Block Operator = 0   [unused]
+           Inverse Factory Library -> 
+            GS -> 
+             Type = Block Gauss-Seidel   [unused]
+             Use Upper Triangle = 1   [unused]
+             Inverse Type 1 = ILU_tpetra   [unused]
+             Inverse Type 2 = Id   [unused]
+            ILU_tpetra -> 
+             Type = Ifpack2   [unused]
+             Overlap = 1   [unused]
+             Ifpack2 Settings -> 
+              fact: drop tolerance = 0   [unused]
+              fact: ilut level-of-fill = 1   [unused]
+            Id -> 
+             Type = Identity   [unused]
+          Ifpack2 -> 
+           Prec Type = ILUT   [unused]
+           Ifpack2 Settings -> 
+            schwarz: overlap level = 1   [unused]
+            schwarz: use reordering = 0   [unused]
+            schwarz: combine mode = add   [unused]
+            fact: ilut level-of-fill = 3   [unused]
+            fact: iluk level-of-fill = 3   [unused]
+            fact: iluk level-of-overlap = 1   [unused]
+     Status Tests -> 
+      Test Type = Combo
+      Combo Type = OR
+      Number of Tests = 3
+      Tag =    [default]
+      Test 0 -> 
+       Test Type = Combo
+       Combo Type = AND
+       Number of Tests = 2
+       Tag =    [default]
+       Test 0 -> 
+        Test Type = NormF
+        Tolerance = 1e-09
+        Norm Type = Two Norm   [default]
+        Scale Type = Unscaled   [default]
+        Initial Guess = Teuchos::RCP<NOX::Abstract::Group>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
+        Tag =    [default]
+       Test 1 -> 
+        Test Type = NormWRMS
+        Tolerance = 1
+        Relative Tolerance = 1e-07
+        Absolute Tolerance = 1e-14
+        Alpha = 0
+        Beta = 1
+        BDF Multiplier = 1   [default]
+        Disable Implicit Weighting = 1   [default]
+        Tag =    [default]
+      Test 1 -> 
+       Maximum Iterations = 30
+       Test Type = MaxIters
+       Tag =    [default]
+      Test 2 -> 
+       Test Type = FiniteValue
+       Vector Type = F Vector
+       Norm Type = Two Norm   [default]
+       Tag =    [default]
+     Thyra Group Options -> 
+      Function Scaling = Row Sum
+      Update Row Sum Scaling = Before Each Nonlinear Solve   [default]
+      User Defined Scaling = Teuchos::RCP<Thyra::VectorBase<double> >{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
+      Do Right Scaling First = 0   [default]
+     Line Search -> 
+      Method = Full Step
+      Full Step -> 
+       Full Step = 1
+     Printing -> 
+      Output Precision = 3
+      Output Processor = 0
+      Output Stream = Teuchos::RCP<std::ostream>{ptr=0x5880430fc340,node=0x588043124d30,strong_count=18,weak_count=0}
+      Error Stream = Teuchos::RCP<std::ostream>{ptr=0x5880430fc340,node=0x588043124d30,strong_count=18,weak_count=0}
+      MyPID = 0   [default]
+      Output Information -> 
+       Error = 1
+       Warning = 1
+       Inner Iteration = 1
+       Outer Iteration = 1
+       Outer Iteration StatusTest = 1
+       Parameters = 1
+       Details = 1
+       Linear Solver Details = 1
+       Stepper Iteration = 1
+       Stepper Details = 1
+       Stepper Parameters = 1
+       Debug = 0   [default]
+       Test Details = 0   [default]
+     Solver Options -> 
+      Status Test Check Type = Minimal
+      User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x5880f53a50f0,node=0x58807f5f18b0,strong_count=2,weak_count=0}
+      User Defined Merit Function = Teuchos::RCP<NOX::MeritFunction::Generic>{ptr=0x5880f5336d10,node=0x5880f53f61a0,strong_count=2,weak_count=0}
+      Observer = Teuchos::RCP<NOX::Observer>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
+      Fixed Point Iteration Type = Seidel   [default]
+************************************************************************
+-- Status Test Results --
+**...........OR Combination -> 
+  **...........AND Combination -> 
+    **...........F-Norm = 1.342e+06 < 1.000e-09
+                 (Unscaled Two-Norm, Absolute Tolerance)
+    ??...........WRMS-Norm = 1.000e+12 < 1
+  **...........Number of Iterations = 0 < 30
+  **...........Finite Number Check (Two-Norm F) = Finite
+************************************************************************
+
+************************************************************************
+-- Nonlinear Solver Step 0 -- 
+||F|| = 1.342e+06  step = 0.000e+00  dx = 0.000e+00
+************************************************************************
+
+       CALCULATING FORCING TERM
+       Method: Constant
+       Forcing Term: 1e-06
+ 
+ 		*******************************************************
+ 		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=232769,domainDim=232769}
+ 		***** Preconditioned GMRES solution
+ 		***** User-defined preconditioner
+ 		***** No scaling
+ 		*******************************************************
+ 
+                 iter:    0           residual = 1.000000e+00
+                 iter:   10           residual = 3.333008e-07
+ 
+ 
+ 		Solution time: 0.867833 (sec.)
+ 		total iterations: 10
+ 
+************************************************************************
+-- Status Test Results --
+**...........OR Combination -> 
+  **...........AND Combination -> 
+    **...........F-Norm = 3.405e+02 < 1.000e-09
+                 (Unscaled Two-Norm, Absolute Tolerance)
+    ??...........WRMS-Norm = 1.000e+12 < 1
+  **...........Number of Iterations = 1 < 30
+  **...........Finite Number Check (Two-Norm F) = Finite
+************************************************************************
+
+************************************************************************
+-- Nonlinear Solver Step 1 -- 
+||F|| = 3.405e+02  step = 1.000e+00  dx = 9.964e+09
+************************************************************************
+
+       CALCULATING FORCING TERM
+       Method: Constant
+       Forcing Term: 1e-06
+  
+  		*******************************************************
+  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=232769,domainDim=232769}
+  		***** Preconditioned GMRES solution
+  		***** User-defined preconditioner
+  		***** No scaling
+  		*******************************************************
+  
+                  iter:    0           residual = 1.000000e+00
+                  iter:   20           residual = 1.394776e-01
+                  iter:   40           residual = 1.703347e-02
+                  iter:   60           residual = 2.227340e-03
+                  iter:   74           residual = 9.250571e-07
+  
+  
+  		Solution time: 6.357961 (sec.)
+  		total iterations: 74
+  
+************************************************************************
+-- Status Test Results --
+**...........OR Combination -> 
+  **...........AND Combination -> 
+    **...........F-Norm = 3.150e-04 < 1.000e-09
+                 (Unscaled Two-Norm, Absolute Tolerance)
+    ??...........WRMS-Norm = 1.000e+12 < 1
+  **...........Number of Iterations = 2 < 30
+  **...........Finite Number Check (Two-Norm F) = Finite
+************************************************************************
+
+************************************************************************
+-- Nonlinear Solver Step 2 -- 
+||F|| = 3.150e-04  step = 1.000e+00  dx = 5.508e+05
+************************************************************************
+
+       CALCULATING FORCING TERM
+       Method: Constant
+       Forcing Term: 1e-06
+  
+  		*******************************************************
+  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=232769,domainDim=232769}
+  		***** Preconditioned GMRES solution
+  		***** User-defined preconditioner
+  		***** No scaling
+  		*******************************************************
+  
+                  iter:    0           residual = 1.000000e+00
+                  iter:   20           residual = 1.607543e-02
+                  iter:   40           residual = 6.340083e-03
+                  iter:   60           residual = 3.927554e-04
+                  iter:   79           residual = 7.164645e-07
+  
+  
+  		Solution time: 6.843983 (sec.)
+  		total iterations: 79
+  
+************************************************************************
+-- Status Test Results --
+**...........OR Combination -> 
+  **...........AND Combination -> 
+    Converged....F-Norm = 2.505e-10 < 1.000e-09
+                 (Unscaled Two-Norm, Absolute Tolerance)
+    **...........WRMS-Norm = 7.961e+05 < 1
+                 (Min Step Size:  1.000e+00 >= 0)
+  **...........Number of Iterations = 3 < 30
+  **...........Finite Number Check (Two-Norm F) = Finite
+************************************************************************
+
+************************************************************************
+-- Nonlinear Solver Step 3 -- 
+||F|| = 2.505e-10  step = 1.000e+00  dx = 1.598e+01
+************************************************************************
+
+       CALCULATING FORCING TERM
+       Method: Constant
+       Forcing Term: 1e-06
+  
+  		*******************************************************
+  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=232769,domainDim=232769}
+  		***** Preconditioned GMRES solution
+  		***** User-defined preconditioner
+  		***** No scaling
+  		*******************************************************
+  
+                  iter:    0           residual = 1.000000e+00
+                  iter:   20           residual = 7.318408e-01
+                  iter:   40           residual = 3.036338e-01
+                  iter:   60           residual = 9.337607e-02
+                  iter:   80           residual = 9.294145e-04
+                  iter:  100           residual = 1.876656e-05
+                  iter:  110           residual = 7.063144e-07
+  
+  
+  		Solution time: 9.806790 (sec.)
+  		total iterations: 110
+  
+************************************************************************
+-- Status Test Results --
+**...........OR Combination -> 
+  **...........AND Combination -> 
+    Converged....F-Norm = 4.088e-12 < 1.000e-09
+                 (Unscaled Two-Norm, Absolute Tolerance)
+    **...........WRMS-Norm = 1.392e+01 < 1
+                 (Min Step Size:  1.000e+00 >= 0)
+  **...........Number of Iterations = 4 < 30
+  **...........Finite Number Check (Two-Norm F) = Finite
+************************************************************************
+
+************************************************************************
+-- Nonlinear Solver Step 4 -- 
+||F|| = 4.088e-12  step = 1.000e+00  dx = 7.586e-06
+************************************************************************
+
+       CALCULATING FORCING TERM
+       Method: Constant
+       Forcing Term: 1e-06
+  
+  		*******************************************************
+  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=232769,domainDim=232769}
+  		***** Preconditioned GMRES solution
+  		***** User-defined preconditioner
+  		***** No scaling
+  		*******************************************************
+  
+                  iter:    0           residual = 1.000000e+00
+                  iter:   20           residual = 7.137406e-03
+                  iter:   40           residual = 5.946563e-03
+                  iter:   60           residual = 4.617679e-03
+                  iter:   80           residual = 4.057745e-03
+                  iter:  100           residual = 3.566324e-03
+                  iter:  120           residual = 2.745826e-03
+                  iter:  140           residual = 2.336877e-03
+                  iter:  160           residual = 1.578455e-03
+                  iter:  180           residual = 1.211432e-03
+                  iter:  200           residual = 2.865966e-04
+                  iter:  220           residual = 2.865805e-04
+                  iter:  240           residual = 2.862953e-04
+                  iter:  260           residual = 2.843316e-04
+                  iter:  280           residual = 2.808659e-04
+                  iter:  300           residual = 2.726051e-04
+  
+  
+  	***************************************************************
+  
+  	Warning: maximum number of iterations exceeded
+  	without convergence
+  
+  	Solver:			gmres
+  	number of iterations:	300
+  
+  	Recursive residual =  1.1145e-15
+  
+  	Calculated Norms				Requested Norm
+  	--------------------------------------------	--------------
+  
+  	||r||_2 / ||r0||_2:		2.726051e-04	1.000000e-06
+  
+  	***************************************************************
+  
+  
+  
+  		Solution time: 28.356503 (sec.)
+  		total iterations: 300
+  
+
+************************************************************************
+-- Nonlinear Solver Step 5 -- 
+||F|| = 2.836e-10  step = 1.000e+00  dx = 5.569e-07 (Converged!)
+************************************************************************
+
+************************************************************************
+-- Final Status Test Results --
+Converged....OR Combination -> 
+  Converged....AND Combination -> 
+    Converged....F-Norm = 2.836e-10 < 1.000e-09
+                 (Unscaled Two-Norm, Absolute Tolerance)
+    Converged....WRMS-Norm = 3.276e-01 < 1
+                 (Min Step Size:  1.000e+00 >= 0)
+  ??...........Number of Iterations = -1 < 30
+  ??...........Finite Number Check (Two-Norm F) = Unknown
+************************************************************************
+Responses after nonlinear solve:
+    source_nanowire_Current = -2.07993350e-16 
+    drain_nanowire_Current = -9.83682767e-16 
+    drain_Voltage = 0.00000000e+00 
+    gate_1_Voltage = 0.00000000e+00 
+    gate_2_Voltage = 0.00000000e+00 
+    source_Voltage = 0.00000000e+00 
+p=0 | Charon run completed.

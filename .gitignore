@@ -1,3 +1,7 @@
 .vscode
 venv
 devsim_test
+
+sim/*.xml
+sim/*.log
+sim/*.timings

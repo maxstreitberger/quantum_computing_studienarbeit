@@ -1,0 +1,84 @@
+# Name of the input exodus file, which includes the results for
+# ELECTRIC_POTENTIAL as obtained from a previous NLP simulation
+import state file nanowire_v2.nlp.exo at index 1
+
+# Output exodus file for results of this simulation
+start output parameters
+  output state file nanowire_v2.dd.iv.exo
+end output parameters
+
+lattice temperature=1.4
+
+start Physics Block channelSemiconductor
+      geometry block is nanowire
+      material model is channelSiliconParameter
+
+      standard discretization type is drift diffusion cvfem
+      start quantum correction
+            electron density correction is on
+            hole density correction is on
+            electron simplified formulation is on
+            hole simplified formulation is on
+      end quantum correction
+
+end Physics Block Semiconductor
+
+start Physics Block insulator
+      geometry block is ox_1
+      geometry block is ox_2
+      standard discretization type is laplace cvfem
+      material model is SiO2Parameter
+end Physics Block insulator
+
+start Material Block channelSiliconParameter
+      material name is Silicon
+      relative permittivity = 11.9
+      start uniform doping named Function1
+            type is acceptor
+            concentration = 1e16
+      end uniform doping
+end Material Block siliconParameter
+
+start Material Block SiO2Parameter
+      material name is SiO2
+      relative permittivity = 3.9
+end Material Block
+
+
+initial conditions for ELECTRIC_POTENTIAL in ox_1 is exodus file
+initial conditions for ELECTRIC_POTENTIAL in ox_2 is exodus file
+initial conditions for ELECTRIC_POTENTIAL in nanowire is exodus file
+
+initial conditions for ELECTRON_DENSITY in nanowire is equilibrium density
+initial conditions for HOLE_DENSITY in nanowire is equilibrium density
+initial conditions for ELECTRON_QUANTUM_POTENTIAL in nanowire is exodus file
+initial conditions for HOLE_QUANTUM_POTENTIAL in nanowire is exodus file
+
+bc is ohmic for source on nanowire fixed at 0.1
+bc is ohmic for drain on nanowire fixed at 0.0
+BC is contact on insulator for gate_1 on ox_1 with work function 4.5 swept from 4.0 to 5.0
+BC is contact on insulator for gate_2 on ox_2 with work function 4.5 fixed at 1.7
+
+start sweep options
+   initial step size = 0.02
+   minimum step size = 0.02
+   maximum step size = 0.02
+end sweep options
+
+#start solver block
+#  start tpetra block
+#    problem type is steady state
+#  end
+#  use solver pack 1
+#end solver block
+
+
+
+tpetra is on
+start solver block
+   start tpetra block
+     problem type is steady state
+     verbosity level is high
+   end
+end solver block
+
