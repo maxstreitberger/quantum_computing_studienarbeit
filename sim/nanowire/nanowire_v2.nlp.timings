@@ -1,461 +1,422 @@
 *** Teuchos::StackedTimer::report() - Remainder for a level will be ***
 *** incorrect if a timer in the level does not exist on every rank  ***
 *** of the MPI Communicator.                                        ***
-Charon: Main Driver: 204.258 [1] {min=204.09, max=204.426, std dev=0.188655} <2, 0, 0, 0, 2>
-|   Charon: Total Time: 204.258 - 99.9999% [1] {min=204.09, max=204.426, std dev=0.188627} <2, 0, 0, 0, 2>
-|   |   panzer::STK_ExodusReaderFactory::buildUncomittedMesh(): 0.0132808 - 0.00650198% [1] {min=0.0113203, max=0.0157665, std dev=0.00184034} <1, 2, 0, 0, 1>
-|   |   panzer::STK_ExodusReaderFactory::completeMeshConstruction(): 0.665915 - 0.326017% [1] {min=0.665851, max=0.665997, std dev=6.4432e-05} <2, 0, 1, 0, 1>
-|   |   STK_Interface::setupExodusFile(filename): 0.000468426 - 0.00022933% [1] {min=0.000409699, max=0.000533774, std dev=5.91691e-05} <2, 0, 0, 1, 1>
-|   |   panzer::DOFManagerFactory::buildUnqueGlobalIndexer: 0.0426636 - 0.0208871% [1] {min=0.040557, max=0.044526, std dev=0.00195509} <1, 1, 0, 0, 2>
-|   |   |   panzer::DOFManagerFactory::buildUnqueGlobalIndexer:buildGlobalUnknowns: 0.0425703 - 99.7814% [1] {min=0.0404643, max=0.0444343, std dev=0.00195538} <1, 1, 0, 0, 2>
-|   |   |   |   panzer::DOFManager::buildGlobalUnknowns: 0.0387981 - 91.1389% [1] {min=0.0369784, max=0.0403333, std dev=0.00162067} <1, 1, 0, 0, 2>
-|   |   |   |   |   panzer::DOFManager::buildTaggedMultiVector: 0.00707734 - 18.2414% [1] {min=0.00671862, max=0.00752859, std dev=0.00035174} <1, 1, 1, 0, 1>
-|   |   |   |   |   |   panzer::DOFManager::builderOverlapMapFromElements: 0.00529841 - 74.8644% [1] {min=0.00492472, max=0.00568074, std dev=0.000368845} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   panzer::DOFManager::buildTaggedMultiVector::allocate_tagged_multivector: 0.000247854 - 3.50207% [1] {min=0.00024199, max=0.000260595, std dev=8.75617e-06} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   panzer::DOFManager::buildTaggedMultiVector::fill_tagged_multivector: 0.0014914 - 21.0729% [1] {min=0.00134195, max=0.00156111, std dev=0.000101637} <1, 0, 0, 1, 2>
-|   |   |   |   |   |   Remainder: 3.96775e-05 - 0.560627%
-|   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns_GUN: 0.00435298 - 11.2195% [1] {min=0.00420618, max=0.00455572, std dev=0.000154402} <2, 0, 1, 0, 1>
-|   |   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns_GUN::line_04 createOneToOne: 0.00314196 - 72.1797% [1] {min=0.00299498, max=0.00334491, std dev=0.000154615} <2, 0, 1, 0, 1>
-|   |   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns_GUN::line_05 alloc_unique_mv: 1.77562e-05 - 0.407911% [1] {min=1.4067e-05, max=2.3415e-05, std dev=3.98279e-06} <1, 2, 0, 0, 1>
-|   |   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns_GUN::line_06 export: 0.000811307 - 18.638% [1] {min=0.000764623, max=0.000902235, std dev=6.22066e-05} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns_GUN::line_07-09 local_count: 5.36795e-05 - 1.23317% [1] {min=4.8332e-05, max=6.2599e-05, std dev=6.33793e-06} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns_GUN::line_10 prefix_sum: 8.17405e-05 - 1.87781% [1] {min=2.0509e-05, max=0.000142992, std dev=7.04557e-05} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns_GUN::line_13-21 gid_assignment: 0.000113436 - 2.60594% [1] {min=0.000108216, max=0.000116802, std dev=3.93318e-06} <1, 0, 1, 0, 2>
-|   |   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns_GUN::line_23 final_import: 0.000102274 - 2.34953% [1] {min=7.5103e-05, max=0.000174271, std dev=4.8067e-05} <3, 0, 0, 0, 1>
-|   |   |   |   |   |   Remainder: 3.08183e-05 - 0.707981%
-|   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns::build_owned_vector: 0.0119774 - 30.871% [1] {min=0.0105111, max=0.0130922, std dev=0.00128329} <1, 1, 0, 0, 2>
-|   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns::build_ghosted_array: 0.00428781 - 11.0516% [1] {min=0.00396714, max=0.00462104, std dev=0.000346527} <2, 0, 0, 0, 2>
-|   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns::build_local_ids: 0.00563484 - 14.5235% [1] {min=0.00535108, max=0.0061391, std dev=0.000346157} <1, 2, 0, 0, 1>
-|   |   |   |   |   Remainder: 0.00546779 - 14.0929%
-|   |   |   |   Remainder: 0.0037722 - 8.86109%
-|   |   |   Remainder: 9.32447e-05 - 0.218558%
-|   |   Phalanx::SortAndOrderEvaluators: 1.30395e-05 - 6.38384e-06% [36] {min=1.1851e-05, max=1.4305e-05, std dev=1.10763e-06} <1, 1, 0, 1, 1>
-|   |   Phalanx: Evaluator 1092: [panzer::Traits::Residual] Constant: Effective Band Gap: 0.00236569 - 0.00115819% [10998] {min=0.00236048, max=0.0023709, std dev=7.37159e-06} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1085: [panzer::Traits::Residual] DopingRaw_Function: 0.0628881 - 0.0307886% [10998] {min=0.0626148, max=0.0631614, std dev=0.000386469} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1096: [panzer::Traits::Residual] Constant: Effective Electron Affinity: 0.00225988 - 0.00110638% [10998] {min=0.00223699, max=0.00228276, std dev=3.23629e-05} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1125: [panzer::Traits::Residual] LatticeTemp_Constant: 0.0023385 - 0.00114487% [10998] {min=0.00231615, max=0.00236085, std dev=3.16091e-05} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1100: [panzer::Traits::Residual] Effective_DOS_Simple: 0.00565202 - 0.0027671% [10998] {min=0.00562762, max=0.00567642, std dev=3.45061e-05} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1127: [panzer::Traits::Residual] Constant_Reference_Energy: 0.00305096 - 0.00149368% [10998] {min=0.00301845, max=0.00308348, std dev=4.5986e-05} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1135: [panzer::Traits::Residual] IC_Equilibrium_Potential: 0.00850255 - 0.00416265% [10998] {min=0.00849436, max=0.00851074, std dev=1.1581e-05} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1130: [panzer::Traits::Residual] SCATTER_ELECTRIC_POTENTIAL Scatter Residual: 0.0224274 - 0.0109799% [10998] {min=0.0221743, max=0.0226804, std dev=0.00035786} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1118: [panzer::Traits::Residual] CondVale_Band: 0.00265165 - 0.00129819% [10998] {min=0.00262307, max=0.00268023, std dev=4.04218e-05} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1136: [panzer::Traits::Residual] IC_Equilibrium_Density: 0.00431721 - 0.00211361% [10998] {min=0.00430793, max=0.00432649, std dev=1.31253e-05} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1131: [panzer::Traits::Residual] SCATTER_ELECTRON_DENSITY Scatter Residual: 0.0212977 - 0.0104269% [10998] {min=0.0212109, max=0.0213845, std dev=0.000122766} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1138: [panzer::Traits::Residual] IC_Equilibrium_Potential: 0.00795475 - 0.00389446% [10998] {min=0.00794085, max=0.00796865, std dev=1.96554e-05} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1132: [panzer::Traits::Residual] SCATTER_ELECTRON_QUANTUM_POTENTIAL Scatter Residual: 0.021228 - 0.0103927% [10998] {min=0.0211225, max=0.0213335, std dev=0.000149212} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1137: [panzer::Traits::Residual] IC_Equilibrium_Density: 0.0036055 - 0.00176517% [10998] {min=0.00359194, max=0.00361907, std dev=1.91796e-05} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1133: [panzer::Traits::Residual] SCATTER_HOLE_DENSITY Scatter Residual: 0.0212211 - 0.0103893% [10998] {min=0.0211877, max=0.0212544, std dev=4.71584e-05} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1139: [panzer::Traits::Residual] IC_Equilibrium_Potential: 0.00807942 - 0.0039555% [10998] {min=0.00789268, max=0.00826617, std dev=0.000264093} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1134: [panzer::Traits::Residual] SCATTER_HOLE_QUANTUM_POTENTIAL Scatter Residual: 0.0212387 - 0.010398% [10998] {min=0.0210749, max=0.0214025, std dev=0.000231657} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1164: [panzer::Traits::Residual] Constant: ELECTRIC_POTENTIAL: 9.97745e-05 - 4.88473e-05% [479] {min=6.51e-07, max=0.000198898, std dev=0.000140182} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1162: [panzer::Traits::Residual] SCATTER_ELECTRIC_POTENTIAL Scatter Residual: 0.000869967 - 0.000425916% [479] {min=3.196e-06, max=0.00173674, std dev=0.0012258} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1189: [panzer::Traits::Residual] Constant: ELECTRIC_POTENTIAL: 9.8598e-05 - 4.82713e-05% [479] {min=2.81e-07, max=0.000196915, std dev=0.000139041} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 1187: [panzer::Traits::Residual] SCATTER_ELECTRIC_POTENTIAL Scatter Residual: 0.000852814 - 0.000417518% [479] {min=2.275e-06, max=0.00170335, std dev=0.00120284} <1, 0, 0, 0, 1>
-|   |   panzer::AssemblyEngine::evaluate_gather(panzer::Traits::Residual): 3.46785e-05 - 1.69778e-05% [1] {min=3.3464e-05, max=3.6379e-05, std dev=1.24547e-06} <1, 1, 1, 0, 1>
-|   |   panzer::AssemblyEngine::evaluate_volume(panzer::Traits::Residual): 0.0774574 - 0.0379214% [1] {min=0.0728916, max=0.0819214, std dev=0.0050399} <2, 0, 0, 0, 2>
-|   |   |   Phalanx: Evaluator 1199: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.000406401 - 0.524676% [479] {min=6.272e-06, max=0.000806529, std dev=0.000565867} <1, 0, 0, 0, 1>
-|   |   |   Phalanx: Evaluator 1280: [panzer::Traits::Residual] STK HGRAD Scatter Basis HGrad:1: ELECTRIC_POTENTIAL: STK-Scatter Fields: 0.000705883 - 0.911317% [479] {min=1.4167e-05, max=0.0013976, std dev=0.000978233} <1, 0, 0, 0, 1>
-|   |   |   Phalanx: Evaluator 1290: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.000393004 - 0.50738% [479] {min=1.433e-06, max=0.000784574, std dev=0.000553764} <1, 0, 0, 0, 1>
-|   |   |   Phalanx: Evaluator 1371: [panzer::Traits::Residual] STK HGRAD Scatter Basis HGrad:1: ELECTRIC_POTENTIAL: STK-Scatter Fields: 0.000704724 - 0.909821% [479] {min=1.674e-06, max=0.00140777, std dev=0.000994263} <1, 0, 0, 0, 1>
-|   |   |   Phalanx: Evaluator 1447: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.0154801 - 19.9853% [10998] {min=0.0154135, max=0.0155467, std dev=9.4205e-05} <1, 0, 0, 0, 1>
-|   |   |   Phalanx: Evaluator 1621: [panzer::Traits::Residual] STK HGRAD Scatter Basis HGrad:1: ELECTRIC_POTENTIALELECTRON_DENSITYELECTRON_QUANTUM_POTENTIALHOLE_DENSITYHOLE_QUANTUM_POTENTIAL: STK-Scatter Fields: 0.0597497 - 77.1388% [10998] {min=0.059747, max=0.0597524, std dev=3.80848e-06} <1, 0, 0, 0, 1>
-|   |   |   Phalanx: Evaluator 770: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.00119375 - 1.54117% [1466] {min=6.052e-06, max=0.00238144, std dev=0.00167966} <1, 0, 0, 0, 1>
-|   |   |   Phalanx: Evaluator 851: [panzer::Traits::Residual] STK HGRAD Scatter Basis HGrad:1: ELECTRIC_POTENTIAL: STK-Scatter Fields: 0.0021931 - 2.83136% [1466] {min=1.4007e-05, max=0.00437219, std dev=0.0030817} <1, 0, 0, 0, 1>
-|   |   |   Phalanx: Evaluator 861: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.00120202 - 1.55185% [1466] {min=1.844e-06, max=0.0024022, std dev=0.00169731} <1, 0, 0, 0, 1>
-|   |   |   Phalanx: Evaluator 942: [panzer::Traits::Residual] STK HGRAD Scatter Basis HGrad:1: ELECTRIC_POTENTIAL: STK-Scatter Fields: 0.00216116 - 2.79013% [1466] {min=2.254e-06, max=0.00432006, std dev=0.00305315} <1, 0, 0, 0, 1>
-|   |   |   Phalanx: Evaluator 1018: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.0128234 - 16.5554% [9024] {min=0.0126902, max=0.0129566, std dev=0.000188346} <1, 0, 0, 0, 1>
-|   |   |   Phalanx: Evaluator 1192: [panzer::Traits::Residual] STK HGRAD Scatter Basis HGrad:1: ELECTRIC_POTENTIALELECTRON_DENSITYELECTRON_QUANTUM_POTENTIALHOLE_DENSITYHOLE_QUANTUM_POTENTIAL: STK-Scatter Fields: 0.0490513 - 63.3269% [9024] {min=0.0489485, max=0.0491542, std dev=0.000145413} <1, 0, 0, 0, 1>
-|   |   |   Remainder: -0.0686072 - -88.5741%
-|   |   panzer::AssemblyEngine::evaluate_neumannbcs(panzer::Traits::Residual): 6.535e-06 - 3.19939e-06% [1] {min=4.95e-06, max=8.957e-06, std dev=1.7569e-06} <2, 0, 1, 0, 1>
-|   |   panzer::AssemblyEngine::evaluate_interfacebcs(panzer::Traits::Residual): 1.801e-06 - 8.81728e-07% [1] {min=1.443e-06, max=2.054e-06, std dev=2.71825e-07} <1, 0, 1, 0, 2>
-|   |   panzer::AssemblyEngine::evaluate_dirichletbcs(panzer::Traits::Residual): 0.00494335 - 0.00242015% [1] {min=0.000484541, max=0.0094978, std dev=0.00503148} <2, 0, 0, 0, 2>
-|   |   panzer::AssemblyEngine::evaluate_scatter(panzer::Traits::Residual): 2.16625e-06 - 1.06055e-06% [1] {min=1.663e-06, max=2.935e-06, std dev=5.41443e-07} <1, 2, 0, 0, 1>
-|   |   Piro::NOXSolver::evalModelImpl::solve: 153.294 - 75.049% [1] {min=153.293, max=153.294, std dev=0.000395455} <2, 0, 0, 1, 1>
-|   |   |   Thyra::NOXNonlinearSolver::solve: 153.293 - 99.9999% [1] {min=153.293, max=153.294, std dev=0.000493626} <2, 0, 0, 1, 1>
-|   |   |   |   panzer::ModelEvaluator::evalModel(J): 13.1758 - 8.59518% [5] {min=13.1758, max=13.1758, std dev=2.03239e-06} <1, 0, 0, 1, 2>
-|   |   |   |   |   panzer::AssemblyEngine::evaluate_gather(panzer::Traits::Jacobian): 0.0057739 - 0.0438219% [5] {min=0.00155759, max=0.00847371, std dev=0.00297146} <1, 0, 0, 2, 1>
-|   |   |   |   |   panzer::AssemblyEngine::evaluate_volume(panzer::Traits::Jacobian): 9.06493 - 68.7996% [5] {min=8.20882, max=9.92687, std dev=0.948807} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 79: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Jacobian) : 0.308667 - 3.40506% [50055] {min=0.275137, max=0.343024, std dev=0.036095} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 218: [panzer::Traits::Jacobian] LatticeTemp_Constant: 0.0146978 - 0.162139% [50055] {min=0.013195, max=0.0163283, std dev=0.00167892} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 214: [panzer::Traits::Jacobian] Degeneracy_Factor: 0.016055 - 0.177111% [50055] {min=0.014362, max=0.0176467, std dev=0.00176348} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 213: [panzer::Traits::Jacobian] Degeneracy_Factor: 0.0145011 - 0.15997% [50055] {min=0.0130336, max=0.0160018, std dev=0.00167117} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 178: [panzer::Traits::Jacobian] DopingRaw_Function: 0.305826 - 3.37373% [50055] {min=0.272439, max=0.338276, std dev=0.0347625} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 179: [panzer::Traits::Jacobian] Doping_Function: 0.0460576 - 0.508086% [50055] {min=0.0402886, max=0.0522237, std dev=0.00628374} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 27: [panzer::Traits::Jacobian] Poisson Source: 0.0637489 - 0.703248% [50055] {min=0.0569777, max=0.0710062, std dev=0.00773483} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 28: [panzer::Traits::Jacobian] Integrator_SubCV_NodeScalar: RESIDUAL_ELECTRIC_POTENTIAL_SOURCE_OP: 0.152274 - 1.67981% [50055] {min=0.137783, max=0.167502, std dev=0.0166721} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 181: [panzer::Traits::Jacobian] Constant: Relative Permittivity: 0.0119881 - 0.132248% [50055] {min=0.0106324, max=0.0132773, std dev=0.00142974} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 25: [panzer::Traits::Jacobian] CVFEM-SG_SubCV_Edge_Potential_Flux: 0.347809 - 3.83687% [50055] {min=0.306874, max=0.391708, std dev=0.0423135} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 26: [panzer::Traits::Jacobian] Integrator_SubCV_SurfaceFluxDotNorm: 0.116086 - 1.28061% [50055] {min=0.104369, max=0.127798, std dev=0.0131645} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 29: [panzer::Traits::Jacobian] Sum Evaluator: 0.0845834 - 0.933084% [50055] {min=0.0751113, max=0.093299, std dev=0.0100264} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 122: [panzer::Traits::Jacobian] SCATTER_ELECTRIC_POTENTIAL Scatter Residual (Jacobian): 0.132809 - 1.46509% [50055] {min=0.119582, max=0.146451, std dev=0.0152726} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 220: [panzer::Traits::Jacobian] Constant_Reference_Energy: 0.0223812 - 0.246899% [50055] {min=0.0198914, max=0.0246185, std dev=0.00257971} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 193: [panzer::Traits::Jacobian] Effective_DOS_Simple: 0.553166 - 6.10227% [50055] {min=0.49839, max=0.607701, std dev=0.0629319} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 189: [panzer::Traits::Jacobian] Constant: Effective Electron Affinity: 0.0110729 - 0.122151% [50055] {min=0.00990912, max=0.0121389, std dev=0.00120326} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 185: [panzer::Traits::Jacobian] Constant: Effective Band Gap: 0.0100565 - 0.110939% [50055] {min=0.00884997, max=0.0111348, std dev=0.00119736} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 208: [panzer::Traits::Jacobian] Intrinsic_FermiEnergy: 0.333403 - 3.67795% [50055] {min=0.299242, max=0.367262, std dev=0.0390968} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 183: [panzer::Traits::Jacobian] Constant: Band Gap: 0.011071 - 0.12213% [50055] {min=0.00993846, max=0.012208, std dev=0.00129982} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 196: [panzer::Traits::Jacobian] Mobility_Default: 0.0157004 - 0.173199% [50055] {min=0.0139362, max=0.0173474, std dev=0.00185565} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 202: [panzer::Traits::Jacobian] Diffusion_Coefficient_Default: 0.0487214 - 0.537472% [50055] {min=0.0433958, max=0.0537877, std dev=0.00584661} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 30: [panzer::Traits::Jacobian] CVFEM-SG_Primary_Edge_Current_Density: 0.991747 - 10.9405% [50055] {min=0.883718, max=1.10088, std dev=0.114515} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 31: [panzer::Traits::Jacobian] CVFEM-SG_SubCV_Edge_Current_Density: 0.577796 - 6.37397% [50055] {min=0.520491, max=0.635356, std dev=0.0660505} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 32: [panzer::Traits::Jacobian] Integrator_SubCV_SurfaceFluxDotNorm: 0.105593 - 1.16485% [50055] {min=0.0949746, max=0.116503, std dev=0.0121725} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 35: [panzer::Traits::Jacobian] Sum Evaluator: 0.0672262 - 0.741607% [50055] {min=0.0599968, max=0.0742945, std dev=0.008073} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 123: [panzer::Traits::Jacobian] SCATTER_ELECTRON_DENSITY Scatter Residual (Jacobian): 0.121652 - 1.34201% [50055] {min=0.109343, max=0.133947, std dev=0.0138631} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 99: [panzer::Traits::Jacobian] DOF: ELECTRON_QUANTUM_POTENTIAL accel_jac  (panzer::Traits::Jacobian): 0.0871767 - 0.961692% [50055] {min=0.0786462, max=0.0974298, std dev=0.00967009} <2, 0, 0, 1, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 44: [panzer::Traits::Jacobian] Integrator_BasisTimesScalar (EVALUATES):  RESIDUAL_ELECTRON_QUANTUM_POTENTIAL_HELMHOLTZ: 0.108809 - 1.20033% [50055] {min=0.0979573, max=0.120442, std dev=0.0121197} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 217: [panzer::Traits::Jacobian] LatticeTemp_Constant: 0.0149708 - 0.16515% [50055] {min=0.0134107, max=0.0169719, std dev=0.00177007} <2, 0, 0, 1, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 104: [panzer::Traits::Jacobian] DOFGradient: GRAD_ELECTRON_QUANTUM_POTENTIAL (panzer::Traits::Jacobian): 0.183184 - 2.0208% [50055] {min=0.16325, max=0.202976, std dev=0.0226745} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 102: [panzer::Traits::Jacobian] DOFGradient: GRAD_ELECTRIC_POTENTIAL (panzer::Traits::Jacobian): 0.156403 - 1.72536% [50055] {min=0.140886, max=0.172232, std dev=0.017918} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 42: [panzer::Traits::Jacobian] QuantumPotentialFlux: 0.102404 - 1.12968% [50055] {min=0.0913338, max=0.113221, std dev=0.0123752} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 43: [panzer::Traits::Jacobian] Integrator_GradBasisDotVector (EVALUATES):  RESIDUAL_ELECTRON_QUANTUM_POTENTIAL_LAPLACIAN: 0.192098 - 2.11913% [50055] {min=0.172465, max=0.212331, std dev=0.0216856} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 45: [panzer::Traits::Jacobian] SumStatic Rank 2 Evaluator: 0.0671433 - 0.740693% [50055] {min=0.0606394, max=0.073821, std dev=0.00746251} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 124: [panzer::Traits::Jacobian] SCATTER_ELECTRON_QUANTUM_POTENTIAL Scatter Residual (Jacobian): 0.11657 - 1.28594% [50055] {min=0.1032, max=0.129989, std dev=0.0149273} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 199: [panzer::Traits::Jacobian] Mobility_Default: 0.0159737 - 0.176214% [50055] {min=0.0139291, max=0.0180774, std dev=0.00215474} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 205: [panzer::Traits::Jacobian] Diffusion_Coefficient_Default: 0.0488252 - 0.538616% [50055] {min=0.0433032, max=0.0540865, std dev=0.00591064} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 36: [panzer::Traits::Jacobian] CVFEM-SG_Primary_Edge_Current_Density: 0.989627 - 10.9171% [50055] {min=0.886302, max=1.10105, std dev=0.109672} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 37: [panzer::Traits::Jacobian] CVFEM-SG_SubCV_Edge_Current_Density: 0.568536 - 6.27182% [50055] {min=0.512177, max=0.625123, std dev=0.0646894} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 38: [panzer::Traits::Jacobian] Integrator_SubCV_SurfaceFluxDotNorm: 0.104603 - 1.15393% [50055] {min=0.0944869, max=0.115453, std dev=0.0116368} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 41: [panzer::Traits::Jacobian] Sum Evaluator: 0.0684026 - 0.754585% [50055] {min=0.0606056, max=0.0758744, std dev=0.00842475} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 125: [panzer::Traits::Jacobian] SCATTER_HOLE_DENSITY Scatter Residual (Jacobian): 0.113416 - 1.25115% [50055] {min=0.101361, max=0.125268, std dev=0.0134893} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 101: [panzer::Traits::Jacobian] DOF: HOLE_QUANTUM_POTENTIAL accel_jac  (panzer::Traits::Jacobian): 0.0688403 - 0.759414% [50055] {min=0.0620228, max=0.0759125, std dev=0.0073032} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 48: [panzer::Traits::Jacobian] Integrator_BasisTimesScalar (EVALUATES):  RESIDUAL_HOLE_QUANTUM_POTENTIAL_HELMHOLTZ: 0.0931336 - 1.02741% [50055] {min=0.0835465, max=0.102701, std dev=0.0106125} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 106: [panzer::Traits::Jacobian] DOFGradient: GRAD_HOLE_QUANTUM_POTENTIAL (panzer::Traits::Jacobian): 0.161563 - 1.78229% [50055] {min=0.145452, max=0.177998, std dev=0.0185698} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 46: [panzer::Traits::Jacobian] QuantumPotentialFlux: 0.101216 - 1.11656% [50055] {min=0.0911976, max=0.111603, std dev=0.0115672} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 47: [panzer::Traits::Jacobian] Integrator_GradBasisDotVector (EVALUATES):  RESIDUAL_HOLE_QUANTUM_POTENTIAL_LAPLACIAN: 0.173976 - 1.91922% [50055] {min=0.156464, max=0.192034, std dev=0.0201545} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 49: [panzer::Traits::Jacobian] SumStatic Rank 2 Evaluator: 0.0662111 - 0.73041% [50055] {min=0.0596133, max=0.0727341, std dev=0.00749697} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 126: [panzer::Traits::Jacobian] SCATTER_HOLE_QUANTUM_POTENTIAL Scatter Residual (Jacobian): 0.110893 - 1.22332% [50055] {min=0.0999188, max=0.121735, std dev=0.0123625} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 318: [panzer::Traits::Jacobian] Constant: Relative Permittivity: 0.00104973 - 0.0115802% [4862] {min=1.884e-06, max=0.00315537, std dev=0.00148657} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 279: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Jacobian) : 0.00589719 - 0.065055% [4862] {min=1.1222e-05, max=0.0177062, std dev=0.00834142} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 269: [panzer::Traits::Jacobian] CVFEM-SG_SubCV_Edge_Potential_Flux: 0.0219019 - 0.241612% [4862] {min=1.273e-06, max=0.0658118, std dev=0.0310235} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 270: [panzer::Traits::Jacobian] Integrator_SubCV_SurfaceFluxDotNorm: 0.00813328 - 0.0897225% [4862] {min=3.236e-06, max=0.0244471, std dev=0.0115229} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 271: [panzer::Traits::Jacobian] Sum Evaluator: 0.00558596 - 0.0616216% [4862] {min=1.1221e-05, max=0.0167388, std dev=0.00788537} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 294: [panzer::Traits::Jacobian] SCATTER_ELECTRIC_POTENTIAL Scatter Residual (Jacobian): 0.00750166 - 0.0827548% [4862] {min=6.103e-06, max=0.0224797, std dev=0.0105941} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 411: [panzer::Traits::Jacobian] Constant: Relative Permittivity: 0.00105544 - 0.0116431% [4862] {min=1.473e-06, max=0.00317467, std dev=0.0014958} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 372: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Jacobian) : 0.00617959 - 0.0681703% [4862] {min=9.798e-06, max=0.0188179, std dev=0.00886845} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 362: [panzer::Traits::Jacobian] CVFEM-SG_SubCV_Edge_Potential_Flux: 0.0219686 - 0.242348% [4862] {min=1.242e-06, max=0.0662323, std dev=0.0312224} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 363: [panzer::Traits::Jacobian] Integrator_SubCV_SurfaceFluxDotNorm: 0.00816802 - 0.0901057% [4862] {min=2.835e-06, max=0.0246112, std dev=0.0116007} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 364: [panzer::Traits::Jacobian] Sum Evaluator: 0.00562563 - 0.0620593% [4862] {min=1.1161e-05, max=0.0169791, std dev=0.00799919} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 387: [panzer::Traits::Jacobian] SCATTER_ELECTRIC_POTENTIAL Scatter Residual (Jacobian): 0.00756002 - 0.0833986% [4862] {min=5.81e-06, max=0.0225878, std dev=0.0106453} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Remainder: 0.765634 - 8.44612%
-|   |   |   |   |   panzer::AssemblyEngine::evaluate_neumannbcs(panzer::Traits::Jacobian): 4.71393e-05 - 0.000357771% [5] {min=4.4204e-05, max=4.8632e-05, std dev=2.00001e-06} <1, 0, 0, 1, 2>
-|   |   |   |   |   panzer::AssemblyEngine::evaluate_interfacebcs(panzer::Traits::Jacobian): 6.91375e-06 - 5.2473e-05% [5] {min=6.203e-06, max=7.514e-06, std dev=5.98281e-07} <1, 1, 0, 0, 2>
-|   |   |   |   |   panzer::AssemblyEngine::evaluate_dirichletbcs(panzer::Traits::Jacobian): 1.0057 - 7.63294% [5] {min=0.160646, max=1.88308, std dev=0.97275} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(1): 0.139837 - 13.9044% [5]
-|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(1), side=5: 0.139825 - 99.9916% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 538: [panzer::Traits::Jacobian] Constant_Reference_Energy: 0.000197357 - 0.141146% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 536: [panzer::Traits::Jacobian] LatticeTemp_Constant: 0.000209898 - 0.150115% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 503: [panzer::Traits::Jacobian] Constant: Effective Band Gap: 1.483e-06 - 0.00106061% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 507: [panzer::Traits::Jacobian] Constant: Effective Electron Affinity: 1.13e-06 - 0.000808152% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 511: [panzer::Traits::Jacobian] Effective_DOS_Simple: 0.0151641 - 10.8451% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 505: [panzer::Traits::Jacobian] Constant: Electron Affinity: 1.674e-06 - 0.00119721% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 501: [panzer::Traits::Jacobian] Constant: Band Gap: 1.452e-06 - 0.00103844% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 509: [panzer::Traits::Jacobian] Intrinsic_Concentration_Default: 0.000641638 - 0.458886% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 496: [panzer::Traits::Jacobian] DopingRaw_Function: 0.00554363 - 3.96469% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 727: [panzer::Traits::Jacobian] BC at Ohmic Contact: 0.0487517 - 34.8662% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 729: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Jacobian) : 0.00016814 - 0.12025% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 732: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 0.000344164 - 0.246139% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 735: [panzer::Traits::Jacobian] Dummy Scatter: BC(1)Residual_ELECTRIC_POTENTIAL Scatter Residual (Jacobian): 0.0239796 - 17.1497% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 730: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRON_DENSITY (Jacobian) : 0.000155906 - 0.111501% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 733: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 0.000441138 - 0.315493% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 736: [panzer::Traits::Jacobian] Dummy Scatter: BC(1)Residual_ELECTRON_DENSITY Scatter Residual (Jacobian): 0.0217713 - 15.5704% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 731: [panzer::Traits::Jacobian] GatherSolution (Tpetra): HOLE_DENSITY (Jacobian) : 0.000154614 - 0.110577% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 734: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 0.000459173 - 0.328391% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 737: [panzer::Traits::Jacobian] Dummy Scatter: BC(1)Residual_HOLE_DENSITY Scatter Residual (Jacobian): 0.0217473 - 15.5532% [5]
-|   |   |   |   |   |   |   |   Remainder: 8.979e-05 - 0.0642159%
-|   |   |   |   |   |   |   Remainder: 1.174e-05 - 0.00839549%
-|   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(3): 0.0197706 - 1.96585% [5] {min=0.00931024, max=0.030231, std dev=0.0147932} <1, 0, 0, 0, 1>
-|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(3), side=0: 0.0197602 - 99.9471% [5] {min=0.00929951, max=0.0302208, std dev=0.0147936} <1, 0, 0, 0, 1>
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 919: [panzer::Traits::Jacobian] Constant_Reference_Energy: 6.315e-05 - 0.319583% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 1012: [panzer::Traits::Jacobian] BC at Contact On Insulator: 5.5534e-05 - 0.28104% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 1014: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Jacobian) : 7.7617e-05 - 0.392796% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 1015: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 5.793e-05 - 0.293166% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 1016: [panzer::Traits::Jacobian] Dummy Scatter: BC(3)Residual_ELECTRIC_POTENTIAL Scatter Residual (Jacobian): 0.00901306 - 45.6123% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 490: [panzer::Traits::Jacobian] Constant_Reference_Energy: 0.000181024 - 0.916106% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 583: [panzer::Traits::Jacobian] BC at Contact On Insulator: 0.000159044 - 0.804872% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 585: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Jacobian) : 0.000266005 - 1.34617% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 586: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 0.000188126 - 0.952047% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 587: [panzer::Traits::Jacobian] Dummy Scatter: BC(3)Residual_ELECTRIC_POTENTIAL Scatter Residual (Jacobian): 0.0293885 - 148.726% [5]
-|   |   |   |   |   |   |   |   Remainder: -0.0196899 - -99.6443%
-|   |   |   |   |   |   |   Remainder: 1.04615e-05 - 0.0529144%
-|   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(2): 0.0196112 - 1.95% [5] {min=0.00933087, max=0.0298915, std dev=0.0145386} <1, 0, 0, 0, 1>
-|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(2), side=0: 0.0195997 - 99.9417% [5] {min=0.0093181, max=0.0298814, std dev=0.0145404} <1, 0, 0, 0, 1>
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 490: [panzer::Traits::Jacobian] Constant_Reference_Energy: 0.000179894 - 0.917838% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 583: [panzer::Traits::Jacobian] BC at Contact On Insulator: 0.000162118 - 0.827143% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 585: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Jacobian) : 0.000262599 - 1.33981% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 586: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 0.000190852 - 0.973747% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 587: [panzer::Traits::Jacobian] Dummy Scatter: BC(2)Residual_ELECTRIC_POTENTIAL Scatter Residual (Jacobian): 0.0290514 - 148.223% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 919: [panzer::Traits::Jacobian] Constant_Reference_Energy: 6.1907e-05 - 0.315856% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 1012: [panzer::Traits::Jacobian] BC at Contact On Insulator: 5.3181e-05 - 0.271335% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 1014: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Jacobian) : 7.4602e-05 - 0.380627% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 1015: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 5.8101e-05 - 0.296438% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 1016: [panzer::Traits::Jacobian] Dummy Scatter: BC(2)Residual_ELECTRIC_POTENTIAL Scatter Residual (Jacobian): 0.00903884 - 46.1171% [5]
-|   |   |   |   |   |   |   |   Remainder: -0.0195337 - -99.6631%
-|   |   |   |   |   |   |   Remainder: 1.14325e-05 - 0.0582958%
-|   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(0): 0.138713 - 13.7926% [5]
-|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(0), side=4: 0.138702 - 99.9925% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 538: [panzer::Traits::Jacobian] Constant_Reference_Energy: 0.000201373 - 0.145184% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 536: [panzer::Traits::Jacobian] LatticeTemp_Constant: 0.000195992 - 0.141304% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 503: [panzer::Traits::Jacobian] Constant: Effective Band Gap: 1.504e-06 - 0.00108434% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 507: [panzer::Traits::Jacobian] Constant: Effective Electron Affinity: 1.142e-06 - 0.000823347% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 511: [panzer::Traits::Jacobian] Effective_DOS_Simple: 0.0151854 - 10.9482% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 505: [panzer::Traits::Jacobian] Constant: Electron Affinity: 1.724e-06 - 0.00124295% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 501: [panzer::Traits::Jacobian] Constant: Band Gap: 1.234e-06 - 0.000889676% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 509: [panzer::Traits::Jacobian] Intrinsic_Concentration_Default: 0.000709479 - 0.511512% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 496: [panzer::Traits::Jacobian] DopingRaw_Function: 0.00533413 - 3.84574% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 727: [panzer::Traits::Jacobian] BC at Ohmic Contact: 0.0494006 - 35.6163% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 729: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Jacobian) : 0.000171306 - 0.123506% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 732: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 0.000348283 - 0.251101% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 735: [panzer::Traits::Jacobian] Dummy Scatter: BC(0)Residual_ELECTRIC_POTENTIAL Scatter Residual (Jacobian): 0.0228562 - 16.4786% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 730: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRON_DENSITY (Jacobian) : 0.000149935 - 0.108098% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 733: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 0.00043212 - 0.311545% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 736: [panzer::Traits::Jacobian] Dummy Scatter: BC(0)Residual_ELECTRON_DENSITY Scatter Residual (Jacobian): 0.0215326 - 15.5243% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 731: [panzer::Traits::Jacobian] GatherSolution (Tpetra): HOLE_DENSITY (Jacobian) : 0.000148242 - 0.106878% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 734: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 0.000419916 - 0.302746% [5]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 737: [panzer::Traits::Jacobian] Dummy Scatter: BC(0)Residual_HOLE_DENSITY Scatter Residual (Jacobian): 0.0215219 - 15.5166% [5]
-|   |   |   |   |   |   |   |   Remainder: 8.9177e-05 - 0.0642939%
-|   |   |   |   |   |   |   Remainder: 1.0462e-05 - 0.00754221%
-|   |   |   |   |   |   Remainder: 0.687772 - 68.3872%
-|   |   |   |   |   panzer::AssemblyEngine::evaluate_scatter(panzer::Traits::Jacobian): 3.0438 - 23.1014% [5] {min=3.0208, max=3.10952, std dev=0.0438219} <3, 0, 0, 0, 1>
-|   |   |   |   |   Remainder: 0.0555787 - 0.421823%
-|   |   |   |   panzer::ModelEvaluator::evalModel(f): 7.18504 - 4.68712% [6] {min=7.18504, max=7.18505, std dev=1.23503e-06} <1, 0, 1, 1, 1>
-|   |   |   |   |   panzer::AssemblyEngine::evaluate_gather(panzer::Traits::Residual): 0.00190961 - 0.0265776% [6] {min=0.00186487, max=0.00194763, std dev=3.82974e-05} <1, 1, 0, 0, 2>
-|   |   |   |   |   panzer::AssemblyEngine::evaluate_volume(panzer::Traits::Residual): 6.56425 - 91.3599% [6] {min=5.96191, max=7.15421, std dev=0.667265} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 75: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.0987573 - 1.50447% [60066] {min=0.0892611, max=0.109157, std dev=0.0106197} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 174: [panzer::Traits::Residual] LatticeTemp_Constant: 0.0136532 - 0.207994% [60066] {min=0.0121429, max=0.0154183, std dev=0.00171687} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 170: [panzer::Traits::Residual] Degeneracy_Factor: 0.0139377 - 0.212328% [60066] {min=0.0124591, max=0.0155262, std dev=0.00156872} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 169: [panzer::Traits::Residual] Degeneracy_Factor: 0.012212 - 0.186037% [60066] {min=0.0109697, max=0.0134673, std dev=0.00141265} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 134: [panzer::Traits::Residual] DopingRaw_Function: 0.35022 - 5.33526% [60066] {min=0.316571, max=0.384389, std dev=0.0363265} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 135: [panzer::Traits::Residual] Doping_Function: 0.0168134 - 0.256137% [60066] {min=0.0147804, max=0.0187346, std dev=0.00220605} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 2: [panzer::Traits::Residual] Poisson Source: 0.0230776 - 0.351566% [60066] {min=0.0211683, max=0.0255058, std dev=0.00223261} <2, 0, 0, 1, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 3: [panzer::Traits::Residual] Integrator_SubCV_NodeScalar: RESIDUAL_ELECTRIC_POTENTIAL_SOURCE_OP: 0.125892 - 1.91784% [60066] {min=0.112264, max=0.138861, std dev=0.0148535} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 137: [panzer::Traits::Residual] Constant: Relative Permittivity: 0.0132305 - 0.201554% [60066] {min=0.0119131, max=0.0147402, std dev=0.00143903} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 0: [panzer::Traits::Residual] CVFEM-SG_SubCV_Edge_Potential_Flux: 0.114424 - 1.74314% [60066] {min=0.102422, max=0.126325, std dev=0.0133417} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 1: [panzer::Traits::Residual] Integrator_SubCV_SurfaceFluxDotNorm: 0.0508613 - 0.774822% [60066] {min=0.0461122, max=0.0556282, std dev=0.00540241} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 4: [panzer::Traits::Residual] Sum Evaluator: 0.0947494 - 1.44342% [60066] {min=0.0844247, max=0.105471, std dev=0.0113036} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 117: [panzer::Traits::Residual] SCATTER_ELECTRIC_POTENTIAL Scatter Residual: 0.0430748 - 0.656203% [60066] {min=0.0386879, max=0.0471607, std dev=0.00468248} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 141: [panzer::Traits::Residual] Constant: Effective Band Gap: 0.0128028 - 0.195038% [60066] {min=0.0114411, max=0.0142427, std dev=0.00154837} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 176: [panzer::Traits::Residual] Constant_Reference_Energy: 0.0191522 - 0.291765% [60066] {min=0.0169466, max=0.0212496, std dev=0.00233047} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 149: [panzer::Traits::Residual] Effective_DOS_Simple: 0.0312496 - 0.476057% [60066] {min=0.0281094, max=0.0344996, std dev=0.00362231} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 145: [panzer::Traits::Residual] Constant: Effective Electron Affinity: 0.0124819 - 0.190149% [60066] {min=0.0112268, max=0.0138008, std dev=0.00132762} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 164: [panzer::Traits::Residual] Intrinsic_FermiEnergy: 0.0197637 - 0.301082% [60066] {min=0.0175725, max=0.0221379, std dev=0.00222687} <2, 0, 0, 1, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 152: [panzer::Traits::Residual] Mobility_Default: 0.0136878 - 0.208521% [60066] {min=0.0124284, max=0.0148953, std dev=0.00134079} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 158: [panzer::Traits::Residual] Diffusion_Coefficient_Default: 0.0154291 - 0.235047% [60066] {min=0.0137104, max=0.0171057, std dev=0.00178527} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 139: [panzer::Traits::Residual] Constant: Band Gap: 0.0122658 - 0.186858% [60066] {min=0.0108998, max=0.0134959, std dev=0.00141776} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 5: [panzer::Traits::Residual] CVFEM-SG_Primary_Edge_Current_Density: 0.045706 - 0.696286% [60066] {min=0.0406454, max=0.0508239, std dev=0.00566125} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 6: [panzer::Traits::Residual] CVFEM-SG_SubCV_Edge_Current_Density: 0.0629924 - 0.959629% [60066] {min=0.0566346, max=0.0694114, std dev=0.00707987} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 7: [panzer::Traits::Residual] Integrator_SubCV_SurfaceFluxDotNorm: 0.0404462 - 0.61616% [60066] {min=0.0357037, max=0.0439189, std dev=0.00412458} <1, 1, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 10: [panzer::Traits::Residual] Sum Evaluator: 0.0711934 - 1.08456% [60066] {min=0.0641081, max=0.0785901, std dev=0.00803818} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 118: [panzer::Traits::Residual] SCATTER_ELECTRON_DENSITY Scatter Residual: 0.0392306 - 0.59764% [60066] {min=0.0352312, max=0.0433272, std dev=0.0043461} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 89: [panzer::Traits::Residual] DOF: ELECTRON_QUANTUM_POTENTIAL (panzer::Traits::Residual): 0.0550892 - 0.839231% [60066] {min=0.0487889, max=0.0610682, std dev=0.00623484} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 19: [panzer::Traits::Residual] Integrator_BasisTimesScalar (EVALUATES):  RESIDUAL_ELECTRON_QUANTUM_POTENTIAL_HELMHOLTZ: 0.0676759 - 1.03098% [60066] {min=0.0608472, max=0.0750193, std dev=0.00734374} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 173: [panzer::Traits::Residual] LatticeTemp_Constant: 0.0134858 - 0.205443% [60066] {min=0.0119114, max=0.0149744, std dev=0.00169534} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 94: [panzer::Traits::Residual] DOFGradient: GRAD_ELECTRON_QUANTUM_POTENTIAL (panzer::Traits::Residual): 0.0769512 - 1.17228% [60066] {min=0.0672409, max=0.084511, std dev=0.00844767} <1, 1, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 92: [panzer::Traits::Residual] DOFGradient: GRAD_ELECTRIC_POTENTIAL (panzer::Traits::Residual): 0.0506358 - 0.771388% [60066] {min=0.0454487, max=0.0557304, std dev=0.005611} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 17: [panzer::Traits::Residual] QuantumPotentialFlux: 0.0167656 - 0.255408% [60066] {min=0.0147354, max=0.0185543, std dev=0.00200986} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 18: [panzer::Traits::Residual] Integrator_GradBasisDotVector (EVALUATES):  RESIDUAL_ELECTRON_QUANTUM_POTENTIAL_LAPLACIAN: 0.0804901 - 1.22619% [60066] {min=0.0718707, max=0.0892288, std dev=0.00897712} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 20: [panzer::Traits::Residual] SumStatic Rank 2 Evaluator: 0.0771732 - 1.17566% [60066] {min=0.0683012, max=0.0870816, std dev=0.0090695} <2, 0, 0, 1, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 119: [panzer::Traits::Residual] SCATTER_ELECTRON_QUANTUM_POTENTIAL Scatter Residual: 0.0402852 - 0.613706% [60066] {min=0.0361484, max=0.044242, std dev=0.00443138} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 155: [panzer::Traits::Residual] Mobility_Default: 0.0135425 - 0.206307% [60066] {min=0.0119801, max=0.0149679, std dev=0.00159375} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 161: [panzer::Traits::Residual] Diffusion_Coefficient_Default: 0.0154378 - 0.23518% [60066] {min=0.0138716, max=0.0172276, std dev=0.00180523} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 11: [panzer::Traits::Residual] CVFEM-SG_Primary_Edge_Current_Density: 0.0490262 - 0.746867% [60066] {min=0.0433894, max=0.054307, std dev=0.0060747} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 12: [panzer::Traits::Residual] CVFEM-SG_SubCV_Edge_Current_Density: 0.0466923 - 0.711313% [60066] {min=0.0420718, max=0.0513114, std dev=0.00525779} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 13: [panzer::Traits::Residual] Integrator_SubCV_SurfaceFluxDotNorm: 0.0385702 - 0.58758% [60066] {min=0.0346157, max=0.0430213, std dev=0.00458272} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 16: [panzer::Traits::Residual] Sum Evaluator: 0.0726445 - 1.10667% [60066] {min=0.065149, max=0.0803437, std dev=0.00862765} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 120: [panzer::Traits::Residual] SCATTER_HOLE_DENSITY Scatter Residual: 0.0390059 - 0.594217% [60066] {min=0.0349807, max=0.0429047, std dev=0.0044311} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 91: [panzer::Traits::Residual] DOF: HOLE_QUANTUM_POTENTIAL (panzer::Traits::Residual): 0.0376655 - 0.573797% [60066] {min=0.0341185, max=0.0414476, std dev=0.00397185} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 23: [panzer::Traits::Residual] Integrator_BasisTimesScalar (EVALUATES):  RESIDUAL_HOLE_QUANTUM_POTENTIAL_HELMHOLTZ: 0.0516593 - 0.786979% [60066] {min=0.0471782, max=0.0560531, std dev=0.00477165} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 96: [panzer::Traits::Residual] DOFGradient: GRAD_HOLE_QUANTUM_POTENTIAL (panzer::Traits::Residual): 0.0556994 - 0.848526% [60066] {min=0.0504551, max=0.0612969, std dev=0.00597999} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 21: [panzer::Traits::Residual] QuantumPotentialFlux: 0.0158057 - 0.240785% [60066] {min=0.0140497, max=0.0175769, std dev=0.00192692} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 22: [panzer::Traits::Residual] Integrator_GradBasisDotVector (EVALUATES):  RESIDUAL_HOLE_QUANTUM_POTENTIAL_LAPLACIAN: 0.0589773 - 0.898462% [60066] {min=0.0526175, max=0.0661777, std dev=0.00715591} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 24: [panzer::Traits::Residual] SumStatic Rank 2 Evaluator: 0.0741198 - 1.12914% [60066] {min=0.0660057, max=0.0845531, std dev=0.00950165} <2, 0, 0, 1, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 121: [panzer::Traits::Residual] SCATTER_HOLE_QUANTUM_POTENTIAL Scatter Residual: 0.0405501 - 0.617741% [60066] {min=0.0365896, max=0.0445534, std dev=0.0045382} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 175: [panzer::Traits::Residual] Constant_Reference_Energy: 0.0185667 - 0.282846% [60066] {min=0.0166485, max=0.0205006, std dev=0.00218441} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 87: [panzer::Traits::Residual] DOF: ELECTRIC_POTENTIAL (panzer::Traits::Residual): 0.038042 - 0.579533% [60066] {min=0.0343467, max=0.0418537, std dev=0.00390509} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 140: [panzer::Traits::Residual] Constant: Effective Band Gap: 0.0129474 - 0.197242% [60066] {min=0.0115019, max=0.0144597, std dev=0.00154686} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 144: [panzer::Traits::Residual] Constant: Effective Electron Affinity: 0.01169 - 0.178086% [60066] {min=0.010512, max=0.0130798, std dev=0.00130188} <2, 0, 0, 1, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 165: [panzer::Traits::Residual] CondVale_Band: 0.0157988 - 0.24068% [60066] {min=0.0142551, max=0.0172807, std dev=0.00169743} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 142: [panzer::Traits::Residual] Constant: Electron Affinity: 0.0121288 - 0.18477% [60066] {min=0.0110504, max=0.0132096, std dev=0.00118856} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 177: [panzer::Traits::Residual] FEM_GradNegPotential: 0.0141684 - 0.215841% [60066] {min=0.0125496, max=0.0160969, std dev=0.00186093} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 138: [panzer::Traits::Residual] Constant: Band Gap: 0.0121704 - 0.185405% [60066] {min=0.0109006, max=0.0134044, std dev=0.00132832} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 146: [panzer::Traits::Residual] Intrinsic_Concentration_Default: 0.0142993 - 0.217836% [60066] {min=0.0130308, max=0.0160257, std dev=0.00146243} <2, 0, 0, 1, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 148: [panzer::Traits::Residual] Effective_DOS_Simple: 0.0304299 - 0.46357% [60066] {min=0.0272177, max=0.033672, std dev=0.00358709} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 153: [panzer::Traits::Residual] Mobility_Default: 0.014283 - 0.217588% [60066] {min=0.0127583, max=0.0160701, std dev=0.0015531} <2, 0, 0, 1, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 163: [panzer::Traits::Residual] Intrinsic_FermiEnergy: 0.0196906 - 0.299967% [60066] {min=0.0177433, max=0.0218645, std dev=0.00220558} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 150: [panzer::Traits::Residual] Mobility_Default: 0.0131335 - 0.200076% [60066] {min=0.0117767, max=0.014438, std dev=0.00140159} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 132: [panzer::Traits::Residual] nanowire_Cell_Avg_Fields: STK-Scatter Cell Fields: 2.54331 - 38.7449% [60066] {min=2.285, max=2.80343, std dev=0.294604} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Phalanx: Evaluator 297: [panzer::Traits::Residual] Constant: Relative Permittivity: 0.00119414 - 0.0181915% [5835] {min=1.814e-06, max=0.0035773, std dev=0.00168549} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 275: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.0047559 - 0.0724516% [5835] {min=1.4076e-05, max=0.0142867, std dev=0.00672825} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 266: [panzer::Traits::Residual] CVFEM-SG_SubCV_Edge_Potential_Flux: 0.0117938 - 0.179667% [5835] {min=1.533e-06, max=0.0355521, std dev=0.0167591} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 267: [panzer::Traits::Residual] Integrator_SubCV_SurfaceFluxDotNorm: 0.00544591 - 0.0829632% [5835] {min=4.196e-06, max=0.0164114, std dev=0.00773457} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 268: [panzer::Traits::Residual] Sum Evaluator: 0.00681252 - 0.103782% [5835] {min=1.4016e-05, max=0.0204969, std dev=0.00965587} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 293: [panzer::Traits::Residual] SCATTER_ELECTRIC_POTENTIAL Scatter Residual: 0.00365951 - 0.0557492% [5835] {min=6.282e-06, max=0.0109734, std dev=0.00516992} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 390: [panzer::Traits::Residual] Constant: Relative Permittivity: 0.00120975 - 0.0184294% [5835] {min=1.373e-06, max=0.00362496, std dev=0.00170798} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 368: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.00500515 - 0.0762487% [5835] {min=6.713e-06, max=0.015204, std dev=0.00716525} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 359: [panzer::Traits::Residual] CVFEM-SG_SubCV_Edge_Potential_Flux: 0.0118881 - 0.181103% [5835] {min=1.325e-06, max=0.0359378, std dev=0.0169416} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 360: [panzer::Traits::Residual] Integrator_SubCV_SurfaceFluxDotNorm: 0.00551016 - 0.0839421% [5835] {min=3.806e-06, max=0.0167554, std dev=0.00789808} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 361: [panzer::Traits::Residual] Sum Evaluator: 0.00688674 - 0.104913% [5835] {min=1.2614e-05, max=0.0207595, std dev=0.00978048} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Phalanx: Evaluator 386: [panzer::Traits::Residual] SCATTER_ELECTRIC_POTENTIAL Scatter Residual: 0.00369248 - 0.0562513% [5835] {min=5.189e-06, max=0.0111543, std dev=0.00525596} <2, 1, 0, 0, 1>
-|   |   |   |   |   |   Remainder: 1.27048 - 19.3545%
-|   |   |   |   |   panzer::AssemblyEngine::evaluate_neumannbcs(panzer::Traits::Residual): 4.80263e-05 - 0.00066842% [6] {min=4.4164e-05, max=5.1539e-05, std dev=3.07942e-06} <1, 0, 1, 1, 1>
-|   |   |   |   |   panzer::AssemblyEngine::evaluate_interfacebcs(panzer::Traits::Residual): 6.60075e-06 - 9.18679e-05% [6] {min=5.862e-06, max=7.337e-06, std dev=7.67087e-07} <2, 0, 0, 0, 2>
-|   |   |   |   |   panzer::AssemblyEngine::evaluate_dirichletbcs(panzer::Traits::Residual): 0.610242 - 8.49322% [6] {min=0.0222643, max=1.21634, std dev=0.671538} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(1): 0.00914768 - 1.49903% [6]
-|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(1), side=5: 0.00913898 - 99.9049% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 494: [panzer::Traits::Residual] Constant_Reference_Energy: 1.1642e-05 - 0.127388% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 492: [panzer::Traits::Residual] LatticeTemp_Constant: 8.456e-06 - 0.0925267% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 459: [panzer::Traits::Residual] Constant: Effective Band Gap: 1.833e-06 - 0.0200569% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 463: [panzer::Traits::Residual] Constant: Effective Electron Affinity: 1.342e-06 - 0.0146844% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 467: [panzer::Traits::Residual] Effective_DOS_Simple: 0.000453271 - 4.95975% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 461: [panzer::Traits::Residual] Constant: Electron Affinity: 1.261e-06 - 0.013798% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 457: [panzer::Traits::Residual] Constant: Band Gap: 1.311e-06 - 0.0143451% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 465: [panzer::Traits::Residual] Intrinsic_Concentration_Default: 1.9778e-05 - 0.216414% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 452: [panzer::Traits::Residual] DopingRaw_Function: 0.0059289 - 64.8748% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 584: [panzer::Traits::Residual] BC at Ohmic Contact: 0.000519055 - 5.67957% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 586: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 6.2047e-05 - 0.678927% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 589: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 1.3596e-05 - 0.148769% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 592: [panzer::Traits::Residual] Dummy Scatter: BC(1)Residual_ELECTRIC_POTENTIAL Scatter Residual: 0.000834968 - 9.13634% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 587: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRON_DENSITY (Residual): 5.4934e-05 - 0.601096% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 590: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 1.0189e-05 - 0.111489% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 593: [panzer::Traits::Residual] Dummy Scatter: BC(1)Residual_ELECTRON_DENSITY Scatter Residual: 0.000543854 - 5.95093% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 588: [panzer::Traits::Residual] GatherSolution (Tpetra): HOLE_DENSITY (Residual): 5.3874e-05 - 0.589497% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 591: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 1.009e-05 - 0.110406% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 594: [panzer::Traits::Residual] Dummy Scatter: BC(1)Residual_HOLE_DENSITY Scatter Residual: 0.000535477 - 5.85926% [6]
-|   |   |   |   |   |   |   |   Remainder: 7.3106e-05 - 0.799936%
-|   |   |   |   |   |   |   Remainder: 8.696e-06 - 0.0950624%
-|   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(3): 0.000765905 - 0.125509% [6] {min=0.00036824, max=0.00116357, std dev=0.000562384} <1, 0, 0, 0, 1>
-|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(3), side=0: 0.000756448 - 98.7652% [6] {min=0.000358741, max=0.00115416, std dev=0.000562443} <1, 0, 0, 0, 1>
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 898: [panzer::Traits::Residual] Constant_Reference_Energy: 8.135e-06 - 1.07542% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 944: [panzer::Traits::Residual] BC at Contact On Insulator: 9.868e-06 - 1.30452% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 946: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 4.0086e-05 - 5.29924% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 947: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 1.064e-05 - 1.40657% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 948: [panzer::Traits::Residual] Dummy Scatter: BC(3)Residual_ELECTRIC_POTENTIAL Scatter Residual: 0.000268148 - 35.4483% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 469: [panzer::Traits::Residual] Constant_Reference_Energy: 2.4737e-05 - 3.27015% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 515: [panzer::Traits::Residual] BC at Contact On Insulator: 2.076e-05 - 2.74441% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 517: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.000151576 - 20.0379% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 518: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 3.0297e-05 - 4.00517% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 519: [panzer::Traits::Residual] Dummy Scatter: BC(3)Residual_ELECTRIC_POTENTIAL Scatter Residual: 0.000896425 - 118.505% [6]
-|   |   |   |   |   |   |   |   Remainder: -0.000704224 - -93.0962%
-|   |   |   |   |   |   |   Remainder: 9.4575e-06 - 1.23481%
-|   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(2): 0.000812819 - 0.133196% [6] {min=0.000414508, max=0.00121113, std dev=0.000563298} <1, 0, 0, 0, 1>
-|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(2), side=0: 0.000802571 - 98.7391% [6] {min=0.00040507, max=0.00120007, std dev=0.000562151} <1, 0, 0, 0, 1>
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 469: [panzer::Traits::Residual] Constant_Reference_Energy: 2.59e-05 - 3.22713% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 515: [panzer::Traits::Residual] BC at Contact On Insulator: 2.134e-05 - 2.65896% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 517: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.000158199 - 19.7115% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 518: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 3.2441e-05 - 4.04214% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 519: [panzer::Traits::Residual] Dummy Scatter: BC(2)Residual_ELECTRIC_POTENTIAL Scatter Residual: 0.000933304 - 116.289% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 898: [panzer::Traits::Residual] Constant_Reference_Energy: 8.899e-06 - 1.10881% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 944: [panzer::Traits::Residual] BC at Contact On Insulator: 8.436e-06 - 1.05112% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 946: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 3.5598e-05 - 4.4355% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 947: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 1.0532e-05 - 1.31228% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 948: [panzer::Traits::Residual] Dummy Scatter: BC(2)Residual_ELECTRIC_POTENTIAL Scatter Residual: 0.00032071 - 39.9604% [6]
-|   |   |   |   |   |   |   |   Remainder: -0.000752788 - -93.7972%
-|   |   |   |   |   |   |   Remainder: 1.0249e-05 - 1.26092%
-|   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(0): 0.0090367 - 1.48084% [6]
-|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(0), side=4: 0.00902745 - 99.8976% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 494: [panzer::Traits::Residual] Constant_Reference_Energy: 1.1852e-05 - 0.131289% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 492: [panzer::Traits::Residual] LatticeTemp_Constant: 8.708e-06 - 0.0964614% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 459: [panzer::Traits::Residual] Constant: Effective Band Gap: 1.494e-06 - 0.0165495% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 463: [panzer::Traits::Residual] Constant: Effective Electron Affinity: 1.194e-06 - 0.0132263% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 467: [panzer::Traits::Residual] Effective_DOS_Simple: 0.000453933 - 5.02837% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 461: [panzer::Traits::Residual] Constant: Electron Affinity: 1.351e-06 - 0.0149655% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 457: [panzer::Traits::Residual] Constant: Band Gap: 1.163e-06 - 0.0128829% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 465: [panzer::Traits::Residual] Intrinsic_Concentration_Default: 2.1712e-05 - 0.240511% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 452: [panzer::Traits::Residual] DopingRaw_Function: 0.00585568 - 64.8653% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 584: [panzer::Traits::Residual] BC at Ohmic Contact: 0.000519798 - 5.75797% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 586: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 6.1878e-05 - 0.685443% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 589: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 1.4457e-05 - 0.160145% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 592: [panzer::Traits::Residual] Dummy Scatter: BC(0)Residual_ELECTRIC_POTENTIAL Scatter Residual: 0.000748261 - 8.28873% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 587: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRON_DENSITY (Residual): 5.244e-05 - 0.580895% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 590: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 1.0841e-05 - 0.120089% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 593: [panzer::Traits::Residual] Dummy Scatter: BC(0)Residual_ELECTRON_DENSITY Scatter Residual: 0.000564052 - 6.24819% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 588: [panzer::Traits::Residual] GatherSolution (Tpetra): HOLE_DENSITY (Residual): 5.3021e-05 - 0.587331% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 591: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 1.049e-05 - 0.116201% [6]
-|   |   |   |   |   |   |   |   Phalanx: Evaluator 594: [panzer::Traits::Residual] Dummy Scatter: BC(0)Residual_HOLE_DENSITY Scatter Residual: 0.000566127 - 6.27118% [6]
-|   |   |   |   |   |   |   |   Remainder: 6.8995e-05 - 0.76428%
-|   |   |   |   |   |   |   Remainder: 9.25e-06 - 0.10236%
-|   |   |   |   |   |   Remainder: 0.590479 - 96.7614%
-|   |   |   |   |   panzer::AssemblyEngine::evaluate_scatter(panzer::Traits::Residual): 0.00802305 - 0.111663% [6] {min=0.00424898, max=0.0175077, std dev=0.006378} <3, 0, 0, 0, 1>
-|   |   |   |   |   Remainder: 0.000567305 - 0.00789564%
-|   |   |   |   NOX Total Preconditioner Construction: 78.95 - 51.5026% [5] {min=78.9456, max=78.9526, std dev=0.00309941} <1, 0, 0, 1, 2>
-|   |   |   |   |   ILUT::initialize: 0.0588255 - 0.0745098% [5] {min=0.0553401, max=0.0625274, std dev=0.00357694} <2, 0, 0, 0, 2>
-|   |   |   |   |   ILUT::compute: 70.3097 - 89.0559% [5] {min=62.6251, max=77.9995, std dev=8.61428} <2, 0, 0, 0, 2>
-|   |   |   |   |   Remainder: 8.5815 - 10.8695%
-|   |   |   |   NOX Total Linear Solve: 52.2502 - 34.0851% [5] {min=52.2351, max=52.2642, std dev=0.0158044} <2, 0, 0, 0, 2>
-|   |   |   |   |   Stratimikos: AztecOOLOWS: 52.2501 - 99.9999% [5] {min=52.235, max=52.2641, std dev=0.0157732} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   Stratimikos: AztecOOLOWS:SingleSolve: 52.25 - 99.9997% [5] {min=52.2349, max=52.2639, std dev=0.0157305} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   |   ILUT::apply: 36.195 - 69.2728% [579] {min=32.629, max=40.2884, std dev=4.11047} <2, 0, 0, 0, 2>
-|   |   |   |   |   |   |   Remainder: 16.0549 - 30.7272%
-|   |   |   |   |   |   Remainder: 0.000134626 - 0.000257656%
-|   |   |   |   |   Remainder: 6.71658e-05 - 0.000128546%
-|   |   |   |   panzer::AssemblyEngine::evaluate_gather(panzer::Traits::Residual): 0.000844099 - 0.000550643% [3] {min=0.000836651, max=0.000854574, std dev=7.784e-06} <2, 0, 1, 0, 1>
-|   |   |   |   panzer::AssemblyEngine::evaluate_volume(panzer::Traits::Residual): 0.129131 - 0.0842378% [3] {min=0.071686, max=0.187374, std dev=0.0661956} <2, 0, 0, 0, 2>
-|   |   |   |   |   Phalanx: Evaluator 1886: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.000399963 - 0.309734% [479] {min=3.657e-06, max=0.000796269, std dev=0.000560461} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1967: [panzer::Traits::Residual] STK HGRAD Scatter Basis HGrad:1: ELECTRIC_POTENTIAL: STK-Scatter Fields: 0.000708067 - 0.548333% [479] {min=1.2584e-05, max=0.00140355, std dev=0.000983561} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1977: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.00039857 - 0.308655% [479] {min=1.413e-06, max=0.000795726, std dev=0.000561664} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 2058: [panzer::Traits::Residual] STK HGRAD Scatter Basis HGrad:1: ELECTRIC_POTENTIAL: STK-Scatter Fields: 0.000704598 - 0.545646% [479] {min=2.274e-06, max=0.00140692, std dev=0.000993236} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 2134: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.015864 - 12.2852% [10998] {min=0.0156807, max=0.0160473, std dev=0.000259249} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 2308: [panzer::Traits::Residual] STK HGRAD Scatter Basis HGrad:1: ELECTRIC_POTENTIALELECTRON_DENSITYELECTRON_QUANTUM_POTENTIALHOLE_DENSITYHOLE_QUANTUM_POTENTIAL: STK-Scatter Fields: 0.0593246 - 45.9414% [10998] {min=0.0586096, max=0.0600396, std dev=0.00101119} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1775: [panzer::Traits::Residual] Degeneracy_Factor: 0.00115615 - 0.89533% [5076] {min=0.00114719, max=0.00116511, std dev=1.26678e-05} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1746: [panzer::Traits::Residual] Constant: Effective Band Gap: 0.0010453 - 0.80949% [5076] {min=0.00104455, max=0.00104605, std dev=1.06349e-06} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1744: [panzer::Traits::Residual] Constant: Band Gap: 0.000959637 - 0.74315% [5076] {min=0.000945589, max=0.000973685, std dev=1.98669e-05} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1781: [panzer::Traits::Residual] Constant_Reference_Energy: 0.00147053 - 1.13879% [5076] {min=0.00146316, max=0.00147789, std dev=1.04114e-05} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1779: [panzer::Traits::Residual] LatticeTemp_Constant: 0.00107085 - 0.829275% [5076] {min=0.00105724, max=0.00108446, std dev=1.92425e-05} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1754: [panzer::Traits::Residual] Effective_DOS_Simple: 0.00254714 - 1.97253% [5076] {min=0.0025371, max=0.00255719, std dev=1.42093e-05} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1750: [panzer::Traits::Residual] Constant: Effective Electron Affinity: 0.00103616 - 0.802409% [5076] {min=0.00102549, max=0.00104682, std dev=1.50826e-05} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1697: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.00734366 - 5.68699% [5076] {min=0.00730515, max=0.00738217, std dev=5.44564e-05} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1769: [panzer::Traits::Residual] Intrinsic_FermiEnergy: 0.00163039 - 1.26258% [5076] {min=0.00162326, max=0.00163751, std dev=1.00742e-05} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1760: [panzer::Traits::Residual] Mobility_Default: 0.00111857 - 0.866227% [5076] {min=0.00111295, max=0.00112419, std dev=7.94717e-06} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1766: [panzer::Traits::Residual] Diffusion_Coefficient_Default: 0.00123688 - 0.957851% [5076] {min=0.00123635, max=0.00123742, std dev=7.57311e-07} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1633: [panzer::Traits::Residual] CVFEM-SG_Primary_Edge_Current_Density: 0.00412354 - 3.1933% [5076] {min=0.00407977, max=0.00416731, std dev=6.19058e-05} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1634: [panzer::Traits::Residual] CVFEM-SG_SubCV_Edge_Current_Density: 0.0059168 - 4.58202% [5076] {min=0.00590068, max=0.00593292, std dev=2.28014e-05} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1635: [panzer::Traits::Residual] Integrator_SubCV_SurfaceFluxDotNorm: 0.00498402 - 3.85966% [5076] {min=0.00497041, max=0.00499763, std dev=1.92496e-05} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1638: [panzer::Traits::Residual] Sum Evaluator: 0.00609133 - 4.71718% [5076] {min=0.00608264, max=0.00610002, std dev=1.22895e-05} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1757: [panzer::Traits::Residual] Mobility_Default: 0.00112687 - 0.872658% [5076] {min=0.00112549, max=0.00112826, std dev=1.95798e-06} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1763: [panzer::Traits::Residual] Diffusion_Coefficient_Default: 0.00123018 - 0.952658% [5076] {min=0.00122295, max=0.0012374, std dev=1.02212e-05} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1627: [panzer::Traits::Residual] CVFEM-SG_Primary_Edge_Current_Density: 0.00369171 - 2.85889% [5076] {min=0.00365771, max=0.00372571, std dev=4.8084e-05} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1628: [panzer::Traits::Residual] CVFEM-SG_SubCV_Edge_Current_Density: 0.00392863 - 3.04236% [5076] {min=0.00391341, max=0.00394386, std dev=2.15356e-05} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1629: [panzer::Traits::Residual] Integrator_SubCV_SurfaceFluxDotNorm: 0.00320053 - 2.47852% [5076] {min=0.00319375, max=0.00320731, std dev=9.58908e-06} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1632: [panzer::Traits::Residual] Sum Evaluator: 0.00591585 - 4.58128% [5076] {min=0.00591469, max=0.00591702, std dev=1.64968e-06} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1871: [panzer::Traits::Residual] Subtract: Value A - Value B: 0.00119287 - 0.923766% [5076] {min=0.00114319, max=0.00124254, std dev=7.02475e-05} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1872: [panzer::Traits::Residual] SubcellSum: drain_nanowire_Current: 0.0071981 - 5.57426% [5076]
-|   |   |   |   |   Phalanx: Evaluator 1873: [panzer::Traits::Residual] Functional Response Scatter: drain_nanowire_Current: 0.00581494 - 4.50313% [5076]
-|   |   |   |   |   Phalanx: Evaluator 1202: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.0011908 - 0.922167% [1466] {min=3.687e-06, max=0.00237792, std dev=0.00167883} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1283: [panzer::Traits::Residual] STK HGRAD Scatter Basis HGrad:1: ELECTRIC_POTENTIAL: STK-Scatter Fields: 0.00217143 - 1.68157% [1466] {min=1.1652e-05, max=0.00433121, std dev=0.00305439} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1293: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.00122558 - 0.949101% [1466] {min=1.693e-06, max=0.00244947, std dev=0.00173084} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1374: [panzer::Traits::Residual] STK HGRAD Scatter Basis HGrad:1: ELECTRIC_POTENTIAL: STK-Scatter Fields: 0.00214994 - 1.66493% [1466] {min=2.164e-06, max=0.00429772, std dev=0.00303741} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1450: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.0128075 - 9.91823% [9024] {min=0.0127767, max=0.0128383, std dev=4.35698e-05} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1624: [panzer::Traits::Residual] STK HGRAD Scatter Basis HGrad:1: ELECTRIC_POTENTIALELECTRON_DENSITYELECTRON_QUANTUM_POTENTIALHOLE_DENSITYHOLE_QUANTUM_POTENTIAL: STK-Scatter Fields: 0.0479071 - 37.0996% [9024] {min=0.0478372, max=0.0479769, std dev=9.88146e-05} <1, 0, 0, 0, 1>
-|   |   |   |   |   Phalanx: Evaluator 1872: [panzer::Traits::Residual] SubcellSum: source_nanowire_Current: 0.00711906 - 5.51306% [5076]
-|   |   |   |   |   Phalanx: Evaluator 1873: [panzer::Traits::Residual] Functional Response Scatter: source_nanowire_Current: 0.00575193 - 4.45434% [5076]
-|   |   |   |   |   Remainder: -0.103623 - -80.2463%
-|   |   |   |   panzer::AssemblyEngine::evaluate_neumannbcs(panzer::Traits::Residual): 8.27025e-06 - 5.39505e-06% [3] {min=5.12e-06, max=1.114e-05, std dev=2.58632e-06} <1, 1, 0, 1, 1>
-|   |   |   |   panzer::AssemblyEngine::evaluate_interfacebcs(panzer::Traits::Residual): 2.98525e-06 - 1.94741e-06% [3] {min=2.464e-06, max=3.325e-06, std dev=3.71215e-07} <1, 0, 0, 2, 1>
-|   |   |   |   panzer::AssemblyEngine::evaluate_dirichletbcs(panzer::Traits::Residual): 0.0593901 - 0.0387427% [3] {min=0.00106716, max=0.116833, std dev=0.0662135} <2, 0, 0, 0, 2>
-|   |   |   |   panzer::AssemblyEngine::evaluate_scatter(panzer::Traits::Residual): 9.22898e-05 - 6.02047e-05% [3] {min=5.2099e-05, max=0.000167729, std dev=5.19781e-05} <2, 1, 0, 0, 1>
-|   |   |   |   STK_Interface::writeToExodus(timestep): 0.0190419 - 0.0124219% [1] {min=0.0189906, max=0.0191164, std dev=6.22018e-05} <2, 0, 0, 1, 1>
-|   |   |   |   Remainder: 1.5238 - 0.99404%
-|   |   |   Remainder: 0.000202482 - 0.000132088%
-|   |   Piro::SteadyStateSolver::evalConvergedModelResponsesAndSensitivities::calc g, df/dp, dg/dp, dg/dx: 9.3825e-06 - 4.59346e-06% [1] {min=8.215e-06, max=1.1161e-05, std dev=1.30406e-06} <2, 0, 1, 0, 1>
-|   |   Phalanx: Evaluator 663: [panzer::Traits::Residual] Constant: Effective Band Gap: 0.00192659 - 0.000943212% [9024] {min=0.00192521, max=0.00192796, std dev=1.9502e-06} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 656: [panzer::Traits::Residual] DopingRaw_Function: 0.0518784 - 0.0253985% [9024] {min=0.051657, max=0.0520997, std dev=0.000312997} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 667: [panzer::Traits::Residual] Constant: Effective Electron Affinity: 0.00185262 - 0.000906999% [9024] {min=0.00184007, max=0.00186516, std dev=1.77371e-05} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 696: [panzer::Traits::Residual] LatticeTemp_Constant: 0.00191417 - 0.000937133% [9024] {min=0.00190574, max=0.0019226, std dev=1.19239e-05} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 671: [panzer::Traits::Residual] Effective_DOS_Simple: 0.00463443 - 0.00226891% [9024] {min=0.00462748, max=0.00464138, std dev=9.82878e-06} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 698: [panzer::Traits::Residual] Constant_Reference_Energy: 0.00246761 - 0.00120809% [9024] {min=0.00245669, max=0.00247853, std dev=1.5446e-05} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 706: [panzer::Traits::Residual] IC_Equilibrium_Potential: 0.00699092 - 0.0034226% [9024] {min=0.00696746, max=0.00701439, std dev=3.31817e-05} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 701: [panzer::Traits::Residual] SCATTER_ELECTRIC_POTENTIAL Scatter Residual: 0.0186883 - 0.00914938% [9024] {min=0.0184105, max=0.0189662, std dev=0.000392913} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 689: [panzer::Traits::Residual] CondVale_Band: 0.00213113 - 0.00104335% [9024] {min=0.00209053, max=0.00217173, std dev=5.74107e-05} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 707: [panzer::Traits::Residual] IC_Equilibrium_Density: 0.00354328 - 0.00173471% [9024] {min=0.00354169, max=0.00354487, std dev=2.24648e-06} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 702: [panzer::Traits::Residual] SCATTER_ELECTRON_DENSITY Scatter Residual: 0.0175388 - 0.00858658% [9024] {min=0.0173339, max=0.0177437, std dev=0.000289738} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 709: [panzer::Traits::Residual] IC_Equilibrium_Potential: 0.00653356 - 0.00319868% [9024] {min=0.00652047, max=0.00654666, std dev=1.85212e-05} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 703: [panzer::Traits::Residual] SCATTER_ELECTRON_QUANTUM_POTENTIAL Scatter Residual: 0.0176254 - 0.00862899% [9024] {min=0.0174556, max=0.0177952, std dev=0.000240146} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 708: [panzer::Traits::Residual] IC_Equilibrium_Density: 0.00297646 - 0.0014572% [9024] {min=0.00295514, max=0.00299777, std dev=3.01404e-05} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 704: [panzer::Traits::Residual] SCATTER_HOLE_DENSITY Scatter Residual: 0.0174557 - 0.00854592% [9024] {min=0.017348, max=0.0175635, std dev=0.000152372} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 710: [panzer::Traits::Residual] IC_Equilibrium_Potential: 0.00653483 - 0.0031993% [9024] {min=0.0064951, max=0.00657457, std dev=5.61888e-05} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 705: [panzer::Traits::Residual] SCATTER_HOLE_QUANTUM_POTENTIAL Scatter Residual: 0.0173978 - 0.00851757% [9024] {min=0.0172189, max=0.0175768, std dev=0.000253082} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 735: [panzer::Traits::Residual] Constant: ELECTRIC_POTENTIAL: 0.000309797 - 0.000151669% [1466] {min=8.51e-07, max=0.000618743, std dev=0.000436916} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 733: [panzer::Traits::Residual] SCATTER_ELECTRIC_POTENTIAL Scatter Residual: 0.00264359 - 0.00129424% [1466] {min=2.534e-06, max=0.00528466, std dev=0.00373502} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 760: [panzer::Traits::Residual] Constant: ELECTRIC_POTENTIAL: 0.000310134 - 0.000151834% [1466] {min=3.71e-07, max=0.000619896, std dev=0.00043807} <1, 0, 0, 0, 1>
-|   |   Phalanx: Evaluator 758: [panzer::Traits::Residual] SCATTER_ELECTRIC_POTENTIAL Scatter Residual: 0.00262318 - 0.00128425% [1466] {min=2.364e-06, max=0.00524399, std dev=0.00370639} <1, 0, 0, 0, 1>
-|   |   Remainder: 49.7486 - 24.3558%
-|   Remainder: 0.000105844 - 5.18188e-05%
+Charon: Main Driver: 503.5 [1]
+|   Charon: Total Time: 503.497 - 99.9993% [1]
+|   |   panzer::STK_ExodusReaderFactory::buildUncomittedMesh(): 0.0424065 - 0.0084224% [1]
+|   |   panzer::STK_ExodusReaderFactory::completeMeshConstruction(): 1.57867 - 0.313541% [1]
+|   |   STK_Interface::setupExodusFile(filename): 0.000265495 - 5.27302e-05% [1]
+|   |   panzer::DOFManagerFactory::buildUnqueGlobalIndexer: 0.161234 - 0.0320228% [1]
+|   |   |   panzer::DOFManagerFactory::buildUnqueGlobalIndexer:buildGlobalUnknowns: 0.157082 - 97.425% [1]
+|   |   |   |   panzer::DOFManager::buildGlobalUnknowns: 0.147884 - 94.1445% [1]
+|   |   |   |   |   panzer::DOFManager::buildTaggedMultiVector: 0.0369209 - 24.9661% [1]
+|   |   |   |   |   |   panzer::DOFManager::builderOverlapMapFromElements: 0.0253495 - 68.659% [1]
+|   |   |   |   |   |   panzer::DOFManager::buildTaggedMultiVector::allocate_tagged_multivector: 0.00591092 - 16.0097% [1]
+|   |   |   |   |   |   panzer::DOFManager::buildTaggedMultiVector::fill_tagged_multivector: 0.00500762 - 13.5631% [1]
+|   |   |   |   |   |   Remainder: 0.000652833 - 1.76819%
+|   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns_GUN: 0.00717645 - 4.85275% [1]
+|   |   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns_GUN::line_04 createOneToOne: 0.000686117 - 9.56067% [1]
+|   |   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns_GUN::line_05 alloc_unique_mv: 0.000112835 - 1.57229% [1]
+|   |   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns_GUN::line_06 export: 0.00493149 - 68.7176% [1]
+|   |   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns_GUN::line_07-09 local_count: 0.000190903 - 2.66013% [1]
+|   |   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns_GUN::line_10 prefix_sum: 2.6371e-05 - 0.367466% [1]
+|   |   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns_GUN::line_13-21 gid_assignment: 0.000412135 - 5.74288% [1]
+|   |   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns_GUN::line_23 final_import: 8.8348e-05 - 1.23108% [1]
+|   |   |   |   |   |   Remainder: 0.000728256 - 10.1479%
+|   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns::build_owned_vector: 0.0479188 - 32.4029% [1]
+|   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns::build_ghosted_array: 0.016815 - 11.3704% [1]
+|   |   |   |   |   panzer::DOFManager::buildGlobalUnknowns::build_local_ids: 0.0204477 - 13.8269% [1]
+|   |   |   |   |   Remainder: 0.0186052 - 12.5809%
+|   |   |   |   Remainder: 0.00919787 - 5.85546%
+|   |   |   Remainder: 0.00415176 - 2.57499%
+|   |   Phalanx::SortAndOrderEvaluators: 1.693e-05 - 3.36249e-06% [44]
+|   |   Phalanx: Evaluator 2038: [panzer::Traits::Residual] Constant: Effective Band Gap: 0.00826101 - 0.00164073% [40044]
+|   |   Phalanx: Evaluator 2031: [panzer::Traits::Residual] DopingRaw_Function: 0.223908 - 0.0444706% [40044]
+|   |   Phalanx: Evaluator 2042: [panzer::Traits::Residual] Constant: Effective Electron Affinity: 0.00790782 - 0.00157058% [40044]
+|   |   Phalanx: Evaluator 2071: [panzer::Traits::Residual] LatticeTemp_Constant: 0.00819423 - 0.00162747% [40044]
+|   |   Phalanx: Evaluator 2046: [panzer::Traits::Residual] Effective_DOS_Simple: 0.0197784 - 0.0039282% [40044]
+|   |   Phalanx: Evaluator 2073: [panzer::Traits::Residual] Constant_Reference_Energy: 0.0105676 - 0.00209884% [40044]
+|   |   Phalanx: Evaluator 2081: [panzer::Traits::Residual] IC_Equilibrium_Potential: 0.0310737 - 0.00617158% [40044]
+|   |   Phalanx: Evaluator 2076: [panzer::Traits::Residual] SCATTER_ELECTRIC_POTENTIAL Scatter Residual: 0.0786829 - 0.0156273% [40044]
+|   |   Phalanx: Evaluator 2064: [panzer::Traits::Residual] CondVale_Band: 0.00891812 - 0.00177124% [40044]
+|   |   Phalanx: Evaluator 2082: [panzer::Traits::Residual] IC_Equilibrium_Density: 0.0148484 - 0.00294906% [40044]
+|   |   Phalanx: Evaluator 2077: [panzer::Traits::Residual] SCATTER_ELECTRON_DENSITY Scatter Residual: 0.0733042 - 0.014559% [40044]
+|   |   Phalanx: Evaluator 2084: [panzer::Traits::Residual] IC_Equilibrium_Potential: 0.0291825 - 0.00579596% [40044]
+|   |   Phalanx: Evaluator 2078: [panzer::Traits::Residual] SCATTER_ELECTRON_QUANTUM_POTENTIAL Scatter Residual: 0.0734641 - 0.0145908% [40044]
+|   |   Phalanx: Evaluator 2083: [panzer::Traits::Residual] IC_Equilibrium_Density: 0.0126528 - 0.00251299% [40044]
+|   |   Phalanx: Evaluator 2079: [panzer::Traits::Residual] SCATTER_HOLE_DENSITY Scatter Residual: 0.072975 - 0.0144936% [40044]
+|   |   Phalanx: Evaluator 2085: [panzer::Traits::Residual] IC_Equilibrium_Potential: 0.0292413 - 0.00580765% [40044]
+|   |   Phalanx: Evaluator 2080: [panzer::Traits::Residual] SCATTER_HOLE_QUANTUM_POTENTIAL Scatter Residual: 0.0736379 - 0.0146253% [40044]
+|   |   Phalanx: Evaluator 2110: [panzer::Traits::Residual] Constant: ELECTRIC_POTENTIAL: 0.000770069 - 0.000152944% [3780]
+|   |   Phalanx: Evaluator 2108: [panzer::Traits::Residual] SCATTER_ELECTRIC_POTENTIAL Scatter Residual: 0.0064901 - 0.00128901% [3780]
+|   |   panzer::AssemblyEngine::evaluate_gather(panzer::Traits::Residual): 6.362e-05 - 1.26356e-05% [1]
+|   |   panzer::AssemblyEngine::evaluate_volume(panzer::Traits::Residual): 0.280239 - 0.0556586% [1]
+|   |   |   Phalanx: Evaluator 2120: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.00294002 - 1.04911% [3780]
+|   |   |   Phalanx: Evaluator 2201: [panzer::Traits::Residual] STK HGRAD Scatter Basis HGrad:1: ELECTRIC_POTENTIAL: STK-Scatter Fields: 0.00530284 - 1.89226% [3780]
+|   |   |   Phalanx: Evaluator 2277: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.0534813 - 19.0841% [40044]
+|   |   |   Phalanx: Evaluator 2451: [panzer::Traits::Residual] STK HGRAD Scatter Basis HGrad:1: ELECTRIC_POTENTIALELECTRON_DENSITYELECTRON_QUANTUM_POTENTIALHOLE_DENSITYHOLE_QUANTUM_POTENTIAL: STK-Scatter Fields: 0.203705 - 72.6897% [40044]
+|   |   |   Remainder: 0.01481 - 5.28476%
+|   |   panzer::AssemblyEngine::evaluate_neumannbcs(panzer::Traits::Residual): 8.125e-06 - 1.61371e-06% [1]
+|   |   panzer::AssemblyEngine::evaluate_interfacebcs(panzer::Traits::Residual): 2.165e-06 - 4.29993e-07% [1]
+|   |   panzer::AssemblyEngine::evaluate_dirichletbcs(panzer::Traits::Residual): 0.000619785 - 0.000123096% [1]
+|   |   panzer::AssemblyEngine::evaluate_scatter(panzer::Traits::Residual): 2.084e-06 - 4.13905e-07% [1]
+|   |   Piro::NOXSolver::evalModelImpl::solve: 335.908 - 66.7151% [1]
+|   |   |   Thyra::NOXNonlinearSolver::solve: 335.906 - 99.9994% [1]
+|   |   |   |   panzer::ModelEvaluator::evalModel(J): 36.9071 - 10.9873% [4]
+|   |   |   |   |   panzer::AssemblyEngine::evaluate_gather(panzer::Traits::Jacobian): 0.00176486 - 0.0047819% [4]
+|   |   |   |   |   panzer::AssemblyEngine::evaluate_volume(panzer::Traits::Jacobian): 28.2129 - 76.4429% [4]
+|   |   |   |   |   |   Phalanx: Evaluator 79: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Jacobian) : 0.947391 - 3.35801% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 216: [panzer::Traits::Jacobian] LatticeTemp_Constant: 0.047172 - 0.1672% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 212: [panzer::Traits::Jacobian] Degeneracy_Factor: 0.0529943 - 0.187837% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 211: [panzer::Traits::Jacobian] Degeneracy_Factor: 0.0455555 - 0.16147% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 176: [panzer::Traits::Jacobian] DopingRaw_Function: 0.932269 - 3.30441% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 177: [panzer::Traits::Jacobian] Doping_Function: 0.14019 - 0.496901% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 27: [panzer::Traits::Jacobian] Poisson Source: 0.191932 - 0.680299% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 28: [panzer::Traits::Jacobian] Integrator_SubCV_NodeScalar: RESIDUAL_ELECTRIC_POTENTIAL_SOURCE_OP: 0.473734 - 1.67914% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 179: [panzer::Traits::Jacobian] Constant: Relative Permittivity: 0.0370006 - 0.131148% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 25: [panzer::Traits::Jacobian] CVFEM-SG_SubCV_Edge_Potential_Flux: 1.04422 - 3.70121% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 26: [panzer::Traits::Jacobian] Integrator_SubCV_SurfaceFluxDotNorm: 0.367764 - 1.30353% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 29: [panzer::Traits::Jacobian] Sum Evaluator: 0.264374 - 0.937068% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 122: [panzer::Traits::Jacobian] SCATTER_ELECTRIC_POTENTIAL Scatter Residual (Jacobian): 0.398824 - 1.41362% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 218: [panzer::Traits::Jacobian] Constant_Reference_Energy: 0.0714713 - 0.253329% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 191: [panzer::Traits::Jacobian] Effective_DOS_Simple: 1.72276 - 6.10628% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 187: [panzer::Traits::Jacobian] Constant: Effective Electron Affinity: 0.0346059 - 0.12266% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 183: [panzer::Traits::Jacobian] Constant: Effective Band Gap: 0.0315387 - 0.111788% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 206: [panzer::Traits::Jacobian] Intrinsic_FermiEnergy: 1.0304 - 3.65224% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 181: [panzer::Traits::Jacobian] Constant: Band Gap: 0.0346554 - 0.122835% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 194: [panzer::Traits::Jacobian] Mobility_Default: 0.0503032 - 0.178299% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 200: [panzer::Traits::Jacobian] Diffusion_Coefficient_Default: 0.155099 - 0.549745% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 30: [panzer::Traits::Jacobian] CVFEM-SG_Primary_Edge_Current_Density: 3.29528 - 11.6801% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 31: [panzer::Traits::Jacobian] CVFEM-SG_SubCV_Edge_Current_Density: 1.79659 - 6.36796% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 32: [panzer::Traits::Jacobian] Integrator_SubCV_SurfaceFluxDotNorm: 0.33279 - 1.17957% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 35: [panzer::Traits::Jacobian] Sum Evaluator: 0.211697 - 0.750354% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 123: [panzer::Traits::Jacobian] SCATTER_ELECTRON_DENSITY Scatter Residual (Jacobian): 0.359288 - 1.27349% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 99: [panzer::Traits::Jacobian] DOF: ELECTRON_QUANTUM_POTENTIAL accel_jac  (panzer::Traits::Jacobian): 0.26774 - 0.948999% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 44: [panzer::Traits::Jacobian] Integrator_BasisTimesScalar (EVALUATES):  RESIDUAL_ELECTRON_QUANTUM_POTENTIAL_HELMHOLTZ: 0.345727 - 1.22542% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 215: [panzer::Traits::Jacobian] LatticeTemp_Constant: 0.0462874 - 0.164065% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 104: [panzer::Traits::Jacobian] DOFGradient: GRAD_ELECTRON_QUANTUM_POTENTIAL (panzer::Traits::Jacobian): 0.557663 - 1.97662% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 102: [panzer::Traits::Jacobian] DOFGradient: GRAD_ELECTRIC_POTENTIAL (panzer::Traits::Jacobian): 0.478129 - 1.69472% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 42: [panzer::Traits::Jacobian] QuantumPotentialFlux: 0.322674 - 1.14371% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 43: [panzer::Traits::Jacobian] Integrator_GradBasisDotVector (EVALUATES):  RESIDUAL_ELECTRON_QUANTUM_POTENTIAL_LAPLACIAN: 0.594067 - 2.10566% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 45: [panzer::Traits::Jacobian] SumStatic Rank 2 Evaluator: 0.210322 - 0.745482% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 124: [panzer::Traits::Jacobian] SCATTER_ELECTRON_QUANTUM_POTENTIAL Scatter Residual (Jacobian): 0.333079 - 1.18059% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 197: [panzer::Traits::Jacobian] Mobility_Default: 0.0510926 - 0.181097% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 203: [panzer::Traits::Jacobian] Diffusion_Coefficient_Default: 0.155044 - 0.549551% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 36: [panzer::Traits::Jacobian] CVFEM-SG_Primary_Edge_Current_Density: 3.28016 - 11.6264% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 37: [panzer::Traits::Jacobian] CVFEM-SG_SubCV_Edge_Current_Density: 1.76639 - 6.26093% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 38: [panzer::Traits::Jacobian] Integrator_SubCV_SurfaceFluxDotNorm: 0.334661 - 1.1862% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 41: [panzer::Traits::Jacobian] Sum Evaluator: 0.216098 - 0.765953% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 125: [panzer::Traits::Jacobian] SCATTER_HOLE_DENSITY Scatter Residual (Jacobian): 0.332039 - 1.17691% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 101: [panzer::Traits::Jacobian] DOF: HOLE_QUANTUM_POTENTIAL accel_jac  (panzer::Traits::Jacobian): 0.208058 - 0.737458% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 48: [panzer::Traits::Jacobian] Integrator_BasisTimesScalar (EVALUATES):  RESIDUAL_HOLE_QUANTUM_POTENTIAL_HELMHOLTZ: 0.296857 - 1.0522% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 106: [panzer::Traits::Jacobian] DOFGradient: GRAD_HOLE_QUANTUM_POTENTIAL (panzer::Traits::Jacobian): 0.496404 - 1.75949% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 46: [panzer::Traits::Jacobian] QuantumPotentialFlux: 0.318992 - 1.13066% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 47: [panzer::Traits::Jacobian] Integrator_GradBasisDotVector (EVALUATES):  RESIDUAL_HOLE_QUANTUM_POTENTIAL_LAPLACIAN: 0.536938 - 1.90316% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 49: [panzer::Traits::Jacobian] SumStatic Rank 2 Evaluator: 0.205967 - 0.730047% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 126: [panzer::Traits::Jacobian] SCATTER_HOLE_QUANTUM_POTENTIAL Scatter Residual (Jacobian): 0.322923 - 1.14459% [160176]
+|   |   |   |   |   |   Phalanx: Evaluator 316: [panzer::Traits::Jacobian] Constant: Relative Permittivity: 0.00321994 - 0.011413% [15120]
+|   |   |   |   |   |   Phalanx: Evaluator 277: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Jacobian) : 0.0174704 - 0.0619235% [15120]
+|   |   |   |   |   |   Phalanx: Evaluator 267: [panzer::Traits::Jacobian] CVFEM-SG_SubCV_Edge_Potential_Flux: 0.0670939 - 0.237813% [15120]
+|   |   |   |   |   |   Phalanx: Evaluator 268: [panzer::Traits::Jacobian] Integrator_SubCV_SurfaceFluxDotNorm: 0.0247424 - 0.0876989% [15120]
+|   |   |   |   |   |   Phalanx: Evaluator 269: [panzer::Traits::Jacobian] Sum Evaluator: 0.0170418 - 0.0604041% [15120]
+|   |   |   |   |   |   Phalanx: Evaluator 292: [panzer::Traits::Jacobian] SCATTER_ELECTRIC_POTENTIAL Scatter Residual (Jacobian): 0.0213416 - 0.075645% [15120]
+|   |   |   |   |   |   Remainder: 2.31478 - 8.20468%
+|   |   |   |   |   panzer::AssemblyEngine::evaluate_neumannbcs(panzer::Traits::Jacobian): 5.79e-05 - 0.00015688% [4]
+|   |   |   |   |   panzer::AssemblyEngine::evaluate_interfacebcs(panzer::Traits::Jacobian): 8.426e-06 - 2.28303e-05% [4]
+|   |   |   |   |   panzer::AssemblyEngine::evaluate_dirichletbcs(panzer::Traits::Jacobian): 0.318662 - 0.863415% [4]
+|   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(0): 0.118577 - 37.2108% [4]
+|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(0), side=4: 0.118567 - 99.9918% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 443: [panzer::Traits::Jacobian] Constant_Reference_Energy: 0.000135669 - 0.114424% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 441: [panzer::Traits::Jacobian] LatticeTemp_Constant: 0.000130027 - 0.109666% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 408: [panzer::Traits::Jacobian] Constant: Effective Band Gap: 1.442e-06 - 0.00121619% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 412: [panzer::Traits::Jacobian] Constant: Effective Electron Affinity: 8.9e-07 - 0.000750631% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 416: [panzer::Traits::Jacobian] Effective_DOS_Simple: 0.0117411 - 9.90249% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 410: [panzer::Traits::Jacobian] Constant: Electron Affinity: 1.131e-06 - 0.000953892% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 406: [panzer::Traits::Jacobian] Constant: Band Gap: 1.052e-06 - 0.000887263% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 414: [panzer::Traits::Jacobian] Intrinsic_Concentration_Default: 0.000447401 - 0.377341% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 401: [panzer::Traits::Jacobian] DopingRaw_Function: 0.00419103 - 3.53474% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 632: [panzer::Traits::Jacobian] BC at Ohmic Contact: 0.0420047 - 35.427% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 634: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Jacobian) : 0.000135999 - 0.114702% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 637: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 0.000272849 - 0.230122% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 640: [panzer::Traits::Jacobian] Dummy Scatter: BC(0)Residual_ELECTRIC_POTENTIAL Scatter Residual (Jacobian): 0.0215276 - 18.1565% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 635: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRON_DENSITY (Jacobian) : 0.000129927 - 0.109581% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 638: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 0.000289111 - 0.243838% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 641: [panzer::Traits::Jacobian] Dummy Scatter: BC(0)Residual_ELECTRON_DENSITY Scatter Residual (Jacobian): 0.0184608 - 15.57% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 636: [panzer::Traits::Jacobian] GatherSolution (Tpetra): HOLE_DENSITY (Jacobian) : 0.000129907 - 0.109564% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 639: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 0.000292727 - 0.246888% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 642: [panzer::Traits::Jacobian] Dummy Scatter: BC(0)Residual_HOLE_DENSITY Scatter Residual (Jacobian): 0.0185964 - 15.6843% [4]
+|   |   |   |   |   |   |   |   Remainder: 7.7097e-05 - 0.0650241%
+|   |   |   |   |   |   |   Remainder: 9.769e-06 - 0.00823855%
+|   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(1): 0.113988 - 35.771% [4]
+|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(1), side=5: 0.113977 - 99.9899% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 872: [panzer::Traits::Jacobian] Constant_Reference_Energy: 0.000157259 - 0.137974% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 870: [panzer::Traits::Jacobian] LatticeTemp_Constant: 0.000158963 - 0.139469% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 837: [panzer::Traits::Jacobian] Constant: Effective Band Gap: 1.543e-06 - 0.00135378% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 841: [panzer::Traits::Jacobian] Constant: Effective Electron Affinity: 8.82e-07 - 0.00077384% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 845: [panzer::Traits::Jacobian] Effective_DOS_Simple: 0.0117123 - 10.2761% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 839: [panzer::Traits::Jacobian] Constant: Electron Affinity: 1.222e-06 - 0.00107215% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 835: [panzer::Traits::Jacobian] Constant: Band Gap: 9.52e-07 - 0.000835256% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 843: [panzer::Traits::Jacobian] Intrinsic_Concentration_Default: 0.000592545 - 0.519881% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 830: [panzer::Traits::Jacobian] DopingRaw_Function: 0.00421808 - 3.70081% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1061: [panzer::Traits::Jacobian] BC at Ohmic Contact: 0.0380315 - 33.3677% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1063: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Jacobian) : 0.000138172 - 0.121228% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1066: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 0.000275782 - 0.241963% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1069: [panzer::Traits::Jacobian] Dummy Scatter: BC(1)Residual_ELECTRIC_POTENTIAL Scatter Residual (Jacobian): 0.0203676 - 17.8699% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1064: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRON_DENSITY (Jacobian) : 0.000127484 - 0.111851% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1067: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 0.000309639 - 0.271668% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1070: [panzer::Traits::Jacobian] Dummy Scatter: BC(1)Residual_ELECTRON_DENSITY Scatter Residual (Jacobian): 0.0186859 - 16.3944% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1065: [panzer::Traits::Jacobian] GatherSolution (Tpetra): HOLE_DENSITY (Jacobian) : 0.000131409 - 0.115294% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1068: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 0.000306152 - 0.268609% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1071: [panzer::Traits::Jacobian] Dummy Scatter: BC(1)Residual_HOLE_DENSITY Scatter Residual (Jacobian): 0.0186854 - 16.394% [4]
+|   |   |   |   |   |   |   |   Remainder: 7.4201e-05 - 0.0651017%
+|   |   |   |   |   |   |   Remainder: 1.1462e-05 - 0.0100554%
+|   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(2): 0.0614441 - 19.2819% [4]
+|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(2), side=0: 0.00726463 - 11.8232% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1253: [panzer::Traits::Jacobian] Constant_Reference_Energy: 3.8833e-05 - 0.534549% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1346: [panzer::Traits::Jacobian] BC at Contact On Insulator: 3.2862e-05 - 0.452356% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1348: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Jacobian) : 6.378e-05 - 0.877952% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1349: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 3.4296e-05 - 0.472095% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1350: [panzer::Traits::Jacobian] Dummy Scatter: BC(2)Residual_ELECTRIC_POTENTIAL Scatter Residual (Jacobian): 0.00706645 - 97.2719% [4]
+|   |   |   |   |   |   |   |   Remainder: 2.8415e-05 - 0.391142%
+|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(2), side=1: 0.0156358 - 25.4472% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1457: [panzer::Traits::Jacobian] Constant_Reference_Energy: 8.6455e-05 - 0.552929% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1550: [panzer::Traits::Jacobian] BC at Contact On Insulator: 7.7157e-05 - 0.493463% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1552: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Jacobian) : 0.000108827 - 0.696011% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1553: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 9.6483e-05 - 0.617064% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1554: [panzer::Traits::Jacobian] Dummy Scatter: BC(2)Residual_ELECTRIC_POTENTIAL Scatter Residual (Jacobian): 0.0152429 - 97.4871% [4]
+|   |   |   |   |   |   |   |   Remainder: 2.3993e-05 - 0.153449%
+|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(2), side=2: 0.02773 - 45.1305% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1661: [panzer::Traits::Jacobian] Constant_Reference_Energy: 0.000153361 - 0.55305% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1754: [panzer::Traits::Jacobian] BC at Contact On Insulator: 0.000143053 - 0.515877% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1756: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Jacobian) : 0.000183198 - 0.660648% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1757: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 0.00016359 - 0.589938% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1758: [panzer::Traits::Jacobian] Dummy Scatter: BC(2)Residual_ELECTRIC_POTENTIAL Scatter Residual (Jacobian): 0.0270591 - 97.5805% [4]
+|   |   |   |   |   |   |   |   Remainder: 2.7735e-05 - 0.100018%
+|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(2), side=3: 0.0107198 - 17.4464% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1865: [panzer::Traits::Jacobian] Constant_Reference_Energy: 5.8382e-05 - 0.544619% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1958: [panzer::Traits::Jacobian] BC at Contact On Insulator: 5.2528e-05 - 0.49001% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1960: [panzer::Traits::Jacobian] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Jacobian) : 8.8079e-05 - 0.821649% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1961: [panzer::Traits::Jacobian] Dirichlet Residual Evaluator: 6.0926e-05 - 0.568351% [4]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1962: [panzer::Traits::Jacobian] Dummy Scatter: BC(2)Residual_ELECTRIC_POTENTIAL Scatter Residual (Jacobian): 0.0104336 - 97.3305% [4]
+|   |   |   |   |   |   |   |   Remainder: 2.6249e-05 - 0.244865%
+|   |   |   |   |   |   |   Remainder: 9.3872e-05 - 0.152776%
+|   |   |   |   |   |   Remainder: 0.0246525 - 7.73627%
+|   |   |   |   |   panzer::AssemblyEngine::evaluate_scatter(panzer::Traits::Jacobian): 8.31286 - 22.5237% [4]
+|   |   |   |   |   Remainder: 0.0608887 - 0.164978%
+|   |   |   |   panzer::ModelEvaluator::evalModel(f): 10.6868 - 3.18149% [5]
+|   |   |   |   |   panzer::AssemblyEngine::evaluate_gather(panzer::Traits::Residual): 0.00172669 - 0.0161572% [5]
+|   |   |   |   |   panzer::AssemblyEngine::evaluate_volume(panzer::Traits::Residual): 10.6372 - 99.5355% [5]
+|   |   |   |   |   |   Phalanx: Evaluator 75: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.277239 - 2.60632% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 172: [panzer::Traits::Residual] LatticeTemp_Constant: 0.0419251 - 0.394138% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 168: [panzer::Traits::Residual] Degeneracy_Factor: 0.0431336 - 0.405499% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 167: [panzer::Traits::Residual] Degeneracy_Factor: 0.0386774 - 0.363606% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 132: [panzer::Traits::Residual] DopingRaw_Function: 1.12159 - 10.5441% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 133: [panzer::Traits::Residual] Doping_Function: 0.0536373 - 0.504244% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 2: [panzer::Traits::Residual] Poisson Source: 0.0763759 - 0.71801% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 3: [panzer::Traits::Residual] Integrator_SubCV_NodeScalar: RESIDUAL_ELECTRIC_POTENTIAL_SOURCE_OP: 0.404842 - 3.80592% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 135: [panzer::Traits::Residual] Constant: Relative Permittivity: 0.0420731 - 0.395529% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 0: [panzer::Traits::Residual] CVFEM-SG_SubCV_Edge_Potential_Flux: 0.356456 - 3.35104% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 1: [panzer::Traits::Residual] Integrator_SubCV_SurfaceFluxDotNorm: 0.164593 - 1.54734% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 4: [panzer::Traits::Residual] Sum Evaluator: 0.282659 - 2.65727% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 117: [panzer::Traits::Residual] SCATTER_ELECTRIC_POTENTIAL Scatter Residual: 0.133702 - 1.25693% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 174: [panzer::Traits::Residual] Constant_Reference_Energy: 0.0604571 - 0.568357% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 147: [panzer::Traits::Residual] Effective_DOS_Simple: 0.0978081 - 0.919494% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 143: [panzer::Traits::Residual] Constant: Effective Electron Affinity: 0.040583 - 0.381521% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 139: [panzer::Traits::Residual] Constant: Effective Band Gap: 0.0369274 - 0.347155% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 162: [panzer::Traits::Residual] Intrinsic_FermiEnergy: 0.0626716 - 0.589176% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 137: [panzer::Traits::Residual] Constant: Band Gap: 0.0395066 - 0.371401% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 150: [panzer::Traits::Residual] Mobility_Default: 0.0434885 - 0.408835% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 156: [panzer::Traits::Residual] Diffusion_Coefficient_Default: 0.0478533 - 0.449869% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 5: [panzer::Traits::Residual] CVFEM-SG_Primary_Edge_Current_Density: 0.138358 - 1.30071% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 6: [panzer::Traits::Residual] CVFEM-SG_SubCV_Edge_Current_Density: 0.205562 - 1.93249% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 7: [panzer::Traits::Residual] Integrator_SubCV_SurfaceFluxDotNorm: 0.134207 - 1.26168% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 10: [panzer::Traits::Residual] Sum Evaluator: 0.231486 - 2.1762% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 118: [panzer::Traits::Residual] SCATTER_ELECTRON_DENSITY Scatter Residual: 0.129333 - 1.21586% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 89: [panzer::Traits::Residual] DOF: ELECTRON_QUANTUM_POTENTIAL (panzer::Traits::Residual): 0.168535 - 1.5844% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 19: [panzer::Traits::Residual] Integrator_BasisTimesScalar (EVALUATES):  RESIDUAL_ELECTRON_QUANTUM_POTENTIAL_HELMHOLTZ: 0.214206 - 2.01375% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 171: [panzer::Traits::Residual] LatticeTemp_Constant: 0.0432784 - 0.40686% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 94: [panzer::Traits::Residual] DOFGradient: GRAD_ELECTRON_QUANTUM_POTENTIAL (panzer::Traits::Residual): 0.225112 - 2.11628% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 92: [panzer::Traits::Residual] DOFGradient: GRAD_ELECTRIC_POTENTIAL (panzer::Traits::Residual): 0.156226 - 1.46868% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 17: [panzer::Traits::Residual] QuantumPotentialFlux: 0.0536672 - 0.504525% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 18: [panzer::Traits::Residual] Integrator_GradBasisDotVector (EVALUATES):  RESIDUAL_ELECTRON_QUANTUM_POTENTIAL_LAPLACIAN: 0.247953 - 2.33101% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 20: [panzer::Traits::Residual] SumStatic Rank 2 Evaluator: 0.24955 - 2.34602% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 119: [panzer::Traits::Residual] SCATTER_ELECTRON_QUANTUM_POTENTIAL Scatter Residual: 0.131754 - 1.23862% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 153: [panzer::Traits::Residual] Mobility_Default: 0.043536 - 0.409282% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 159: [panzer::Traits::Residual] Diffusion_Coefficient_Default: 0.0499356 - 0.469444% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 11: [panzer::Traits::Residual] CVFEM-SG_Primary_Edge_Current_Density: 0.154061 - 1.44833% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 12: [panzer::Traits::Residual] CVFEM-SG_SubCV_Edge_Current_Density: 0.152875 - 1.43718% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 13: [panzer::Traits::Residual] Integrator_SubCV_SurfaceFluxDotNorm: 0.135178 - 1.27081% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 16: [panzer::Traits::Residual] Sum Evaluator: 0.240616 - 2.26203% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 120: [panzer::Traits::Residual] SCATTER_HOLE_DENSITY Scatter Residual: 0.12882 - 1.21104% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 91: [panzer::Traits::Residual] DOF: HOLE_QUANTUM_POTENTIAL (panzer::Traits::Residual): 0.121342 - 1.14074% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 23: [panzer::Traits::Residual] Integrator_BasisTimesScalar (EVALUATES):  RESIDUAL_HOLE_QUANTUM_POTENTIAL_HELMHOLTZ: 0.170465 - 1.60254% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 96: [panzer::Traits::Residual] DOFGradient: GRAD_HOLE_QUANTUM_POTENTIAL (panzer::Traits::Residual): 0.171246 - 1.60988% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 21: [panzer::Traits::Residual] QuantumPotentialFlux: 0.0513924 - 0.48314% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 22: [panzer::Traits::Residual] Integrator_GradBasisDotVector (EVALUATES):  RESIDUAL_HOLE_QUANTUM_POTENTIAL_LAPLACIAN: 0.184809 - 1.73738% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 24: [panzer::Traits::Residual] SumStatic Rank 2 Evaluator: 0.246409 - 2.31649% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 121: [panzer::Traits::Residual] SCATTER_HOLE_QUANTUM_POTENTIAL Scatter Residual: 0.131404 - 1.23532% [200220]
+|   |   |   |   |   |   Phalanx: Evaluator 295: [panzer::Traits::Residual] Constant: Relative Permittivity: 0.00388766 - 0.0365479% [18900]
+|   |   |   |   |   |   Phalanx: Evaluator 273: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.0151029 - 0.141982% [18900]
+|   |   |   |   |   |   Phalanx: Evaluator 264: [panzer::Traits::Residual] CVFEM-SG_SubCV_Edge_Potential_Flux: 0.0382692 - 0.359769% [18900]
+|   |   |   |   |   |   Phalanx: Evaluator 265: [panzer::Traits::Residual] Integrator_SubCV_SurfaceFluxDotNorm: 0.0186879 - 0.175685% [18900]
+|   |   |   |   |   |   Phalanx: Evaluator 266: [panzer::Traits::Residual] Sum Evaluator: 0.0217251 - 0.204237% [18900]
+|   |   |   |   |   |   Phalanx: Evaluator 291: [panzer::Traits::Residual] SCATTER_ELECTRIC_POTENTIAL Scatter Residual: 0.0118231 - 0.111149% [18900]
+|   |   |   |   |   |   Remainder: 2.75016 - 25.8542%
+|   |   |   |   |   panzer::AssemblyEngine::evaluate_neumannbcs(panzer::Traits::Residual): 6.9864e-05 - 0.00065374% [5]
+|   |   |   |   |   panzer::AssemblyEngine::evaluate_interfacebcs(panzer::Traits::Residual): 8.817e-06 - 8.25035e-05% [5]
+|   |   |   |   |   panzer::AssemblyEngine::evaluate_dirichletbcs(panzer::Traits::Residual): 0.0462831 - 0.433086% [5]
+|   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(0): 0.00744235 - 16.0801% [5]
+|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(0), side=4: 0.00743499 - 99.9012% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 399: [panzer::Traits::Residual] Constant_Reference_Energy: 1.1682e-05 - 0.157122% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 397: [panzer::Traits::Residual] LatticeTemp_Constant: 8.636e-06 - 0.116153% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 364: [panzer::Traits::Residual] Constant: Effective Band Gap: 1.282e-06 - 0.0172428% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 368: [panzer::Traits::Residual] Constant: Effective Electron Affinity: 1.042e-06 - 0.0140148% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 372: [panzer::Traits::Residual] Effective_DOS_Simple: 0.000367669 - 4.94512% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 366: [panzer::Traits::Residual] Constant: Electron Affinity: 1.163e-06 - 0.0156422% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 362: [panzer::Traits::Residual] Constant: Band Gap: 1.204e-06 - 0.0161937% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 370: [panzer::Traits::Residual] Intrinsic_Concentration_Default: 1.6583e-05 - 0.22304% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 357: [panzer::Traits::Residual] DopingRaw_Function: 0.00480799 - 64.6671% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 489: [panzer::Traits::Residual] BC at Ohmic Contact: 0.000417644 - 5.61728% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 491: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 5.0054e-05 - 0.673222% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 494: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 1.1261e-05 - 0.151459% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 497: [panzer::Traits::Residual] Dummy Scatter: BC(0)Residual_ELECTRIC_POTENTIAL Scatter Residual: 0.000663789 - 8.9279% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 492: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRON_DENSITY (Residual): 4.3433e-05 - 0.58417% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 495: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 8.718e-06 - 0.117256% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 498: [panzer::Traits::Residual] Dummy Scatter: BC(0)Residual_ELECTRON_DENSITY Scatter Residual: 0.000461827 - 6.21153% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 493: [panzer::Traits::Residual] GatherSolution (Tpetra): HOLE_DENSITY (Residual): 4.289e-05 - 0.576867% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 496: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 8.978e-06 - 0.120753% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 499: [panzer::Traits::Residual] Dummy Scatter: BC(0)Residual_HOLE_DENSITY Scatter Residual: 0.000447681 - 6.02127% [5]
+|   |   |   |   |   |   |   |   Remainder: 6.1466e-05 - 0.826712%
+|   |   |   |   |   |   |   Remainder: 7.356e-06 - 0.0988398%
+|   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(1): 0.00730506 - 15.7834% [5]
+|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(1), side=5: 0.00729815 - 99.9054% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 828: [panzer::Traits::Residual] Constant_Reference_Energy: 6.922e-06 - 0.0948459% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 826: [panzer::Traits::Residual] LatticeTemp_Constant: 7.304e-06 - 0.10008% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 793: [panzer::Traits::Residual] Constant: Effective Band Gap: 1.204e-06 - 0.0164973% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 797: [panzer::Traits::Residual] Constant: Effective Electron Affinity: 9.44e-07 - 0.0129348% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 801: [panzer::Traits::Residual] Effective_DOS_Simple: 0.000366368 - 5.02001% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 795: [panzer::Traits::Residual] Constant: Electron Affinity: 1.384e-06 - 0.0189637% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 791: [panzer::Traits::Residual] Constant: Band Gap: 1.091e-06 - 0.014949% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 799: [panzer::Traits::Residual] Intrinsic_Concentration_Default: 1.583e-05 - 0.216904% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 786: [panzer::Traits::Residual] DopingRaw_Function: 0.00482603 - 66.1268% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 918: [panzer::Traits::Residual] BC at Ohmic Contact: 0.000406581 - 5.57101% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 920: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 5.0406e-05 - 0.690668% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 923: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 9.709e-06 - 0.133034% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 926: [panzer::Traits::Residual] Dummy Scatter: BC(1)Residual_ELECTRIC_POTENTIAL Scatter Residual: 0.000609668 - 8.35373% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 921: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRON_DENSITY (Residual): 4.246e-05 - 0.581791% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 924: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 8.656e-06 - 0.118605% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 927: [panzer::Traits::Residual] Dummy Scatter: BC(1)Residual_ELECTRON_DENSITY Scatter Residual: 0.000422212 - 5.78519% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 922: [panzer::Traits::Residual] GatherSolution (Tpetra): HOLE_DENSITY (Residual): 4.2971e-05 - 0.588793% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 925: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 8.006e-06 - 0.109699% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 928: [panzer::Traits::Residual] Dummy Scatter: BC(1)Residual_HOLE_DENSITY Scatter Residual: 0.00042001 - 5.75502% [5]
+|   |   |   |   |   |   |   |   Remainder: 5.0394e-05 - 0.690503%
+|   |   |   |   |   |   |   Remainder: 6.911e-06 - 0.0946056%
+|   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(2): 0.00256485 - 5.54165% [5]
+|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(2), side=0: 0.000496694 - 19.3655% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1232: [panzer::Traits::Residual] Constant_Reference_Energy: 4.98e-06 - 1.00263% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1278: [panzer::Traits::Residual] BC at Contact On Insulator: 6.07e-06 - 1.22208% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1280: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 5.2068e-05 - 10.4829% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1281: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 7.094e-06 - 1.42824% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1282: [panzer::Traits::Residual] Dummy Scatter: BC(2)Residual_ELECTRIC_POTENTIAL Scatter Residual: 0.000408868 - 82.3179% [5]
+|   |   |   |   |   |   |   |   Remainder: 1.7614e-05 - 3.54625%
+|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(2), side=1: 0.000685273 - 26.7179% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1436: [panzer::Traits::Residual] Constant_Reference_Energy: 1.0319e-05 - 1.50582% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1482: [panzer::Traits::Residual] BC at Contact On Insulator: 1.045e-05 - 1.52494% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1484: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 9.2057e-05 - 13.4336% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1485: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 1.4517e-05 - 2.11843% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1486: [panzer::Traits::Residual] Dummy Scatter: BC(2)Residual_ELECTRIC_POTENTIAL Scatter Residual: 0.000541268 - 78.9857% [5]
+|   |   |   |   |   |   |   |   Remainder: 1.6662e-05 - 2.43144%
+|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(2), side=2: 0.000990021 - 38.5996% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1640: [panzer::Traits::Residual] Constant_Reference_Energy: 1.7403e-05 - 1.75784% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1686: [panzer::Traits::Residual] BC at Contact On Insulator: 1.6043e-05 - 1.62047% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1688: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.000144576 - 14.6033% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1689: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 2.1901e-05 - 2.21218% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1690: [panzer::Traits::Residual] Dummy Scatter: BC(2)Residual_ELECTRIC_POTENTIAL Scatter Residual: 0.000773399 - 78.1195% [5]
+|   |   |   |   |   |   |   |   Remainder: 1.6699e-05 - 1.68673%
+|   |   |   |   |   |   |   panzer::AssemblyEngine::evaluateBCs: BC(2), side=3: 0.000366276 - 14.2806% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1844: [panzer::Traits::Residual] Constant_Reference_Energy: 7.166e-06 - 1.95645% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1890: [panzer::Traits::Residual] BC at Contact On Insulator: 7.683e-06 - 2.0976% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1892: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 6.0725e-05 - 16.579% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1893: [panzer::Traits::Residual] Dirichlet Residual Evaluator: 9.357e-06 - 2.55463% [5]
+|   |   |   |   |   |   |   |   Phalanx: Evaluator 1894: [panzer::Traits::Residual] Dummy Scatter: BC(2)Residual_ELECTRIC_POTENTIAL Scatter Residual: 0.000265225 - 72.4112% [5]
+|   |   |   |   |   |   |   |   Remainder: 1.612e-05 - 4.40105%
+|   |   |   |   |   |   |   Remainder: 2.6582e-05 - 1.0364%
+|   |   |   |   |   |   Remainder: 0.0289708 - 62.5949%
+|   |   |   |   |   panzer::AssemblyEngine::evaluate_scatter(panzer::Traits::Residual): 0.00094169 - 0.0088117% [5]
+|   |   |   |   |   Remainder: 0.000612944 - 0.00573552%
+|   |   |   |   NOX Total Preconditioner Construction: 229.036 - 68.1844% [4]
+|   |   |   |   |   ILUT::initialize: 8.486e-06 - 3.7051e-06% [4]
+|   |   |   |   |   ILUT::compute: 228.801 - 99.8975% [4]
+|   |   |   |   |   Remainder: 0.234716 - 0.10248%
+|   |   |   |   NOX Total Linear Solve: 54.2321 - 16.145% [4]
+|   |   |   |   |   Stratimikos: AztecOOLOWS: 54.232 - 99.9999% [4]
+|   |   |   |   |   |   Stratimikos: AztecOOLOWS:SingleSolve: 54.232 - 99.9998% [4]
+|   |   |   |   |   |   |   ILUT::apply: 47.8011 - 88.142% [197]
+|   |   |   |   |   |   |   Remainder: 6.43085 - 11.858%
+|   |   |   |   |   |   Remainder: 8.5574e-05 - 0.000157792%
+|   |   |   |   |   Remainder: 3.4045e-05 - 6.27765e-05%
+|   |   |   |   panzer::AssemblyEngine::evaluate_gather(panzer::Traits::Residual): 0.00121469 - 0.000361616% [3]
+|   |   |   |   panzer::AssemblyEngine::evaluate_volume(panzer::Traits::Residual): 0.498317 - 0.14835% [3]
+|   |   |   |   |   Phalanx: Evaluator 2971: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.00298955 - 0.599929% [3780]
+|   |   |   |   |   Phalanx: Evaluator 3052: [panzer::Traits::Residual] STK HGRAD Scatter Basis HGrad:1: ELECTRIC_POTENTIAL: STK-Scatter Fields: 0.00536615 - 1.07685% [3780]
+|   |   |   |   |   Phalanx: Evaluator 3128: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.0538528 - 10.8069% [40044]
+|   |   |   |   |   Phalanx: Evaluator 3302: [panzer::Traits::Residual] STK HGRAD Scatter Basis HGrad:1: ELECTRIC_POTENTIALELECTRON_DENSITYELECTRON_QUANTUM_POTENTIALHOLE_DENSITYHOLE_QUANTUM_POTENTIAL: STK-Scatter Fields: 0.204057 - 40.9492% [40044]
+|   |   |   |   |   Phalanx: Evaluator 2605: [panzer::Traits::Residual] Degeneracy_Factor: 0.00114066 - 0.228902% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2576: [panzer::Traits::Residual] Constant: Effective Band Gap: 0.00102682 - 0.206058% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2574: [panzer::Traits::Residual] Constant: Band Gap: 0.000947769 - 0.190194% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2611: [panzer::Traits::Residual] Constant_Reference_Energy: 0.00140776 - 0.282503% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2609: [panzer::Traits::Residual] LatticeTemp_Constant: 0.00104426 - 0.209558% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2584: [panzer::Traits::Residual] Effective_DOS_Simple: 0.00243887 - 0.48942% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2580: [panzer::Traits::Residual] Constant: Effective Electron Affinity: 0.000998866 - 0.200448% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2527: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.00695624 - 1.39595% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2599: [panzer::Traits::Residual] Intrinsic_FermiEnergy: 0.00160954 - 0.322994% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2590: [panzer::Traits::Residual] Mobility_Default: 0.00108479 - 0.217691% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2596: [panzer::Traits::Residual] Diffusion_Coefficient_Default: 0.00120097 - 0.241004% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2463: [panzer::Traits::Residual] CVFEM-SG_Primary_Edge_Current_Density: 0.00295563 - 0.593123% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2464: [panzer::Traits::Residual] CVFEM-SG_SubCV_Edge_Current_Density: 0.00595222 - 1.19446% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2465: [panzer::Traits::Residual] Integrator_SubCV_SurfaceFluxDotNorm: 0.0050317 - 1.00974% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2468: [panzer::Traits::Residual] Sum Evaluator: 0.00592059 - 1.18812% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2587: [panzer::Traits::Residual] Mobility_Default: 0.00112746 - 0.226254% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2593: [panzer::Traits::Residual] Diffusion_Coefficient_Default: 0.00119981 - 0.240773% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2457: [panzer::Traits::Residual] CVFEM-SG_Primary_Edge_Current_Density: 0.00261509 - 0.524784% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2458: [panzer::Traits::Residual] CVFEM-SG_SubCV_Edge_Current_Density: 0.0038804 - 0.778701% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2459: [panzer::Traits::Residual] Integrator_SubCV_SurfaceFluxDotNorm: 0.00310172 - 0.622439% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2462: [panzer::Traits::Residual] Sum Evaluator: 0.00569452 - 1.14275% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2701: [panzer::Traits::Residual] Subtract: Value A - Value B: 0.00114626 - 0.230027% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2702: [panzer::Traits::Residual] SubcellSum: drain_nanowire_Current: 0.00690378 - 1.38542% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2703: [panzer::Traits::Residual] Functional Response Scatter: drain_nanowire_Current: 0.00577548 - 1.159% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2860: [panzer::Traits::Residual] Degeneracy_Factor: 0.0011241 - 0.22558% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2831: [panzer::Traits::Residual] Constant: Effective Band Gap: 0.00102425 - 0.205543% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2829: [panzer::Traits::Residual] Constant: Band Gap: 0.000928631 - 0.186353% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2866: [panzer::Traits::Residual] Constant_Reference_Energy: 0.00141099 - 0.283151% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2864: [panzer::Traits::Residual] LatticeTemp_Constant: 0.00105093 - 0.210896% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2839: [panzer::Traits::Residual] Effective_DOS_Simple: 0.00245244 - 0.492145% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2835: [panzer::Traits::Residual] Constant: Effective Electron Affinity: 0.00102825 - 0.206345% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2782: [panzer::Traits::Residual] GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual): 0.00694833 - 1.39436% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2854: [panzer::Traits::Residual] Intrinsic_FermiEnergy: 0.00163131 - 0.327363% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2845: [panzer::Traits::Residual] Mobility_Default: 0.00108485 - 0.217703% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2851: [panzer::Traits::Residual] Diffusion_Coefficient_Default: 0.00120175 - 0.241161% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2718: [panzer::Traits::Residual] CVFEM-SG_Primary_Edge_Current_Density: 0.00298159 - 0.598332% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2719: [panzer::Traits::Residual] CVFEM-SG_SubCV_Edge_Current_Density: 0.00600857 - 1.20577% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2720: [panzer::Traits::Residual] Integrator_SubCV_SurfaceFluxDotNorm: 0.00517886 - 1.03927% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2723: [panzer::Traits::Residual] Sum Evaluator: 0.00604993 - 1.21407% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2842: [panzer::Traits::Residual] Mobility_Default: 0.00112992 - 0.226747% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2848: [panzer::Traits::Residual] Diffusion_Coefficient_Default: 0.00123786 - 0.248408% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2712: [panzer::Traits::Residual] CVFEM-SG_Primary_Edge_Current_Density: 0.00257576 - 0.516891% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2713: [panzer::Traits::Residual] CVFEM-SG_SubCV_Edge_Current_Density: 0.00385568 - 0.773739% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2714: [panzer::Traits::Residual] Integrator_SubCV_SurfaceFluxDotNorm: 0.00317091 - 0.636323% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2717: [panzer::Traits::Residual] Sum Evaluator: 0.00573249 - 1.15037% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2956: [panzer::Traits::Residual] Subtract: Value A - Value B: 0.00114635 - 0.230044% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2957: [panzer::Traits::Residual] SubcellSum: source_nanowire_Current: 0.00703096 - 1.41094% [5076]
+|   |   |   |   |   Phalanx: Evaluator 2958: [panzer::Traits::Residual] Functional Response Scatter: source_nanowire_Current: 0.00575197 - 1.15428% [5076]
+|   |   |   |   |   Remainder: 0.0891541 - 17.891%
+|   |   |   |   panzer::AssemblyEngine::evaluate_neumannbcs(panzer::Traits::Residual): 1.2142e-05 - 3.6147e-06% [3]
+|   |   |   |   panzer::AssemblyEngine::evaluate_interfacebcs(panzer::Traits::Residual): 3.226e-06 - 9.60387e-07% [3]
+|   |   |   |   panzer::AssemblyEngine::evaluate_dirichletbcs(panzer::Traits::Residual): 0.00180738 - 0.00053806% [3]
+|   |   |   |   panzer::AssemblyEngine::evaluate_scatter(panzer::Traits::Residual): 0.00379027 - 0.00112837% [3]
+|   |   |   |   STK_Interface::writeToExodus(timestep): 0.0253818 - 0.00755622% [1]
+|   |   |   |   Remainder: 4.51398 - 1.34382%
+|   |   |   Remainder: 0.00192783 - 0.000573915%
+|   |   Piro::SteadyStateSolver::evalConvergedModelResponsesAndSensitivities::calc g, df/dp, dg/dp, dg/dx: 1.1923e-05 - 2.36804e-06% [1]
+|   |   Remainder: 164.741 - 32.7194%
+|   Remainder: 0.00365483 - 0.000725884%

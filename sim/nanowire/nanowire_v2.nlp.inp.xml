@@ -3,19 +3,36 @@
     <Parameter name="Source" type="string" value="Exodus File" />
     <ParameterList name="Exodus File" >
       <Parameter name="Restart Index" type="int" value="-1" />
-      <Parameter name="File Name" type="string" value="nanowire_v2.e" />
+      <Parameter name="File Name" type="string" value="transistor.e" />
     </ParameterList>
   </ParameterList>
   <ParameterList name="Closure Models" >
-    <Parameter name="Lattice Temperature" type="double" value="1.4" />
-    <Parameter name="Concentration Scaling" type="double" value="1e16" />
+    <Parameter name="Concentration Scaling" type="double" value="1e15" />
+    <Parameter name="Lattice Temperature" type="double" value="300" />
     <ParameterList name="channelSiliconParameter" >
       <Parameter name="Material Name" type="string" value="Silicon" />
       <ParameterList name="Doping" >
         <Parameter name="Value" type="string" value="Function" />
         <ParameterList name="Function1" >
           <Parameter name="Function Type" type="string" value="Uniform" />
+          <Parameter name="Doping Value" type="double" value="1e16" />
+          <Parameter name="Xmin" type="double" value="0" />
+          <Parameter name="Xmax" type="double" value="30" />
+          <Parameter name="Ymin" type="double" value="-10" />
+          <Parameter name="Ymax" type="double" value="10" />
+          <Parameter name="Zmin" type="double" value="-10" />
+          <Parameter name="Zmax" type="double" value="10" />
           <Parameter name="Doping Type" type="string" value="Acceptor" />
+        </ParameterList>
+        <ParameterList name="Function2" >
+          <Parameter name="Function Type" type="string" value="Uniform" />
+          <Parameter name="Doping Type" type="string" value="Acceptor" />
+          <Parameter name="Xmin" type="double" value="130" />
+          <Parameter name="Xmax" type="double" value="160" />
+          <Parameter name="Ymin" type="double" value="-10" />
+          <Parameter name="Ymax" type="double" value="10" />
+          <Parameter name="Zmin" type="double" value="-10" />
+          <Parameter name="Zmax" type="double" value="10" />
           <Parameter name="Doping Value" type="double" value="1e16" />
         </ParameterList>
       </ParameterList>
@@ -294,34 +311,20 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="Output" >
-    <Parameter name="File Name" type="string" value="nanowire_v2.nlp.exo" />
-    <ParameterList name="Cell Average Quantities" >
-      <Parameter name="nanowire" type="string" value="Electron Mobility,Hole Mobility,Doping,Acceptor Concentration,Donor Concentration,Intrinsic Concentration,Band Gap,Effective Band Gap,Electron Affinity,Effective Electron Affinity,Conduction Band,Valence Band,Intrinsic Fermi Level,Electron Effective DOS,Hole Effective DOS,Reference Energy,Negative Potential Gradient X,Negative Potential Gradient Y" />
-    </ParameterList>
+    <Parameter name="File Name" type="string" value="transistor.nlp.exo" />
   </ParameterList>
   <ParameterList name="Block ID to Physics ID Mapping" >
     <Parameter name="nanowire" type="string" value="channelSemiconductor" />
-    <Parameter name="ox_1" type="string" value="insulator" />
-    <Parameter name="ox_2" type="string" value="insulator" />
+    <Parameter name="ox" type="string" value="insulator" />
   </ParameterList>
   <ParameterList name="Physics Blocks" >
     <ParameterList name="channelSemiconductor" >
       <ParameterList>
         <Parameter name="Model ID" type="string" value="channelSiliconParameter" />
-        <Parameter name="Type" type="string" value="SGCVFEM Drift Diffusion" />
+        <Parameter name="Type" type="string" value="NLPoisson" />
         <Parameter name="Basis Type" type="string" value="HGrad" />
         <Parameter name="Basis Order" type="int" value="1" />
         <Parameter name="Integration Order" type="int" value="2" />
-        <ParameterList name="Options" >
-          <Parameter name="Solve Electron" type="string" value="True" />
-          <Parameter name="Solve Hole" type="string" value="True" />
-        </ParameterList>
-        <ParameterList name="Quantum Correction" >
-          <Parameter name="Electron Quantum Correction" type="bool" value="true" />
-          <Parameter name="Hole Quantum Correction" type="bool" value="true" />
-          <Parameter name="Electron Model Type" type="string" value="Simplified" />
-          <Parameter name="Hole Model Type" type="string" value="Simplified" />
-        </ParameterList>
       </ParameterList>
     </ParameterList>
     <ParameterList name="insulator" >
@@ -335,31 +338,14 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="Initial Conditions" >
-    <ParameterList name="ox_1" >
-      <ParameterList name="ELECTRIC_POTENTIAL" >
-        <Parameter name="Value" type="double" value="0.0" />
-      </ParameterList>
-    </ParameterList>
-    <ParameterList name="ox_2" >
+    <ParameterList name="ox" >
       <ParameterList name="ELECTRIC_POTENTIAL" >
         <Parameter name="Value" type="double" value="0.0" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="nanowire" >
       <ParameterList name="ELECTRIC_POTENTIAL" >
-        <Parameter name="Value" type="string" value="Equilibrium Potential" />
-      </ParameterList>
-      <ParameterList name="ELECTRON_DENSITY" >
-        <Parameter name="Value" type="string" value="Equilibrium Density" />
-      </ParameterList>
-      <ParameterList name="HOLE_DENSITY" >
-        <Parameter name="Value" type="string" value="Equilibrium Density" />
-      </ParameterList>
-      <ParameterList name="ELECTRON_QUANTUM_POTENTIAL" >
-        <Parameter name="Value" type="string" value="Equilibrium Potential" />
-      </ParameterList>
-      <ParameterList name="HOLE_QUANTUM_POTENTIAL" >
-        <Parameter name="Value" type="string" value="Equilibrium Potential" />
+        <Parameter name="Value" type="double" value="0.0" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -386,19 +372,8 @@
     </ParameterList>
     <ParameterList>
       <Parameter name="Type" type="string" value="Dirichlet" />
-      <Parameter name="Sideset ID" type="string" value="gate_1" />
-      <Parameter name="Element Block ID" type="string" value="ox_1" />
-      <Parameter name="Equation Set Name" type="string" value="ELECTRIC_POTENTIAL" />
-      <Parameter name="Strategy" type="string" value="Contact On Insulator" />
-      <ParameterList name="Data" >
-        <Parameter name="Work Function" type="double" value="4.5" />
-        <Parameter name="Voltage" type="double" value="0" />
-      </ParameterList>
-    </ParameterList>
-    <ParameterList>
-      <Parameter name="Type" type="string" value="Dirichlet" />
-      <Parameter name="Sideset ID" type="string" value="gate_2" />
-      <Parameter name="Element Block ID" type="string" value="ox_2" />
+      <Parameter name="Sideset ID" type="string" value="gate" />
+      <Parameter name="Element Block ID" type="string" value="ox" />
       <Parameter name="Equation Set Name" type="string" value="ELECTRIC_POTENTIAL" />
       <Parameter name="Strategy" type="string" value="Contact On Insulator" />
       <ParameterList name="Data" >

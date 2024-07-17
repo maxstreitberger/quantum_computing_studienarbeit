@@ -1,0 +1,90 @@
+
+
+# Create the substrate region and move to desired location.
+create brick width 0.35 height 0.25 depth 0.02
+volume 1 move z -0.225
+
+#create buried oxide
+create brick width 0.35 height 0.05 depth 0.02
+volume 2 move z -0.075
+
+#create channel region
+create brick width 0.35 height 0.05 depth 0.02
+volume 3 move z -0.025
+
+# Gate oxide
+create brick width 0.035 height 0.005 depth 0.02
+volume 4 move z 0.0025
+
+# source contact
+create brick width 0.100 height 0.001 depth 0.02
+volume 5 move x -0.075 z 0.0005
+
+# drain contact
+create brick width 0.100 height 0.001 depth 0.02
+volume 6 move x 0.075 z 0.0005
+
+# gate contact
+create brick width 0.030 height 0.001 depth 0.02
+volume 7 move z 0.0055
+
+imprint all
+merge all
+
+
+#Remove the contact volumes after imprint
+
+delete body 5 6 7 
+
+merge all
+
+#block out and name the different volumes
+
+block 1 volume 1
+block 1 name "substrateregion"
+block 1 element type tetra
+block 2 volume 2
+block 2 name "buriedoxide"
+block 2 element type tetra
+block 3 volume 3
+block 3 name "channel"
+block 3 element type tetra
+block 4 volume 4
+block 4 name "gateoxide"
+block 4 element type tetra
+
+
+#Name the contacts and interfaces
+
+#contacts
+
+sideset 1 surface 38
+sideset 1 name "gate"
+
+sideset 2 surface 26
+sideset 2 name "source"
+
+sideset 3 surface 32
+sideset 3 name "drain"
+
+sideset 4 surface 2
+sideset 4 name "substrate"
+
+
+#Create a base mesh
+
+volume 1 interval size 0.025
+volume 1 scheme tetmesh
+
+volume 2 interval size 0.0125
+volume 2 scheme tetmesh
+
+volume 3 interval size 0.0125
+volume 3 scheme tetmesh
+
+volume 4 interval size 0.00675
+volume 4 scheme tetmesh
+
+mesh volume 1 2 3 4
+
+export mesh "mosfet.exo" dimension 3 block all overwrite

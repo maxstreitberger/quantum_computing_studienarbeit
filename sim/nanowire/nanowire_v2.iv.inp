@@ -1,13 +1,13 @@
 # Name of the input exodus file, which includes the results for
 # ELECTRIC_POTENTIAL as obtained from a previous NLP simulation
-import state file nanowire_v2.nlp.exo at index 1
+import state file transistor.nlp.exo at index 1
 
 # Output exodus file for results of this simulation
 start output parameters
-  output state file nanowire_v2.dd.iv.exo
+  output state file transistor.dd.iv.exo
 end output parameters
 
-lattice temperature=1.4
+lattice temperature=300
 
 start Physics Block channelSemiconductor
       geometry block is nanowire
@@ -24,9 +24,8 @@ start Physics Block channelSemiconductor
 end Physics Block Semiconductor
 
 start Physics Block insulator
-      geometry block is ox_1
-      geometry block is ox_2
-      standard discretization type is laplace cvfem
+      geometry block is ox
+      standard discretization type is nlp
       material model is SiO2Parameter
 end Physics Block insulator
 
@@ -34,9 +33,19 @@ start Material Block channelSiliconParameter
       material name is Silicon
       relative permittivity = 11.9
       start uniform doping named Function1
-            type is acceptor
-            concentration = 1e16
-      end uniform doping
+            Concentration = 1e16
+            spatial range is 0 to 30 in x
+            spatial range is -10 to 10 in y
+            spatial range is -10 to 10 in z
+            Type is acceptor
+      end uniform doping named Function1
+      start uniform doping named Function2
+            Type is acceptor
+            spatial range is 130 to 160 in x
+            spatial range is -10 to 10 in y
+            spatial range is -10 to 10 in z
+            Concentration = 1e16
+      end uniform doping named Function2  
 end Material Block siliconParameter
 
 start Material Block SiO2Parameter
@@ -44,9 +53,7 @@ start Material Block SiO2Parameter
       relative permittivity = 3.9
 end Material Block
 
-
-initial conditions for ELECTRIC_POTENTIAL in ox_1 is exodus file
-initial conditions for ELECTRIC_POTENTIAL in ox_2 is exodus file
+initial conditions for ELECTRIC_POTENTIAL in ox is exodus file
 initial conditions for ELECTRIC_POTENTIAL in nanowire is exodus file
 
 initial conditions for ELECTRON_DENSITY in nanowire is equilibrium density
@@ -54,15 +61,14 @@ initial conditions for HOLE_DENSITY in nanowire is equilibrium density
 initial conditions for ELECTRON_QUANTUM_POTENTIAL in nanowire is exodus file
 initial conditions for HOLE_QUANTUM_POTENTIAL in nanowire is exodus file
 
-bc is ohmic for source on nanowire fixed at 0.1
+bc is ohmic for source on nanowire fixed at 1.0
 bc is ohmic for drain on nanowire fixed at 0.0
-BC is contact on insulator for gate_1 on ox_1 with work function 4.5 swept from 4.0 to 5.0
-BC is contact on insulator for gate_2 on ox_2 with work function 4.5 fixed at 1.7
+BC is contact on insulator for gate on ox with work function 4.5 swept from 0 to 1.5
 
 start sweep options
-   initial step size = 0.02
-   minimum step size = 0.02
-   maximum step size = 0.02
+   initial step size = 0.2
+   minimum step size = 0.2
+   maximum step size = 0.2
 end sweep options
 
 #start solver block

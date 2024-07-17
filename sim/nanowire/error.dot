@@ -1,0 +1,31 @@
+digraph G {
+10 [fontcolor="", label="SCATTER_ELECTRIC_POTENTIAL Scatter Residual\n   Evaluates:\n      SCATTER_ELECTRIC_POTENTIAL:double:<>(0)\n   Contributes:\n   Dependencies:\n      RESIDUAL_ELECTRIC_POTENTIAL:double:<C,B>(1,8)"]
+10->3
+3 [fontcolor="", label="Integrator_BasisTimesScalar (CONTRIBUTES):  RESIDUAL_ELECTRIC_POTENTIAL\n   Evaluates:\n   Contributes:\n      RESIDUAL_ELECTRIC_POTENTIAL:double:<C,B>(1,8)\n   Dependencies:\n      Nonlinear Poisson Source:double:<C,IP>(1,8)"]
+3->1
+1 [fontcolor="", label="Integrator_GradBasisDotVector (EVALUATES):  RESIDUAL_ELECTRIC_POTENTIAL\n   Evaluates:\n      RESIDUAL_ELECTRIC_POTENTIAL:double:<C,B>(1,8)\n   Contributes:\n   Dependencies:\n      Potential Flux:double:<C,IP,D>(1,8,3)"]
+1->0
+0 [fontcolor="", label="PotentialFlux\n   Evaluates:\n      Potential Flux:double:<C,IP,D>(1,8,3)\n   Contributes:\n   Dependencies:\n      GRAD_ELECTRIC_POTENTIAL:double:<C,IP,D>(1,8,3)\n      Relative Permittivity:double:<C,IP>(1,8)"]
+0->11
+11 [fontcolor="", label="Constant: Relative Permittivity\n   Evaluates:\n      Relative Permittivity:double:<C,IP>(1,8)\n   Contributes:\n   Dependencies:"]
+0->9
+9 [fontcolor="", label="DOFGradient: GRAD_ELECTRIC_POTENTIAL (panzer::Traits::Residual)\n   Evaluates:\n      GRAD_ELECTRIC_POTENTIAL:double:<C,IP,D>(1,8,3)\n   Contributes:\n   Dependencies:\n      ELECTRIC_POTENTIAL:double:<C,B>(1,8)"]
+9->4
+4 [fontcolor="", label="GatherSolution (Tpetra): ELECTRIC_POTENTIAL (Residual)\n   Evaluates:\n      ELECTRIC_POTENTIAL:double:<C,B>(1,8)\n   Contributes:\n   Dependencies:"]
+3->2
+2 [fontcolor="red", label="NLPoissonSource\n   Evaluates:\n      Nonlinear Poisson Source:double:<C,IP>(1,8)\n   Contributes:\n   Dependencies:\n      Doping_Raw:double:<C,IP>(1,8)    **** MISSING ****\n      Lattice Temperature:double:<C,IP>(1,8)\n      Electron Effective DOS:double:<C,IP>(1,8)    **** MISSING ****\n      Hole Effective DOS:double:<C,IP>(1,8)    **** MISSING ****\n      Conduction Band:double:<C,IP>(1,8)\n      Valence Band:double:<C,IP>(1,8)"]
+2->21
+21 [fontcolor="", label="CondVale_Band\n   Evaluates:\n      Conduction Band:double:<C,IP>(1,8)\n      Valence Band:double:<C,IP>(1,8)\n   Contributes:\n   Dependencies:\n      Effective Electron Affinity:double:<C,IP>(1,8)\n      Effective Band Gap:double:<C,IP>(1,8)\n      ELECTRIC_POTENTIAL:double:<C,IP>(1,8)\n      Reference Energy:double:<C,IP>(1,8)"]
+21->27
+27 [fontcolor="", label="Constant_Reference_Energy\n   Evaluates:\n      Reference Energy:double:<C,IP>(1,8)\n   Contributes:\n   Dependencies:"]
+21->8
+8 [fontcolor="", label="DOF: ELECTRIC_POTENTIAL (panzer::Traits::Residual)\n   Evaluates:\n      ELECTRIC_POTENTIAL:double:<C,IP>(1,8)\n   Contributes:\n   Dependencies:\n      ELECTRIC_POTENTIAL:double:<C,B>(1,8)"]
+8->4
+21->15
+15 [fontcolor="", label="Constant: Effective Band Gap\n   Evaluates:\n      Effective Band Gap:double:<C,IP>(1,8)\n   Contributes:\n   Dependencies:"]
+21->19
+19 [fontcolor="", label="Constant: Effective Electron Affinity\n   Evaluates:\n      Effective Electron Affinity:double:<C,IP>(1,8)\n   Contributes:\n   Dependencies:"]
+2->25
+25 [fontcolor="", label="LatticeTemp_Constant\n   Evaluates:\n      Lattice Temperature:double:<C,IP>(1,8)\n   Contributes:\n   Dependencies:"]
+10->1
+}
