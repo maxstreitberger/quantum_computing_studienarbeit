@@ -720,7 +720,7 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 41623, 41623, 41623, 
        Test Details = 0   [default]
      Solver Options -> 
       Status Test Check Type = Minimal
-      User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x55ce8ace7e10,node=0x55ce8ace7e40,strong_count=3,weak_count=0}
+      User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x5d15c43c3770,node=0x5d15c43c37a0,strong_count=3,weak_count=0}
       Observer = Teuchos::RCP<NOX::Observer>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
       User Defined Merit Function = Teuchos::RCP<NOX::MeritFunction::Generic>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
       Fixed Point Iteration Type = Seidel   [default]
@@ -887,7 +887,7 @@ NOX ->
    Test Details = 0   [default]
  Solver Options -> 
   Status Test Check Type = Minimal
-  User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x55ce8ace7e10,node=0x55ce8ace7e40,strong_count=3,weak_count=0}
+  User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x5d15c43c3770,node=0x5d15c43c37a0,strong_count=3,weak_count=0}
   Observer = Teuchos::RCP<NOX::Observer>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
   User Defined Merit Function = Teuchos::RCP<NOX::MeritFunction::Generic>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
   Fixed Point Iteration Type = Seidel   [default]
@@ -1006,7 +1006,7 @@ Start of Continuation Step 0 : Attempting to converge initial guess at initial p
                  iter:    2           residual = 1.149814e-07
  
  
- 		Solution time: 0.072859 (sec.)
+ 		Solution time: 0.071815 (sec.)
  		total iterations: 2
  
 ************************************************************************
@@ -1060,7 +1060,7 @@ Start of Continuation Step 0 : Attempting to converge initial guess at initial p
   
   
   
-  		Solution time: 1.691071 (sec.)
+  		Solution time: 1.714092 (sec.)
   		total iterations: 64
   
 ************************************************************************
@@ -1117,7 +1117,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.019920 (sec.)
+  		Solution time: 0.020172 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -1174,7 +1174,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.020861 (sec.)
+  		Solution time: 0.021540 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -1231,7 +1231,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.020454 (sec.)
+  		Solution time: 0.020434 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -1288,7 +1288,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.020327 (sec.)
+  		Solution time: 0.020234 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -1345,7 +1345,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.020314 (sec.)
+  		Solution time: 0.020752 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -1402,7 +1402,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.020586 (sec.)
+  		Solution time: 0.022098 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -1459,7 +1459,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.021103 (sec.)
+  		Solution time: 0.020345 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -1516,7 +1516,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.020777 (sec.)
+  		Solution time: 0.020311 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -1573,7 +1573,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.021666 (sec.)
+  		Solution time: 0.021105 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -1630,7 +1630,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.021396 (sec.)
+  		Solution time: 0.020992 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -1687,7 +1687,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.022819 (sec.)
+  		Solution time: 0.020792 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -1744,7 +1744,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.020573 (sec.)
+  		Solution time: 0.020822 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -1801,7 +1801,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.020207 (sec.)
+  		Solution time: 0.020398 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -1858,7 +1858,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.020705 (sec.)
+  		Solution time: 0.020294 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -1915,7 +1915,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.020671 (sec.)
+  		Solution time: 0.024538 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -1972,7 +1972,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.019786 (sec.)
+  		Solution time: 0.020275 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -2029,7 +2029,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.021011 (sec.)
+  		Solution time: 0.020616 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -2086,7 +2086,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.024868 (sec.)
+  		Solution time: 0.020516 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -2143,7 +2143,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.020819 (sec.)
+  		Solution time: 0.020859 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -2200,7 +2200,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.021104 (sec.)
+  		Solution time: 0.020178 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -2257,7 +2257,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.020408 (sec.)
+  		Solution time: 0.020220 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -2314,7 +2314,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.020848 (sec.)
+  		Solution time: 0.020325 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -2371,7 +2371,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.020366 (sec.)
+  		Solution time: 0.020750 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -2428,7 +2428,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.020647 (sec.)
+  		Solution time: 0.020566 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -2485,7 +2485,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.020387 (sec.)
+  		Solution time: 0.019803 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -2542,7 +2542,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.020679 (sec.)
+  		Solution time: 0.019991 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -2599,7 +2599,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.020923 (sec.)
+  		Solution time: 0.020745 (sec.)
   		total iterations: 1
   
 ************************************************************************
@@ -2656,7 +2656,7 @@ Ifpack2::ILUT::Compute: zero pivot encountered! Replacing with rownorm and conti
   
   
   
-  		Solution time: 0.020763 (sec.)
+  		Solution time: 0.020192 (sec.)
   		total iterations: 1
   
 
