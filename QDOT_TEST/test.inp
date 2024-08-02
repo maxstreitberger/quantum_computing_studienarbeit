@@ -1,0 +1,42 @@
+Import State File test.exo
+
+start output parameters
+      Output State File qdot.nlp.exo
+end output parameters
+
+concentration scaling=1e15
+lattice temperature=300
+
+start Physics Block channelSemiconductor
+      geometry block is "Block 2"
+      standard discretization type is nlp
+      material model is channelSiliconParameter
+end Physics Block Semiconductor
+
+start Material Block channelSiliconParameter
+      material name is Silicon
+      relative permittivity = 11.9
+      
+      start uniform doping named Function1
+            Type is acceptor
+            Concentration = 1e16
+      end uniform doping named Function1
+
+end Material Block channelSiliconParameter
+
+initial conditions for ELECTRIC_POTENTIAL in channel is uninitialized
+
+BC is ohmic for "Block 1" on channel fixed at 0
+BC is ohmic for "Block 3" on channel fixed at 0
+
+tpetra is on
+start solver block
+   start tpetra block
+     problem type is steady state
+     verbosity level is high
+     maximum number nonlinear iterations = 30
+     nonlinear solver residual tolerance = 1e-8
+   end
+end solver block
+
+

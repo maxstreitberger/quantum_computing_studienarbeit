@@ -1,0 +1,355 @@
+$ Algebraic Preprocessor (Aprepro) version 6.32 (2024/05/20)
+Import State File test.exo
+
+start output parameters
+      Output State File qdot.nlp.exo
+end output parameters
+
+concentration scaling=1e15
+lattice temperature=300
+
+start Physics Block channelSemiconductor
+      geometry block is "Block 2"
+      standard discretization type is nlp
+      material model is channelSiliconParameter
+end Physics Block Semiconductor
+
+start Material Block channelSiliconParameter
+      material name is Silicon
+      relative permittivity = 11.9
+      
+      start uniform doping named Function1
+            Type is acceptor
+            Concentration = 1e16
+      end uniform doping named Function1
+
+end Material Block channelSiliconParameter
+
+initial conditions for ELECTRIC_POTENTIAL in channel is uninitialized
+
+BC is ohmic for "Block 1" on channel fixed at 0
+BC is ohmic for "Block 3" on channel fixed at 0
+
+tpetra is on
+start solver block
+   start tpetra block
+     problem type is steady state
+     verbosity level is high
+     maximum number nonlinear iterations = 30
+     nonlinear solver residual tolerance = 1e-8
+   end
+end solver block
+
+
+***********************************************************************
+             Charon: 2.2
+TCAD code for simulation of semiconductor physics 
+
+Copyright 2020 National Technology & Engineering Solutions of Sandia,
+LLC (NTESS). Under the terms of Contract DE-NA0003525 with NTESS, the
+U.S. Government retains certain rights in this software.
+Questions? Contact the Charon team via email:
+    charon@sandia.gov
+***********************************************************************
+Mesh -> 
+ Source = Exodus File   [unused]
+ Exodus File -> 
+  Restart Index = -1   [unused]
+  File Name = test.exo   [unused]
+Closure Models -> 
+ Concentration Scaling = 1e+15   [unused]
+ Lattice Temperature = 300   [unused]
+ channelSiliconParameter -> 
+  Material Name = Silicon   [unused]
+  Doping -> 
+   Value = Function   [unused]
+   Function1 -> 
+    Function Type = Uniform   [unused]
+    Doping Type = Acceptor   [unused]
+    Doping Value = 1e+16   [unused]
+  Relative Permittivity -> 
+   Value = 11.9   [unused]
+Assembly -> 
+ Use Tpetra = 1   [unused]
+Solution Control -> 
+ Piro Solver = NOX   [unused]
+ Compute Sensitivities = 0   [unused]
+ Jacobian Operator = Have Jacobian   [unused]
+ NOX -> 
+  Nonlinear Solver = Line Search Based   [unused]
+  Direction -> 
+   Method = Newton   [unused]
+   Newton -> 
+    Forcing Term Method = Constant   [unused]
+    Rescue Bad Newton Solve = 1   [unused]
+    Linear Solver -> 
+     Tolerance = 1e-06   [unused]
+    Stratimikos Linear Solver -> 
+     Stratimikos -> 
+      Linear Solver Type = AztecOO   [unused]
+      Preconditioner Type = Ifpack2   [unused]
+      Linear Solver Types -> 
+       AztecOO -> 
+        Forward Solve -> 
+         Max Iterations = 300   [unused]
+         AztecOO Settings -> 
+          Size of Krylov Subspace = 200   [unused]
+          RCM Reordering = Disabled   [unused]
+          Overlap = 0   [unused]
+          Aztec Solver = GMRES   [unused]
+          Convergence Test = r0   [unused]
+          Output Frequency = 20   [unused]
+       Belos -> 
+        Solver Type = Block GMRES   [unused]
+        VerboseObject -> 
+         Verbosity Level = high   [unused]
+        Solver Types -> 
+         Block GMRES -> 
+          Convergence Tolerance = 1e-06   [unused]
+          Output Frequency = 20   [unused]
+          Output Style = 1   [unused]
+          Verbosity = 33   [unused]
+          Block Size = 1   [unused]
+          Num Blocks = 100   [unused]
+          Maximum Iterations = 300   [unused]
+          Flexible Gmres = 0   [unused]
+      Preconditioner Types -> 
+       Teko -> 
+        Inverse Type = GS   [unused]
+        Write Block Operator = 0   [unused]
+        Test Block Operator = 0   [unused]
+        Inverse Factory Library -> 
+         GS -> 
+          Type = Block Gauss-Seidel   [unused]
+          Use Upper Triangle = 1   [unused]
+          Inverse Type 1 = ILU_tpetra   [unused]
+          Inverse Type 2 = Id   [unused]
+         ILU_tpetra -> 
+          Type = Ifpack2   [unused]
+          Overlap = 1   [unused]
+          Ifpack2 Settings -> 
+           fact: drop tolerance = 0   [unused]
+           fact: ilut level-of-fill = 1   [unused]
+         Id -> 
+          Type = Identity   [unused]
+       Ifpack2 -> 
+        Prec Type = ILUT   [unused]
+        Ifpack2 Settings -> 
+         schwarz: overlap level = 1   [unused]
+         schwarz: use reordering = 0   [unused]
+         schwarz: combine mode = add   [unused]
+         fact: ilut level-of-fill = 3   [unused]
+         fact: iluk level-of-fill = 3   [unused]
+         fact: iluk level-of-overlap = 1   [unused]
+  Status Tests -> 
+   Test Type = Combo   [unused]
+   Combo Type = OR   [unused]
+   Number of Tests = 3   [unused]
+   Test 0 -> 
+    Test Type = Combo   [unused]
+    Combo Type = AND   [unused]
+    Number of Tests = 2   [unused]
+    Test 0 -> 
+     Test Type = NormF   [unused]
+     Tolerance = 1e-08   [unused]
+    Test 1 -> 
+     Test Type = NormWRMS   [unused]
+     Tolerance = 1   [unused]
+     Relative Tolerance = 1e-07   [unused]
+     Absolute Tolerance = 1e-14   [unused]
+     Alpha = 0   [unused]
+     Beta = 1   [unused]
+   Test 1 -> 
+    Maximum Iterations = 30   [unused]
+    Test Type = MaxIters   [unused]
+   Test 2 -> 
+    Test Type = FiniteValue   [unused]
+    Vector Type = F Vector   [unused]
+  Thyra Group Options -> 
+   Function Scaling = Row Sum   [unused]
+  Line Search -> 
+   Method = Full Step   [unused]
+   Full Step -> 
+    Full Step = 1   [unused]
+  Printing -> 
+   Output Precision = 3   [unused]
+   Output Processor = 0   [unused]
+   Output Information -> 
+    Error = 1   [unused]
+    Warning = 1   [unused]
+    Inner Iteration = 1   [unused]
+    Outer Iteration = 1   [unused]
+    Outer Iteration StatusTest = 1   [unused]
+    Parameters = 1   [unused]
+    Details = 1   [unused]
+    Linear Solver Details = 1   [unused]
+    Stepper Iteration = 1   [unused]
+    Stepper Details = 1   [unused]
+    Stepper Parameters = 1   [unused]
+  Solver Options -> 
+   Status Test Check Type = Minimal   [unused]
+ Tempus -> 
+  Integrator Name = Default Integrator   [unused]
+  Default Stepper -> 
+   Stepper Type = Backward Euler   [unused]
+   Solver Name = Default Solver   [unused]
+   Default Solver -> 
+    NOX -> 
+     Nonlinear Solver = Line Search Based   [unused]
+     Status Tests -> 
+      Test Type = Combo   [unused]
+      Combo Type = OR   [unused]
+      Number of Tests = 3   [unused]
+      Test 0 -> 
+       Test Type = Combo   [unused]
+       Combo Type = AND   [unused]
+       Number of Tests = 2   [unused]
+       Test 0 -> 
+        Test Type = NormF   [unused]
+        Tolerance = 0.0001   [unused]
+       Test 1 -> 
+        Test Type = NormWRMS   [unused]
+        Tolerance = 1   [unused]
+        Relative Tolerance = 1e-07   [unused]
+        Absolute Tolerance = 1e-14   [unused]
+        Alpha = 0   [unused]
+        Beta = 1   [unused]
+      Test 1 -> 
+       Maximum Iterations = 30   [unused]
+       Test Type = MaxIters   [unused]
+      Test 2 -> 
+       Test Type = FiniteValue   [unused]
+       Vector Type = F Vector   [unused]
+     Thyra Group Options -> 
+      Function Scaling = Row Sum   [unused]
+     Line Search -> 
+      Method = Full Step   [unused]
+      Full Step -> 
+       Full Step = 1   [unused]
+     Printing -> 
+      Output Precision = 3   [unused]
+      Output Processor = 0   [unused]
+      Output Information -> 
+       Error = 1   [unused]
+       Warning = 1   [unused]
+       Inner Iteration = 1   [unused]
+       Outer Iteration = 1   [unused]
+       Outer Iteration StatusTest = 1   [unused]
+       Parameters = 1   [unused]
+       Details = 1   [unused]
+       Linear Solver Details = 1   [unused]
+       Stepper Iteration = 1   [unused]
+       Stepper Details = 1   [unused]
+       Stepper Parameters = 1   [unused]
+     Solver Options -> 
+      Status Test Check Type = Minimal   [unused]
+  Default Integrator -> 
+   Integrator Type = Integrator Basic   [unused]
+   Stepper Name = Default Stepper   [unused]
+   Time Step Control -> 
+    Output Index Interval = 0   [unused]
+    Initial Time Step = 1e-05   [unused]
+ Rythmos -> 
+  Final Time = 0.00055   [unused]
+  Stepper Type = Backward Euler   [unused]
+  Nonlinear Solver Type = NOX   [unused]
+  Rythmos Integration Control -> 
+   Take Variable Steps = 1   [unused]
+  Rythmos Step Control Strategy -> 
+   Initial Step Size = 1e-05   [unused]
+   Min Step Size = 1e-07   [unused]
+   Max Step Size = 0.0001   [unused]
+   Number of Constant First Order Steps = 5   [unused]
+   Step Size Decrease Factor = 0.2   [unused]
+   Step Size Increase Factor = 1.5   [unused]
+   Min Order = 1   [unused]
+   Max Order = 1   [unused]
+  Rythmos Stepper -> 
+   VerboseObject -> 
+    Verbosity Level = none   [unused]
+  Rythmos Integrator -> 
+   VerboseObject -> 
+    Verbosity Level = none   [unused]
+Output -> 
+ File Name = qdot.nlp.exo   [unused]
+Block ID to Physics ID Mapping -> 
+ Block 2 = channelSemiconductor   [unused]
+Physics Blocks -> 
+ channelSemiconductor -> 
+  child0 -> 
+   Type = NLPoisson   [unused]
+   Basis Type = HGrad   [unused]
+   Basis Order = 1   [unused]
+   Integration Order = 2   [unused]
+   Model ID = channelSiliconParameter   [unused]
+Initial Conditions -> 
+ channel -> 
+  ELECTRIC_POTENTIAL -> 
+   Value = 0   [unused]
+Boundary Conditions -> 
+ child0 -> 
+  Type = Dirichlet   [unused]
+  Sideset ID = Block 1   [unused]
+  Element Block ID = channel   [unused]
+  Equation Set Name = ALL_DOFS   [unused]
+  Strategy = Ohmic Contact   [unused]
+  Data -> 
+   Voltage = 0   [unused]
+ child1 -> 
+  Type = Dirichlet   [unused]
+  Sideset ID = Block 3   [unused]
+  Element Block ID = channel   [unused]
+  Equation Set Name = ALL_DOFS   [unused]
+  Strategy = Ohmic Contact   [unused]
+  Data -> 
+   Voltage = 0   [unused]
+
+
+Coordinate Scaling X0 = 0.0001 [cm]
+Concentration Scaling C0 = 1e+15 [1/cm^3]
+Diffusion Coefficient Scaling D0 = 25.8 [cm^2/s]
+Temperature Scaling T0 = 300 [K]
+Voltage Scaling V0 = 0.025852 [V]
+Mobility Scaling Mu0 = 997.987 [cm^2/(V.s)]
+Source Scaling R0 = 2.58e+24 [1/(cm^3.s)]
+Time Scaling t0 = 3.87597e-10 [s]
+Electric Field Scaling E0 = 258.52 [V/cm]
+Current Density Scaling J0 = 41.3362 [A/cm^2]
+Heat Generation Scaling H0 = 3e+10 [W/cm^3]
+Heat Capacity Scaling cL0 = 0.0387597 [J/(cm^3.K)]
+Thermal Conductivity Scaling kL0 = 1 [W/(K.cm)]
+Laplacian Scaling Lambda2 = 0.00142867 [unitless]
+
+
+Exodus Library Warning/Error: [ex__check_file_type]
+	ERROR: Could not open file 'test.exo', error = No such file or directory.
+
+Exodus Library Warning/Error: [ex_open_int]
+	ERROR: failed to open test.exo of type 0 for reading. Either the file does not exist,
+	or there is a permission or file format issue.
+
+IOSS WARNING: ERROR: Unable to open input database 'test.exo' of type 'exodusII'
+*********** Caught Exception: Begin Error Report ***********
+Expr '!(Teuchos::is_null(m_database) || !m_database->ok(true))' eval'd to true, throwing.
+Error occurred at: stk_io/stk_io/InputFile.cpp:142
+ 0# stk::output_stacktrace(std::ostream&) in /usr/local/lib/libstk_util_util.so.2
+ 1# stk::io::InputFile::InputFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, ompi_communicator_t*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, stk::io::DatabasePurpose, Ioss::PropertyManager&) in /usr/local/lib/libstk_io.so.2
+ 2# stk::io::StkMeshIoBroker::add_mesh_database(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, stk::io::DatabasePurpose) in /usr/local/lib/libstk_io.so.2
+ 3# panzer_stk::STK_ExodusReaderFactory::buildUncommitedMesh(ompi_communicator_t*) const in /usr/local/lib/libpanzer-stk.so.2
+ 4# panzer_stk::ModelEvaluatorFactory<double>::buildObjects(Teuchos::RCP<Teuchos::Comm<int> const> const&, Teuchos::RCP<panzer::GlobalData> const&, Teuchos::RCP<panzer::EquationSetFactory const> const&, panzer::BCStrategyFactory const&, panzer::ClosureModelFactory_TemplateManager<panzer::Traits> const&, bool) in /usr/local/lib/libpanzer-stk.so.2
+ 5# 0x0000561F05CE9D13 in /usr/local/bin/charon_mp.exe
+ 6# 0x00007E3C06C29D90 in /lib/x86_64-linux-gnu/libc.so.6
+ 7# __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6
+ 8# 0x0000561F05CEE945 in /usr/local/bin/charon_mp.exe
+
+Error: ERROR: Could not open database 'test.exo' of type 'exodusii'
+
+************ Caught Exception: End Error Report ************
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD
+with errorcode 14.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------

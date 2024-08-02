@@ -1,0 +1,9 @@
+digraph G {
+47 [fontcolor="", label="SCATTER_ELECTRIC_POTENTIAL Scatter Residual\n   Evaluates:\n      SCATTER_ELECTRIC_POTENTIAL:double:<>(0)\n   Contributes:\n   Dependencies:\n      ELECTRIC_POTENTIAL:double:<C,B>(1,4)"]
+47->53
+53 [fontcolor="", label="Constant: ELECTRIC_POTENTIAL\n   Evaluates:\n      ELECTRIC_POTENTIAL:double:<C,B>(1,4)\n   Contributes:\n   Dependencies:"]
+48 [fontcolor="red", label="SCATTER_ELECTRON_DENSITY Scatter Residual\n   Evaluates:\n      SCATTER_ELECTRON_DENSITY:double:<>(0)\n   Contributes:\n   Dependencies:\n      ELECTRON_DENSITY:double:<C,B>(1,4)    **** MISSING ****"]
+49 [fontcolor="red", label="SCATTER_ELECTRON_QUANTUM_POTENTIAL Scatter Residual\n   Evaluates:\n      SCATTER_ELECTRON_QUANTUM_POTENTIAL:double:<>(0)\n   Contributes:\n   Dependencies:\n      ELECTRON_QUANTUM_POTENTIAL:double:<C,B>(1,4)    **** MISSING ****"]
+50 [fontcolor="red", label="SCATTER_HOLE_DENSITY Scatter Residual\n   Evaluates:\n      SCATTER_HOLE_DENSITY:double:<>(0)\n   Contributes:\n   Dependencies:\n      HOLE_DENSITY:double:<C,B>(1,4)    **** MISSING ****"]
+51 [fontcolor="red", label="SCATTER_HOLE_QUANTUM_POTENTIAL Scatter Residual\n   Evaluates:\n      SCATTER_HOLE_QUANTUM_POTENTIAL:double:<>(0)\n   Contributes:\n   Dependencies:\n      HOLE_QUANTUM_POTENTIAL:double:<C,B>(1,4)    **** MISSING ****"]
+}

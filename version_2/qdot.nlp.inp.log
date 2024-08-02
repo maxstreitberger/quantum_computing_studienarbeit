@@ -1,8 +1,13 @@
 $ Algebraic Preprocessor (Aprepro) version 6.32 (2024/05/20)
-Import State File qdot.exo
+Import State File qdot_v2_50.exo
+#Import State File qdot_v2_80.exo
+#Import State File qdot_v2_160.exo
 
 start output parameters
-      Output State File qdot.nlp.exo
+      Output State File qdot_v2_50.nlp.exo
+      #Output State File qdot_v2_80.nlp.exo
+      #Output State File qdot_v2_160.nlp.exo
+
       Output Nodal Variables in channel for "Doping,Acceptor Concentration,Donor Concentration"
       Output cell average Variables in channel for scalar "Doping,Acceptor Concentration,Donor Concentration"
       Output Nodal Variables in substrateregion for "Doping,Acceptor Concentration,Donor Concentration"
@@ -37,9 +42,17 @@ start Material Block channelSiliconParameter
       
       start mgauss doping named Function2 
             Type is donor
-	      spatial range is -0.200 to -0.08 in x
-	      spatial range is -0.030 to  0.100 in z
-            spatial range is -0.01 to 0.01 in y
+            #50
+            spatial range is -0.225 to -0.075 in x
+
+            #80
+            #spatial range is -0.240 to -0.090 in x
+
+            #160
+            #spatial range is -0.280 to -0.130 in x
+            
+            spatial range is -0.01 to  0.0 in z
+            spatial range is -0.025 to 0.025 in y
             Concentration range is 1.0e0 to 1.0e17 
             gradient width = 0.001 in x
             gradient width = 0.001 in z
@@ -47,9 +60,17 @@ start Material Block channelSiliconParameter
       
       start mgauss doping named Function3
             Type is donor
-	      spatial range is  0.08 to  0.200 in x
-	      spatial range is -0.030 to  0.100 in z
-            spatial range is -0.01 to 0.01 in y
+            #50
+            spatial range is  0.075 to  0.225 in x
+
+            #80
+            #spatial range is  0.090 to  0.240 in x
+
+            #160
+            #spatial range is  0.130 to  0.280 in x
+	      
+	      spatial range is -0.01 to  0.0 in z
+            spatial range is -0.025 to 0.025 in y
             Concentration range is 1.0e0 to 1.0e17 
             gradient width = 0.001 in x
             gradient width = 0.001 in z
@@ -110,7 +131,7 @@ Mesh ->
  Source = Exodus File   [unused]
  Exodus File -> 
   Restart Index = -1   [unused]
-  File Name = qdot.exo   [unused]
+  File Name = qdot_v2_50.exo   [unused]
 Closure Models -> 
  Concentration Scaling = 1e+15   [unused]
  Lattice Temperature = 300   [unused]
@@ -124,12 +145,12 @@ Closure Models ->
     Y ERFC_ON = 0   [unused]
     Z ERFC_ON = 0   [unused]
     Doping Type = Donor   [unused]
-    Xmin = -0.2   [unused]
-    Xmax = -0.08   [unused]
-    Zmin = -0.03   [unused]
-    Zmax = 0.1   [unused]
-    Ymin = -0.01   [unused]
-    Ymax = 0.01   [unused]
+    Xmin = -0.225   [unused]
+    Xmax = -0.075   [unused]
+    Zmin = -0.01   [unused]
+    Zmax = 0   [unused]
+    Ymin = -0.025   [unused]
+    Ymax = 0.025   [unused]
     Doping Min Value = 1   [unused]
     Doping Max Value = 1e+17   [unused]
     X Width = 0.001   [unused]
@@ -140,12 +161,12 @@ Closure Models ->
     Y ERFC_ON = 0   [unused]
     Z ERFC_ON = 0   [unused]
     Doping Type = Donor   [unused]
-    Xmin = 0.08   [unused]
-    Xmax = 0.2   [unused]
-    Zmin = -0.03   [unused]
-    Zmax = 0.1   [unused]
-    Ymin = -0.01   [unused]
-    Ymax = 0.01   [unused]
+    Xmin = 0.075   [unused]
+    Xmax = 0.225   [unused]
+    Zmin = -0.01   [unused]
+    Zmax = 0   [unused]
+    Ymin = -0.025   [unused]
+    Ymax = 0.025   [unused]
     Doping Min Value = 1   [unused]
     Doping Max Value = 1e+17   [unused]
     X Width = 0.001   [unused]
@@ -374,7 +395,7 @@ Solution Control ->
    VerboseObject -> 
     Verbosity Level = none   [unused]
 Output -> 
- File Name = qdot.nlp.exo   [unused]
+ File Name = qdot_v2_50.nlp.exo   [unused]
  Nodal Quantities -> 
   channel = Doping,Acceptor Concentration,Donor Concentration   [unused]
   substrateregion = Doping,Acceptor Concentration,Donor Concentration   [unused]
@@ -483,11 +504,11 @@ Laplacian Scaling Lambda2 = 0.00142867 [unitless]
 
 STK Mesh data:
    Spatial dim = 3
-   Entity counts (Nodes, Edges, Faces, Cells) = ( 8906, 52131, 81673, 38447 )
+   Entity counts (Nodes, Edges, Faces, Cells) = ( 10003, 61259, 98469, 47212 )
    Element blocks = "buriedoxide" "channel" "gateoxide" "substrateregion" 
    Sidesets = "drain" "gate_1" "gate_2" "source" "substrate" 
    Nodesets = 
-Degree of freedom load balancing: Max, Min, Mean, StdDev = 8906, 8906, 8906, 0
+Degree of freedom load balancing: Max, Min, Mean, StdDev = 10003, 10003, 10003, 0
 
 ************************************************************************
 
@@ -606,8 +627,8 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 8906, 8906, 8906, 0
      Printing -> 
       Output Precision = 3
       Output Processor = 0
-      Output Stream = Teuchos::RCP<std::ostream>{ptr=0x56b21c32c650,node=0x56b21c346b30,strong_count=18,weak_count=0}
-      Error Stream = Teuchos::RCP<std::ostream>{ptr=0x56b21c32c650,node=0x56b21c346b30,strong_count=18,weak_count=0}
+      Output Stream = Teuchos::RCP<std::ostream>{ptr=0x5984cf30f6a0,node=0x5984cf329ba0,strong_count=18,weak_count=0}
+      Error Stream = Teuchos::RCP<std::ostream>{ptr=0x5984cf30f6a0,node=0x5984cf329ba0,strong_count=18,weak_count=0}
       MyPID = 0   [default]
       Output Information -> 
        Error = 1
@@ -625,15 +646,15 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 8906, 8906, 8906, 0
        Test Details = 0   [default]
      Solver Options -> 
       Status Test Check Type = Minimal
-      User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x56b3b35e91a0,node=0x56b3b3647700,strong_count=2,weak_count=0}
-      User Defined Merit Function = Teuchos::RCP<NOX::MeritFunction::Generic>{ptr=0x56b3b36425d0,node=0x56b3b3645330,strong_count=2,weak_count=0}
+      User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x5986e6bee340,node=0x5986e6c6bfa0,strong_count=2,weak_count=0}
+      User Defined Merit Function = Teuchos::RCP<NOX::MeritFunction::Generic>{ptr=0x5986e6c78640,node=0x5986e6c8b700,strong_count=2,weak_count=0}
       Observer = Teuchos::RCP<NOX::Observer>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
       Fixed Point Iteration Type = Seidel   [default]
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
   **...........AND Combination -> 
-    **...........F-Norm = 2.646e+02 < 1.000e-08
+    **...........F-Norm = 3.476e+02 < 1.000e-08
                  (Unscaled Two-Norm, Absolute Tolerance)
     ??...........WRMS-Norm = 1.000e+12 < 1
   **...........Number of Iterations = 0 < 30
@@ -642,7 +663,7 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 8906, 8906, 8906, 0
 
 ************************************************************************
 -- Nonlinear Solver Step 0 -- 
-||F|| = 2.646e+02  step = 0.000e+00  dx = 0.000e+00
+||F|| = 3.476e+02  step = 0.000e+00  dx = 0.000e+00
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -650,25 +671,24 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 8906, 8906, 8906, 0
        Forcing Term: 1e-06
  
  		*******************************************************
- 		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=8906,domainDim=8906}
+ 		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=10003,domainDim=10003}
  		***** Preconditioned GMRES solution
  		***** User-defined preconditioner
  		***** No scaling
  		*******************************************************
  
                  iter:    0           residual = 1.000000e+00
-                 iter:   20           residual = 1.310354e-06
-                 iter:   21           residual = 8.633471e-07
+                 iter:   20           residual = 9.409917e-07
  
  
- 		Solution time: 0.023300 (sec.)
- 		total iterations: 21
+ 		Solution time: 0.025284 (sec.)
+ 		total iterations: 20
  
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
   **...........AND Combination -> 
-    **...........F-Norm = 1.132e+00 < 1.000e-08
+    **...........F-Norm = 1.868e+00 < 1.000e-08
                  (Unscaled Two-Norm, Absolute Tolerance)
     ??...........WRMS-Norm = 1.000e+12 < 1
   **...........Number of Iterations = 1 < 30
@@ -677,7 +697,7 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 8906, 8906, 8906, 0
 
 ************************************************************************
 -- Nonlinear Solver Step 1 -- 
-||F|| = 1.132e+00  step = 1.000e+00  dx = 2.745e+06
+||F|| = 1.868e+00  step = 1.000e+00  dx = 3.576e+06
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -685,25 +705,24 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 8906, 8906, 8906, 0
        Forcing Term: 1e-06
   
   		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=8906,domainDim=8906}
+  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=10003,domainDim=10003}
   		***** Preconditioned GMRES solution
   		***** User-defined preconditioner
   		***** No scaling
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 2.999870e-06
-                  iter:   22           residual = 5.536391e-07
+                  iter:   18           residual = 8.123042e-07
   
   
-  		Solution time: 0.024073 (sec.)
-  		total iterations: 22
+  		Solution time: 0.022269 (sec.)
+  		total iterations: 18
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
   **...........AND Combination -> 
-    **...........F-Norm = 3.564e-01 < 1.000e-08
+    **...........F-Norm = 6.345e-01 < 1.000e-08
                  (Unscaled Two-Norm, Absolute Tolerance)
     ??...........WRMS-Norm = 1.000e+12 < 1
   **...........Number of Iterations = 2 < 30
@@ -712,7 +731,7 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 8906, 8906, 8906, 0
 
 ************************************************************************
 -- Nonlinear Solver Step 2 -- 
-||F|| = 3.564e-01  step = 1.000e+00  dx = 7.323e+04
+||F|| = 6.345e-01  step = 1.000e+00  dx = 5.265e+04
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -720,25 +739,24 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 8906, 8906, 8906, 0
        Forcing Term: 1e-06
   
   		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=8906,domainDim=8906}
+  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=10003,domainDim=10003}
   		***** Preconditioned GMRES solution
   		***** User-defined preconditioner
   		***** No scaling
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.480450e-05
-                  iter:   24           residual = 4.631154e-07
+                  iter:   20           residual = 4.318642e-07
   
   
-  		Solution time: 0.026449 (sec.)
-  		total iterations: 24
+  		Solution time: 0.025399 (sec.)
+  		total iterations: 20
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
   **...........AND Combination -> 
-    **...........F-Norm = 9.094e-02 < 1.000e-08
+    **...........F-Norm = 1.790e-01 < 1.000e-08
                  (Unscaled Two-Norm, Absolute Tolerance)
     ??...........WRMS-Norm = 1.000e+12 < 1
   **...........Number of Iterations = 3 < 30
@@ -747,7 +765,7 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 8906, 8906, 8906, 0
 
 ************************************************************************
 -- Nonlinear Solver Step 3 -- 
-||F|| = 9.094e-02  step = 1.000e+00  dx = 6.697e+04
+||F|| = 1.790e-01  step = 1.000e+00  dx = 4.748e+04
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -755,25 +773,25 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 8906, 8906, 8906, 0
        Forcing Term: 1e-06
   
   		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=8906,domainDim=8906}
+  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=10003,domainDim=10003}
   		***** Preconditioned GMRES solution
   		***** User-defined preconditioner
   		***** No scaling
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 3.291603e-05
-                  iter:   25           residual = 4.211153e-07
+                  iter:   20           residual = 1.559023e-06
+                  iter:   21           residual = 7.209776e-07
   
   
-  		Solution time: 0.027242 (sec.)
-  		total iterations: 25
+  		Solution time: 0.025795 (sec.)
+  		total iterations: 21
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
   **...........AND Combination -> 
-    **...........F-Norm = 1.109e-02 < 1.000e-08
+    **...........F-Norm = 2.832e-02 < 1.000e-08
                  (Unscaled Two-Norm, Absolute Tolerance)
     ??...........WRMS-Norm = 1.000e+12 < 1
   **...........Number of Iterations = 4 < 30
@@ -782,7 +800,7 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 8906, 8906, 8906, 0
 
 ************************************************************************
 -- Nonlinear Solver Step 4 -- 
-||F|| = 1.109e-02  step = 1.000e+00  dx = 3.997e+04
+||F|| = 2.832e-02  step = 1.000e+00  dx = 2.906e+04
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -790,25 +808,25 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 8906, 8906, 8906, 0
        Forcing Term: 1e-06
   
   		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=8906,domainDim=8906}
+  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=10003,domainDim=10003}
   		***** Preconditioned GMRES solution
   		***** User-defined preconditioner
   		***** No scaling
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 4.212258e-05
-                  iter:   25           residual = 6.242760e-07
+                  iter:   20           residual = 3.813421e-06
+                  iter:   22           residual = 5.534439e-07
   
   
-  		Solution time: 0.027309 (sec.)
-  		total iterations: 25
+  		Solution time: 0.027253 (sec.)
+  		total iterations: 22
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
   **...........AND Combination -> 
-    **...........F-Norm = 2.237e-04 < 1.000e-08
+    **...........F-Norm = 1.040e-03 < 1.000e-08
                  (Unscaled Two-Norm, Absolute Tolerance)
     ??...........WRMS-Norm = 1.000e+12 < 1
   **...........Number of Iterations = 5 < 30
@@ -817,7 +835,7 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 8906, 8906, 8906, 0
 
 ************************************************************************
 -- Nonlinear Solver Step 5 -- 
-||F|| = 2.237e-04  step = 1.000e+00  dx = 7.069e+03
+||F|| = 1.040e-03  step = 1.000e+00  dx = 7.080e+03
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -825,25 +843,25 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 8906, 8906, 8906, 0
        Forcing Term: 1e-06
   
   		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=8906,domainDim=8906}
+  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=10003,domainDim=10003}
   		***** Preconditioned GMRES solution
   		***** User-defined preconditioner
   		***** No scaling
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 4.370218e-05
-                  iter:   25           residual = 6.480422e-07
+                  iter:   20           residual = 4.884703e-06
+                  iter:   22           residual = 7.026553e-07
   
   
-  		Solution time: 0.027146 (sec.)
-  		total iterations: 25
+  		Solution time: 0.027348 (sec.)
+  		total iterations: 22
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
   **...........AND Combination -> 
-    **...........F-Norm = 9.814e-08 < 1.000e-08
+    **...........F-Norm = 1.568e-06 < 1.000e-08
                  (Unscaled Two-Norm, Absolute Tolerance)
     ??...........WRMS-Norm = 1.000e+12 < 1
   **...........Number of Iterations = 6 < 30
@@ -852,7 +870,7 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 8906, 8906, 8906, 0
 
 ************************************************************************
 -- Nonlinear Solver Step 6 -- 
-||F|| = 9.814e-08  step = 1.000e+00  dx = 1.555e+02
+||F|| = 1.568e-06  step = 1.000e+00  dx = 2.892e+02
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -860,27 +878,27 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 8906, 8906, 8906, 0
        Forcing Term: 1e-06
   
   		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=8906,domainDim=8906}
+  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=10003,domainDim=10003}
   		***** Preconditioned GMRES solution
   		***** User-defined preconditioner
   		***** No scaling
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 4.347721e-05
-                  iter:   25           residual = 6.400144e-07
+                  iter:   20           residual = 5.279123e-06
+                  iter:   22           residual = 7.582352e-07
   
   
-  		Solution time: 0.027278 (sec.)
-  		total iterations: 25
+  		Solution time: 0.027235 (sec.)
+  		total iterations: 22
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
   **...........AND Combination -> 
-    Converged....F-Norm = 6.927e-14 < 1.000e-08
+    Converged....F-Norm = 3.844e-12 < 1.000e-08
                  (Unscaled Two-Norm, Absolute Tolerance)
-    **...........WRMS-Norm = 5.706e+01 < 1
+    **...........WRMS-Norm = 1.087e+02 < 1
                  (Min Step Size:  1.000e+00 >= 0)
   **...........Number of Iterations = 7 < 30
   **...........Finite Number Check (Two-Norm F) = Finite
@@ -888,7 +906,7 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 8906, 8906, 8906, 0
 
 ************************************************************************
 -- Nonlinear Solver Step 7 -- 
-||F|| = 6.927e-14  step = 1.000e+00  dx = 6.921e-02
+||F|| = 3.844e-12  step = 1.000e+00  dx = 4.361e-01
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -896,40 +914,40 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 8906, 8906, 8906, 0
        Forcing Term: 1e-06
   
   		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=8906,domainDim=8906}
+  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=10003,domainDim=10003}
   		***** Preconditioned GMRES solution
   		***** User-defined preconditioner
   		***** No scaling
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.801532e-05
-                  iter:   25           residual = 7.383645e-07
+                  iter:   20           residual = 6.232014e-06
+                  iter:   23           residual = 6.438013e-07
   
   
-  		Solution time: 0.027295 (sec.)
-  		total iterations: 25
+  		Solution time: 0.028568 (sec.)
+  		total iterations: 23
   
 
 ************************************************************************
 -- Nonlinear Solver Step 8 -- 
-||F|| = 2.220e-14  step = 1.000e+00  dx = 4.252e-08 (Converged!)
+||F|| = 2.471e-14  step = 1.000e+00  dx = 1.018e-06 (Converged!)
 ************************************************************************
 
 ************************************************************************
 -- Final Status Test Results --
 Converged....OR Combination -> 
   Converged....AND Combination -> 
-    Converged....F-Norm = 2.220e-14 < 1.000e-08
+    Converged....F-Norm = 2.471e-14 < 1.000e-08
                  (Unscaled Two-Norm, Absolute Tolerance)
-    Converged....WRMS-Norm = 2.017e-05 < 1
+    Converged....WRMS-Norm = 2.428e-04 < 1
                  (Min Step Size:  1.000e+00 >= 0)
   ??...........Number of Iterations = -1 < 30
   ??...........Finite Number Check (Two-Norm F) = Unknown
 ************************************************************************
 
 IOSS WARNING: There are variables names whose name length (33) exceeds the current maximum name length (32)
-         set for this database (qdot.nlp.exo).
+         set for this database (qdot_v2_50.nlp.exo).
          You should either reduce the length of the variable name, or set the 'MAXIMUM_NAME_LENGTH' property
          to at least 33.
          Contact gdsjaar@sandia.gov for more information.
