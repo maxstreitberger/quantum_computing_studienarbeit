@@ -77,10 +77,10 @@ start Material Block channelSiliconParameter
       start mgauss doping named Function3
             Type is donor
             #10
-            spatial range is -0.205 to -0.055 in x
+            spatial range is 0.055 to 0.205 in x
             #20
             #spatial range is  0.060 to  0.210 in x
-	      spatial range is -0.01 to  0.0 in z
+	        spatial range is -0.01 to  0.0 in z
             spatial range is -0.025 to 0.025 in y
             Concentration range is 1.0e0 to 1.0e17 
             gradient width = 0.001 in x
