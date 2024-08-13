@@ -78,10 +78,10 @@ start Material Block channelSiliconParameter
       start mgauss doping named Function3
             Type is donor
             #10
-            spatial range is -0.205 to -0.055 in x
+            spatial range is 0.055 to 0.205 in x
             #20
             #spatial range is  0.060 to  0.210 in x
-	      spatial range is -0.01 to  0.0 in z
+	        spatial range is -0.01 to  0.0 in z
             spatial range is -0.025 to 0.025 in y
             Concentration range is 1.0e0 to 1.0e17 
             gradient width = 0.001 in x
@@ -193,8 +193,8 @@ Closure Models ->
     Y ERFC_ON = 0   [unused]
     Z ERFC_ON = 0   [unused]
     Doping Type = Donor   [unused]
-    Xmin = -0.205   [unused]
-    Xmax = -0.055   [unused]
+    Xmin = 0.055   [unused]
+    Xmax = 0.205   [unused]
     Zmin = -0.01   [unused]
     Zmax = 0   [unused]
     Ymin = -0.025   [unused]
@@ -706,7 +706,7 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 38253, 38253, 38253, 
        Test Details = 0   [default]
      Solver Options -> 
       Status Test Check Type = Minimal
-      User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x59d61b1b2120,node=0x59d61b1b2150,strong_count=3,weak_count=0}
+      User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x55ec086bdf50,node=0x55ec086bdf80,strong_count=3,weak_count=0}
       Observer = Teuchos::RCP<NOX::Observer>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
       User Defined Merit Function = Teuchos::RCP<NOX::MeritFunction::Generic>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
       Fixed Point Iteration Type = Seidel   [default]
@@ -873,7 +873,7 @@ NOX ->
    Test Details = 0   [default]
  Solver Options -> 
   Status Test Check Type = Minimal
-  User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x59d61b1b2120,node=0x59d61b1b2150,strong_count=3,weak_count=0}
+  User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x55ec086bdf50,node=0x55ec086bdf80,strong_count=3,weak_count=0}
   Observer = Teuchos::RCP<NOX::Observer>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
   User Defined Merit Function = Teuchos::RCP<NOX::MeritFunction::Generic>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
   Fixed Point Iteration Type = Seidel   [default]
@@ -966,7 +966,7 @@ Start of Continuation Step 0 : Attempting to converge initial guess at initial p
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
-  **...........F-Norm = 1.062e+03 < 1.000e-08
+  **...........F-Norm = 1.034e+03 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   **...........Number of Iterations = 0 < 70
   **...........Finite Number Check (Two-Norm F) = Finite
@@ -974,7 +974,7 @@ Start of Continuation Step 0 : Attempting to converge initial guess at initial p
 
 ************************************************************************
 -- Nonlinear Solver Step 0 -- 
-||F|| = 1.062e+03  step = 0.000e+00  dx = 0.000e+00
+||F|| = 1.034e+03  step = 0.000e+00  dx = 0.000e+00
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -989,16 +989,16 @@ Start of Continuation Step 0 : Attempting to converge initial guess at initial p
  		*******************************************************
  
                  iter:    0           residual = 1.000000e+00
-                 iter:   16           residual = 9.323226e-07
+                 iter:   17           residual = 5.698481e-07
  
  
- 		Solution time: 0.382523 (sec.)
- 		total iterations: 16
+ 		Solution time: 0.402912 (sec.)
+ 		total iterations: 17
  
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
-  **...........F-Norm = 8.311e-01 < 1.000e-08
+  **...........F-Norm = 1.500e+01 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   **...........Number of Iterations = 1 < 70
   **...........Finite Number Check (Two-Norm F) = Finite
@@ -1006,7 +1006,7 @@ Start of Continuation Step 0 : Attempting to converge initial guess at initial p
 
 ************************************************************************
 -- Nonlinear Solver Step 1 -- 
-||F|| = 8.311e-01  step = 1.000e+00  dx = 2.508e+03
+||F|| = 1.500e+01  step = 1.000e+00  dx = 3.012e+03
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -1021,17 +1021,17 @@ Start of Continuation Step 0 : Attempting to converge initial guess at initial p
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.005684e-03
-                  iter:   39           residual = 9.064841e-07
+                  iter:   20           residual = 4.819039e-06
+                  iter:   22           residual = 8.072214e-07
   
   
-  		Solution time: 0.935251 (sec.)
-  		total iterations: 39
+  		Solution time: 0.516703 (sec.)
+  		total iterations: 22
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
-  **...........F-Norm = 3.355e-01 < 1.000e-08
+  **...........F-Norm = 9.502e-01 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   **...........Number of Iterations = 2 < 70
   **...........Finite Number Check (Two-Norm F) = Finite
@@ -1039,7 +1039,7 @@ Start of Continuation Step 0 : Attempting to converge initial guess at initial p
 
 ************************************************************************
 -- Nonlinear Solver Step 2 -- 
-||F|| = 3.355e-01  step = 1.000e+00  dx = 6.036e+02
+||F|| = 9.502e-01  step = 1.000e+00  dx = 1.255e+03
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -1054,17 +1054,16 @@ Start of Continuation Step 0 : Attempting to converge initial guess at initial p
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 2.985391e-04
-                  iter:   29           residual = 7.418071e-07
+                  iter:   20           residual = 7.806353e-07
   
   
-  		Solution time: 0.692025 (sec.)
-  		total iterations: 29
+  		Solution time: 0.467424 (sec.)
+  		total iterations: 20
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
-  **...........F-Norm = 1.844e-02 < 1.000e-08
+  **...........F-Norm = 1.742e-03 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   **...........Number of Iterations = 3 < 70
   **...........Finite Number Check (Two-Norm F) = Finite
@@ -1072,7 +1071,7 @@ Start of Continuation Step 0 : Attempting to converge initial guess at initial p
 
 ************************************************************************
 -- Nonlinear Solver Step 3 -- 
-||F|| = 1.844e-02  step = 1.000e+00  dx = 2.419e+02
+||F|| = 1.742e-03  step = 1.000e+00  dx = 8.657e+01
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -1087,17 +1086,17 @@ Start of Continuation Step 0 : Attempting to converge initial guess at initial p
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 2.065488e-05
-                  iter:   35           residual = 6.971278e-07
+                  iter:   20           residual = 4.789505e-06
+                  iter:   23           residual = 3.906770e-07
   
   
-  		Solution time: 0.832357 (sec.)
-  		total iterations: 35
+  		Solution time: 0.540573 (sec.)
+  		total iterations: 23
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
-  **...........F-Norm = 6.947e-04 < 1.000e-08
+  **...........F-Norm = 4.628e-05 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   **...........Number of Iterations = 4 < 70
   **...........Finite Number Check (Two-Norm F) = Finite
@@ -1105,7 +1104,7 @@ Start of Continuation Step 0 : Attempting to converge initial guess at initial p
 
 ************************************************************************
 -- Nonlinear Solver Step 4 -- 
-||F|| = 6.947e-04  step = 1.000e+00  dx = 1.874e+01
+||F|| = 4.628e-05  step = 1.000e+00  dx = 3.625e+00
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -1120,992 +1119,23 @@ Start of Continuation Step 0 : Attempting to converge initial guess at initial p
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 3.031055e-06
-                  iter:   33           residual = 9.365656e-07
+                  iter:   20           residual = 3.397763e-06
+                  iter:   22           residual = 8.145499e-07
   
   
-  		Solution time: 0.785078 (sec.)
-  		total iterations: 33
+  		Solution time: 0.519573 (sec.)
+  		total iterations: 22
   
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 6.879e-07 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 5 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
 
 ************************************************************************
 -- Nonlinear Solver Step 5 -- 
-||F|| = 6.879e-07  step = 1.000e+00  dx = 5.601e-01
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 3.912467e-04
-                  iter:   40           residual = 3.830604e-06
-                  iter:   60           residual = 1.211721e-06
-                  iter:   61           residual = 4.680901e-07
-  
-  
-  		Solution time: 1.513105 (sec.)
-  		total iterations: 61
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 1.294e+02 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 6 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 6 -- 
-||F|| = 1.294e+02  step = 1.000e+00  dx = 9.422e+03
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.245807e-06
-                  iter:   21           residual = 8.199316e-07
-  
-  
-  		Solution time: 0.499194 (sec.)
-  		total iterations: 21
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 1.247e+02 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 7 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 7 -- 
-||F|| = 1.247e+02  step = 1.000e+00  dx = 8.192e+03
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 6.520548e-03
-                  iter:   40           residual = 9.424417e-06
-                  iter:   45           residual = 6.343796e-07
-  
-  
-  		Solution time: 1.092445 (sec.)
-  		total iterations: 45
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 3.481e+01 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 8 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 8 -- 
-||F|| = 3.481e+01  step = 1.000e+00  dx = 4.205e+03
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.774716e-03
-                  iter:   40           residual = 1.445481e-05
-                  iter:   50           residual = 9.161097e-07
-  
-  
-  		Solution time: 1.238945 (sec.)
-  		total iterations: 50
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 4.433e+01 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 9 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 9 -- 
-||F|| = 4.433e+01  step = 1.000e+00  dx = 1.036e+05
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 5.708333e-03
-                  iter:   40           residual = 2.371187e-03
-                  iter:   54           residual = 6.176879e-07
-  
-  
-  		Solution time: 1.353192 (sec.)
-  		total iterations: 54
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 3.160e+00 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 10 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 10 -- 
-||F|| = 3.160e+00  step = 1.000e+00  dx = 1.034e+05
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 2.912347e-04
-                  iter:   40           residual = 3.915699e-05
-                  iter:   58           residual = 9.983934e-07
-  
-  
-  		Solution time: 1.498851 (sec.)
-  		total iterations: 58
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 7.264e+00 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 11 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 11 -- 
-||F|| = 7.264e+00  step = 1.000e+00  dx = 3.363e+03
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 6.362424e-04
-                  iter:   40           residual = 3.910694e-05
-                  iter:   47           residual = 8.927297e-07
-  
-  
-  		Solution time: 1.186065 (sec.)
-  		total iterations: 47
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 4.284e+00 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 12 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 12 -- 
-||F|| = 4.284e+00  step = 1.000e+00  dx = 2.659e+03
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.085628e-04
-                  iter:   40           residual = 4.623478e-06
-                  iter:   43           residual = 9.420358e-07
-  
-  
-  		Solution time: 1.053936 (sec.)
-  		total iterations: 43
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 3.502e-01 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 13 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 13 -- 
-||F|| = 3.502e-01  step = 1.000e+00  dx = 6.087e+02
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 2.767805e-04
-                  iter:   40           residual = 4.386927e-05
-                  iter:   59           residual = 7.964509e-07
-  
-  
-  		Solution time: 1.482125 (sec.)
-  		total iterations: 59
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 1.196e-01 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 14 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 14 -- 
-||F|| = 1.196e-01  step = 1.000e+00  dx = 6.035e+02
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 2.245159e-04
-                  iter:   40           residual = 2.428866e-05
-                  iter:   60           residual = 2.049508e-06
-                  iter:   61           residual = 7.563005e-07
-  
-  
-  		Solution time: 1.523815 (sec.)
-  		total iterations: 61
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 4.414e-01 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 15 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 15 -- 
-||F|| = 4.414e-01  step = 1.000e+00  dx = 1.011e+03
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 9.266411e-05
-                  iter:   27           residual = 7.642713e-07
-  
-  
-  		Solution time: 0.652988 (sec.)
-  		total iterations: 27
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 3.804e-02 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 16 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 16 -- 
-||F|| = 3.804e-02  step = 1.000e+00  dx = 1.810e+02
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 6.196308e-05
-                  iter:   40           residual = 9.134693e-07
-  
-  
-  		Solution time: 0.964658 (sec.)
-  		total iterations: 40
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 1.567e-03 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 17 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 17 -- 
-||F|| = 1.567e-03  step = 1.000e+00  dx = 1.543e+01
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 5.843650e-05
-                  iter:   40           residual = 2.636403e-05
-                  iter:   58           residual = 4.341115e-07
-  
-  
-  		Solution time: 1.445888 (sec.)
-  		total iterations: 58
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 3.040e-02 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 18 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 18 -- 
-||F|| = 3.040e-02  step = 1.000e+00  dx = 2.371e+02
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.760935e-06
-                  iter:   22           residual = 8.177705e-07
-  
-  
-  		Solution time: 0.533082 (sec.)
-  		total iterations: 22
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 1.226e-04 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 19 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 19 -- 
-||F|| = 1.226e-04  step = 1.000e+00  dx = 8.435e+00
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.232950e-04
-                  iter:   40           residual = 1.149588e-04
-                  iter:   56           residual = 4.201032e-07
-  
-  
-  		Solution time: 1.391360 (sec.)
-  		total iterations: 56
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 3.076e-02 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 20 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 20 -- 
-||F|| = 3.076e-02  step = 1.000e+00  dx = 2.338e+02
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 6.956310e-07
-  
-  
-  		Solution time: 0.479849 (sec.)
-  		total iterations: 20
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 1.180e-04 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 21 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 21 -- 
-||F|| = 1.180e-04  step = 1.000e+00  dx = 8.224e+00
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 5.273980e-05
-                  iter:   40           residual = 4.570616e-05
-                  iter:   55           residual = 9.139444e-07
-  
-  
-  		Solution time: 1.366802 (sec.)
-  		total iterations: 55
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 3.203e-02 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 22 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 22 -- 
-||F|| = 3.203e-02  step = 1.000e+00  dx = 2.342e+02
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   19           residual = 9.623082e-07
-  
-  
-  		Solution time: 0.462723 (sec.)
-  		total iterations: 19
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 1.216e-04 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 23 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 23 -- 
-||F|| = 1.216e-04  step = 1.000e+00  dx = 8.386e+00
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 2.658959e-05
-                  iter:   40           residual = 1.658127e-05
-                  iter:   55           residual = 8.212745e-07
-  
-  
-  		Solution time: 1.362197 (sec.)
-  		total iterations: 55
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 3.307e-02 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 24 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 24 -- 
-||F|| = 3.307e-02  step = 1.000e+00  dx = 2.340e+02
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   19           residual = 8.061550e-07
-  
-  
-  		Solution time: 0.456239 (sec.)
-  		total iterations: 19
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 1.246e-04 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 25 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 25 -- 
-||F|| = 1.246e-04  step = 1.000e+00  dx = 8.564e+00
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.811715e-05
-                  iter:   40           residual = 6.018375e-06
-                  iter:   54           residual = 6.217547e-07
-  
-  
-  		Solution time: 1.354219 (sec.)
-  		total iterations: 54
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 3.315e-02 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 26 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 26 -- 
-||F|| = 3.315e-02  step = 1.000e+00  dx = 2.306e+02
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   19           residual = 7.001332e-07
-  
-  
-  		Solution time: 0.455395 (sec.)
-  		total iterations: 19
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 1.228e-04 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 27 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 27 -- 
-||F|| = 1.228e-04  step = 1.000e+00  dx = 8.583e+00
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.470015e-05
-                  iter:   40           residual = 2.682082e-06
-                  iter:   54           residual = 6.450575e-07
-  
-  
-  		Solution time: 1.332138 (sec.)
-  		total iterations: 54
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 2.864e-02 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 28 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 28 -- 
-||F|| = 2.864e-02  step = 1.000e+00  dx = 2.112e+02
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   19           residual = 6.155545e-07
-  
-  
-  		Solution time: 0.458725 (sec.)
-  		total iterations: 19
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 9.140e-05 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 29 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 29 -- 
-||F|| = 9.140e-05  step = 1.000e+00  dx = 7.481e+00
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.441807e-05
-                  iter:   40           residual = 1.663564e-06
-                  iter:   53           residual = 9.274589e-07
-  
-  
-  		Solution time: 1.337178 (sec.)
-  		total iterations: 53
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 1.260e-02 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 30 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 30 -- 
-||F|| = 1.260e-02  step = 1.000e+00  dx = 1.383e+02
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   19           residual = 5.565908e-07
-  
-  
-  		Solution time: 0.467771 (sec.)
-  		total iterations: 19
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 1.757e-05 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 31 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 31 -- 
-||F|| = 1.757e-05  step = 1.000e+00  dx = 3.323e+00
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 2.845604e-05
-                  iter:   40           residual = 4.766283e-06
-                  iter:   53           residual = 9.905644e-07
-  
-  
-  		Solution time: 1.332768 (sec.)
-  		total iterations: 53
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 3.063e-02 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 32 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 32 -- 
-||F|| = 3.063e-02  step = 1.000e+00  dx = 2.140e+02
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   19           residual = 4.702261e-07
-  
-  
-  		Solution time: 0.458379 (sec.)
-  		total iterations: 19
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 1.078e-04 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 33 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 33 -- 
-||F|| = 1.078e-04  step = 1.000e+00  dx = 8.337e+00
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.080232e-05
-                  iter:   28           residual = 5.660572e-07
-  
-  
-  		Solution time: 0.677276 (sec.)
-  		total iterations: 28
-  
-
-************************************************************************
--- Nonlinear Solver Step 34 -- 
-||F|| = 4.299e-10  step = 1.000e+00  dx = 1.636e-02 (Converged!)
+||F|| = 2.139e-09  step = 1.000e+00  dx = 3.502e-02 (Converged!)
 ************************************************************************
 
 ************************************************************************
 -- Final Status Test Results --
 Converged....OR Combination -> 
-  Converged....F-Norm = 4.299e-10 < 1.000e-08
+  Converged....F-Norm = 2.139e-09 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   ??...........Number of Iterations = -1 < 70
   ??...........Finite Number Check (Two-Norm F) = Unknown
@@ -2121,9 +1151,9 @@ Warning: The global variable name 'substrate_substrateregion_Current' is too lon
 	It will be truncated from 33 to 32 characters. [Called from ex_put_reduction_variable_names]
 Responses after nonlinear solve:
   Continuation parameter: gate_2_Voltage; Value: 0.00000000e+00
-    source_channel_Current = 5.18181674e-10 
-    drain_channel_Current = -5.18181738e-10 
-    substrate_substrateregion_Current = -4.39376604e-16 
+    source_channel_Current = 6.16246826e-10 
+    drain_channel_Current = -6.16246582e-10 
+    substrate_substrateregion_Current = -6.91197876e-16 
     drain_Voltage = 2.00000000e+00 
     gate_1_Voltage = 0.00000000e+00 
     gate_2_Voltage = 0.00000000e+00 
@@ -2132,7 +1162,7 @@ Responses after nonlinear solve:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 End of Continuation Step 0 : Parameter: Varying Voltage = 0.000e+00
---> Step Converged in 34 Nonlinear Solver Iterations!
+--> Step Converged in 5 Nonlinear Solver Iterations!
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -2153,8 +1183,8 @@ End of Continuation Step 0 : Parameter: Varying Voltage = 0.000e+00
         Solve Measure Numerator = Norm Residual   [default]
         Solve Measure Denominator = Norm Initial Residual   [default]
         Output -> 
-         Cumulative Iteration Count = 1340   [unused]
-         Last Iteration Count = 28   [unused]
+         Cumulative Iteration Count = 104   [unused]
+         Last Iteration Count = 22   [unused]
        Stratimikos Linear Solver -> 
         Stratimikos -> 
          Linear Solver Type = AztecOO   [unused]
@@ -2243,8 +1273,8 @@ End of Continuation Step 0 : Parameter: Varying Voltage = 0.000e+00
       Output Precision = 3
       Output Processor = 0
       MyPID = 0   [default]
-      Output Stream = Teuchos::RCP<std::ostream>{ptr=0x59d42ac743b0,node=0x59d42abec6f0,strong_count=6,weak_count=0}
-      Error Stream = Teuchos::RCP<std::ostream>{ptr=0x59d42ac743b0,node=0x59d42abec6f0,strong_count=6,weak_count=0}
+      Output Stream = Teuchos::RCP<std::ostream>{ptr=0x55ea181803b0,node=0x55ea180f86f0,strong_count=6,weak_count=0}
+      Error Stream = Teuchos::RCP<std::ostream>{ptr=0x55ea181803b0,node=0x55ea180f86f0,strong_count=6,weak_count=0}
       Output Information -> 
        Error = 1
        Warning = 1
@@ -2261,13 +1291,13 @@ End of Continuation Step 0 : Parameter: Varying Voltage = 0.000e+00
        Test Details = 0   [default]
      Solver Options -> 
       Status Test Check Type = Minimal
-      User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x59d61b1b2120,node=0x59d61b1b2150,strong_count=3,weak_count=0}
+      User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x55ec086bdf50,node=0x55ec086bdf80,strong_count=3,weak_count=0}
       Observer = Teuchos::RCP<NOX::Observer>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
       User Defined Merit Function = Teuchos::RCP<NOX::MeritFunction::Generic>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
       Fixed Point Iteration Type = Seidel   [default]
      Output -> 
-      Nonlinear Iterations = 34   [unused]
-      2-Norm of Residual = 4.29856e-10   [unused]
+      Nonlinear Iterations = 5   [unused]
+      2-Norm of Residual = 2.13928e-09   [unused]
 
 ************************************************************************
 
@@ -2284,8 +1314,8 @@ End of Continuation Step 0 : Parameter: Varying Voltage = 0.000e+00
         Solve Measure Numerator = Norm Residual   [default]
         Solve Measure Denominator = Norm Initial Residual   [default]
         Output -> 
-         Cumulative Iteration Count = 1340   [unused]
-         Last Iteration Count = 28   [unused]
+         Cumulative Iteration Count = 104   [unused]
+         Last Iteration Count = 22   [unused]
        Stratimikos Linear Solver -> 
         Stratimikos -> 
          Linear Solver Type = AztecOO   [unused]
@@ -2374,8 +1404,8 @@ End of Continuation Step 0 : Parameter: Varying Voltage = 0.000e+00
       Output Precision = 3
       Output Processor = 0
       MyPID = 0   [default]
-      Output Stream = Teuchos::RCP<std::ostream>{ptr=0x59d42ac743b0,node=0x59d42abec6f0,strong_count=9,weak_count=0}
-      Error Stream = Teuchos::RCP<std::ostream>{ptr=0x59d42ac743b0,node=0x59d42abec6f0,strong_count=9,weak_count=0}
+      Output Stream = Teuchos::RCP<std::ostream>{ptr=0x55ea181803b0,node=0x55ea180f86f0,strong_count=9,weak_count=0}
+      Error Stream = Teuchos::RCP<std::ostream>{ptr=0x55ea181803b0,node=0x55ea180f86f0,strong_count=9,weak_count=0}
       Output Information -> 
        Error = 1
        Warning = 1
@@ -2392,13 +1422,13 @@ End of Continuation Step 0 : Parameter: Varying Voltage = 0.000e+00
        Test Details = 0   [default]
      Solver Options -> 
       Status Test Check Type = Minimal
-      User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x59d61b1b2120,node=0x59d61b1b2150,strong_count=3,weak_count=0}
+      User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x55ec086bdf50,node=0x55ec086bdf80,strong_count=3,weak_count=0}
       Observer = Teuchos::RCP<NOX::Observer>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
       User Defined Merit Function = Teuchos::RCP<NOX::MeritFunction::Generic>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
       Fixed Point Iteration Type = Seidel   [default]
      Output -> 
-      Nonlinear Iterations = 34   [unused]
-      2-Norm of Residual = 4.29856e-10   [unused]
+      Nonlinear Iterations = 5   [unused]
+      2-Norm of Residual = 2.13928e-09   [unused]
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Start of Continuation Step 1 : Parameter: Varying Voltage = 5.000e-01 from 0.000e+00
@@ -2432,16 +1462,16 @@ Current step size  = 5.000e-01   Previous step size = 0.000e+00
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   16           residual = 3.313274e-07
+                  iter:   14           residual = 5.596488e-07
   
   
-  		Solution time: 0.383762 (sec.)
-  		total iterations: 16
+  		Solution time: 0.333068 (sec.)
+  		total iterations: 14
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
-  **...........F-Norm = 5.151e-01 < 1.000e-08
+  **...........F-Norm = 2.953e-01 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   **...........Number of Iterations = 1 < 70
   **...........Finite Number Check (Two-Norm F) = Finite
@@ -2449,7 +1479,7 @@ Current step size  = 5.000e-01   Previous step size = 0.000e+00
 
 ************************************************************************
 -- Nonlinear Solver Step 1 -- 
-||F|| = 5.151e-01  step = 1.000e+00  dx = 1.036e+03
+||F|| = 2.953e-01  step = 1.000e+00  dx = 6.859e+02
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -2464,17 +1494,17 @@ Current step size  = 5.000e-01   Previous step size = 0.000e+00
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 2.377774e-03
-                  iter:   33           residual = 6.840291e-07
+                  iter:   20           residual = 5.023910e-05
+                  iter:   25           residual = 6.324915e-07
   
   
-  		Solution time: 0.791121 (sec.)
-  		total iterations: 33
+  		Solution time: 0.584340 (sec.)
+  		total iterations: 25
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
-  **...........F-Norm = 6.045e-01 < 1.000e-08
+  **...........F-Norm = 9.157e-02 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   **...........Number of Iterations = 2 < 70
   **...........Finite Number Check (Two-Norm F) = Finite
@@ -2482,7 +1512,7 @@ Current step size  = 5.000e-01   Previous step size = 0.000e+00
 
 ************************************************************************
 -- Nonlinear Solver Step 2 -- 
-||F|| = 6.045e-01  step = 1.000e+00  dx = 1.265e+03
+||F|| = 9.157e-02  step = 1.000e+00  dx = 4.537e+02
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -2497,17 +1527,17 @@ Current step size  = 5.000e-01   Previous step size = 0.000e+00
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 3.958809e-04
-                  iter:   30           residual = 9.543623e-07
+                  iter:   20           residual = 2.028023e-05
+                  iter:   25           residual = 4.233608e-07
   
   
-  		Solution time: 0.746648 (sec.)
-  		total iterations: 30
+  		Solution time: 0.589167 (sec.)
+  		total iterations: 25
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
-  **...........F-Norm = 6.648e-03 < 1.000e-08
+  **...........F-Norm = 4.886e-04 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   **...........Number of Iterations = 3 < 70
   **...........Finite Number Check (Two-Norm F) = Finite
@@ -2515,7 +1545,7 @@ Current step size  = 5.000e-01   Previous step size = 0.000e+00
 
 ************************************************************************
 -- Nonlinear Solver Step 3 -- 
-||F|| = 6.648e-03  step = 1.000e+00  dx = 1.078e+02
+||F|| = 4.886e-04  step = 1.000e+00  dx = 2.890e+01
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -2530,132 +1560,32 @@ Current step size  = 5.000e-01   Previous step size = 0.000e+00
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 7.067179e-05
-                  iter:   30           residual = 6.870989e-07
+                  iter:   20           residual = 2.993454e-05
+                  iter:   25           residual = 6.874414e-07
   
   
-  		Solution time: 0.716958 (sec.)
-  		total iterations: 30
+  		Solution time: 0.588438 (sec.)
+  		total iterations: 25
   
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 1.359e-06 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 4 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
 
 ************************************************************************
 -- Nonlinear Solver Step 4 -- 
-||F|| = 1.359e-06  step = 1.000e+00  dx = 1.798e+00
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 4.058185e-05
-                  iter:   40           residual = 1.132283e-05
-                  iter:   57           residual = 9.465597e-07
-  
-  
-  		Solution time: 1.408550 (sec.)
-  		total iterations: 57
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 2.460e-02 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 5 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 5 -- 
-||F|| = 2.460e-02  step = 1.000e+00  dx = 2.023e+02
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 5.871323e-06
-                  iter:   22           residual = 8.741045e-07
-  
-  
-  		Solution time: 0.521370 (sec.)
-  		total iterations: 22
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 8.581e-05 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 6 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 6 -- 
-||F|| = 8.581e-05  step = 1.000e+00  dx = 7.718e+00
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.181870e-06
-                  iter:   21           residual = 7.544295e-07
-  
-  
-  		Solution time: 0.501403 (sec.)
-  		total iterations: 21
-  
-
-************************************************************************
--- Nonlinear Solver Step 7 -- 
-||F|| = 3.350e-10  step = 1.000e+00  dx = 1.327e-02 (Converged!)
+||F|| = 2.673e-09  step = 1.000e+00  dx = 8.329e-02 (Converged!)
 ************************************************************************
 
 ************************************************************************
 -- Final Status Test Results --
 Converged....OR Combination -> 
-  Converged....F-Norm = 3.350e-10 < 1.000e-08
+  Converged....F-Norm = 2.673e-09 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   ??...........Number of Iterations = -1 < 70
   ??...........Finite Number Check (Two-Norm F) = Unknown
 ************************************************************************
 Responses after nonlinear solve:
   Continuation parameter: gate_2_Voltage; Value: 5.00000000e-01
-    source_channel_Current = 9.28076320e-07 
-    drain_channel_Current = -9.28076320e-07 
-    substrate_substrateregion_Current = -1.00322413e-16 
+    source_channel_Current = 4.95317065e-07 
+    drain_channel_Current = -4.95317065e-07 
+    substrate_substrateregion_Current = -8.25197393e-16 
     drain_Voltage = 2.00000000e+00 
     gate_1_Voltage = 5.00000000e-01 
     gate_2_Voltage = 5.00000000e-01 
@@ -2664,7 +1594,7 @@ Responses after nonlinear solve:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 End of Continuation Step 1 : Parameter: Varying Voltage = 5.000e-01 from 0.000e+00
---> Step Converged in 7 Nonlinear Solver Iterations!
+--> Step Converged in 4 Nonlinear Solver Iterations!
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -2685,8 +1615,8 @@ End of Continuation Step 1 : Parameter: Varying Voltage = 5.000e-01 from 0.000e+
         Solve Measure Numerator = Norm Residual   [default]
         Solve Measure Denominator = Norm Initial Residual   [default]
         Output -> 
-         Cumulative Iteration Count = 1549   [unused]
-         Last Iteration Count = 21   [unused]
+         Cumulative Iteration Count = 193   [unused]
+         Last Iteration Count = 25   [unused]
        Stratimikos Linear Solver -> 
         Stratimikos -> 
          Linear Solver Type = AztecOO   [unused]
@@ -2775,8 +1705,8 @@ End of Continuation Step 1 : Parameter: Varying Voltage = 5.000e-01 from 0.000e+
       Output Precision = 3
       Output Processor = 0
       MyPID = 0   [default]
-      Output Stream = Teuchos::RCP<std::ostream>{ptr=0x59d42ac743b0,node=0x59d42abec6f0,strong_count=9,weak_count=0}
-      Error Stream = Teuchos::RCP<std::ostream>{ptr=0x59d42ac743b0,node=0x59d42abec6f0,strong_count=9,weak_count=0}
+      Output Stream = Teuchos::RCP<std::ostream>{ptr=0x55ea181803b0,node=0x55ea180f86f0,strong_count=9,weak_count=0}
+      Error Stream = Teuchos::RCP<std::ostream>{ptr=0x55ea181803b0,node=0x55ea180f86f0,strong_count=9,weak_count=0}
       Output Information -> 
        Error = 1
        Warning = 1
@@ -2793,13 +1723,13 @@ End of Continuation Step 1 : Parameter: Varying Voltage = 5.000e-01 from 0.000e+
        Test Details = 0   [default]
      Solver Options -> 
       Status Test Check Type = Minimal
-      User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x59d61b1b2120,node=0x59d61b1b2150,strong_count=3,weak_count=0}
+      User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x55ec086bdf50,node=0x55ec086bdf80,strong_count=3,weak_count=0}
       Observer = Teuchos::RCP<NOX::Observer>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
       User Defined Merit Function = Teuchos::RCP<NOX::MeritFunction::Generic>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
       Fixed Point Iteration Type = Seidel   [default]
      Output -> 
-      Nonlinear Iterations = 7   [unused]
-      2-Norm of Residual = 3.34993e-10   [unused]
+      Nonlinear Iterations = 4   [unused]
+      2-Norm of Residual = 2.67299e-09   [unused]
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Start of Continuation Step 2 : Parameter: Varying Voltage = 1.000e+00 from 5.000e-01
@@ -2833,17 +1763,16 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.664364e-06
-                  iter:   21           residual = 6.854018e-07
+                  iter:   18           residual = 6.728562e-07
   
   
-  		Solution time: 0.504478 (sec.)
-  		total iterations: 21
+  		Solution time: 0.421664 (sec.)
+  		total iterations: 18
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
-  **...........F-Norm = 7.399e+00 < 1.000e-08
+  **...........F-Norm = 2.553e+00 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   **...........Number of Iterations = 1 < 70
   **...........Finite Number Check (Two-Norm F) = Finite
@@ -2851,7 +1780,7 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
 
 ************************************************************************
 -- Nonlinear Solver Step 1 -- 
-||F|| = 7.399e+00  step = 1.000e+00  dx = 2.697e+03
+||F|| = 2.553e+00  step = 1.000e+00  dx = 1.208e+03
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -2866,17 +1795,17 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 3.773494e-05
-                  iter:   27           residual = 6.844076e-07
+                  iter:   20           residual = 4.319358e-05
+                  iter:   27           residual = 4.669133e-07
   
   
-  		Solution time: 0.655095 (sec.)
+  		Solution time: 0.633097 (sec.)
   		total iterations: 27
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
-  **...........F-Norm = 3.758e-01 < 1.000e-08
+  **...........F-Norm = 8.210e-02 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   **...........Number of Iterations = 2 < 70
   **...........Finite Number Check (Two-Norm F) = Finite
@@ -2884,7 +1813,7 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
 
 ************************************************************************
 -- Nonlinear Solver Step 2 -- 
-||F|| = 3.758e-01  step = 1.000e+00  dx = 2.405e+03
+||F|| = 8.210e-02  step = 1.000e+00  dx = 9.191e+02
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -2899,17 +1828,17 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 4.845622e-05
-                  iter:   27           residual = 6.289103e-07
+                  iter:   20           residual = 4.649246e-05
+                  iter:   26           residual = 4.930344e-07
   
   
-  		Solution time: 0.658600 (sec.)
-  		total iterations: 27
+  		Solution time: 0.608637 (sec.)
+  		total iterations: 26
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
-  **...........F-Norm = 1.425e-03 < 1.000e-08
+  **...........F-Norm = 6.983e-05 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   **...........Number of Iterations = 3 < 70
   **...........Finite Number Check (Two-Norm F) = Finite
@@ -2917,7 +1846,7 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
 
 ************************************************************************
 -- Nonlinear Solver Step 3 -- 
-||F|| = 1.425e-03  step = 1.000e+00  dx = 9.895e+01
+||F|| = 6.983e-05  step = 1.000e+00  dx = 2.017e+01
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -2932,271 +1861,32 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 6.182980e-05
-                  iter:   26           residual = 7.031976e-07
+                  iter:   20           residual = 3.116643e-05
+                  iter:   25           residual = 9.100409e-07
   
   
-  		Solution time: 0.625541 (sec.)
-  		total iterations: 26
+  		Solution time: 0.584885 (sec.)
+  		total iterations: 25
   
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 5.139e-08 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 4 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
 
 ************************************************************************
 -- Nonlinear Solver Step 4 -- 
-||F|| = 5.139e-08  step = 1.000e+00  dx = 5.281e-01
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.882980e-04
-                  iter:   40           residual = 2.732390e-05
-  
-  
-  	***************************************************************
-  
-  	Warning: the GMRES Hessenberg matrix is ill-conditioned.  This may 
-  	indicate that the application matrix is singular. In this case, GMRES
-  	may have a least-squares solution.
-  
-  	Solver:			gmres
-  	number of iterations:	53
-  
-  	Actual residual =  1.1841e-12	Recursive residual =  1.1842e-12
-  
-  	Calculated Norms				Requested Norm
-  	--------------------------------------------	--------------
-  
-  	||r||_2 / ||r0||_2:		2.303998e-05	1.000000e-06
-  
-  	***************************************************************
-  
-  
-  
-  		Solution time: 1.309226 (sec.)
-  		total iterations: 53
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 5.384e-04 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 5 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 5 -- 
-||F|| = 5.384e-04  step = 1.000e+00  dx = 3.186e+01
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 8.467842e-05
-                  iter:   27           residual = 4.118821e-07
-  
-  
-  		Solution time: 0.650136 (sec.)
-  		total iterations: 27
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 4.794e-08 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 6 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 6 -- 
-||F|| = 4.794e-08  step = 1.000e+00  dx = 1.930e-01
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.855017e-05
-                  iter:   40           residual = 1.502835e-05
-  
-  
-  	***************************************************************
-  
-  	Warning: the GMRES Hessenberg matrix is ill-conditioned.  This may 
-  	indicate that the application matrix is singular. In this case, GMRES
-  	may have a least-squares solution.
-  
-  	Solver:			gmres
-  	number of iterations:	50
-  
-  	Actual residual =  7.0661e-13	Recursive residual =  7.0661e-13
-  
-  	Calculated Norms				Requested Norm
-  	--------------------------------------------	--------------
-  
-  	||r||_2 / ||r0||_2:		1.473837e-05	1.000000e-06
-  
-  	***************************************************************
-  
-  
-  
-  		Solution time: 1.225862 (sec.)
-  		total iterations: 50
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 6.475e-08 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 7 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 7 -- 
-||F|| = 6.475e-08  step = 1.000e+00  dx = 3.478e-01
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 8.775609e-05
-                  iter:   40           residual = 1.136430e-05
-                  iter:   56           residual = 8.892381e-07
-  
-  
-  		Solution time: 1.385452 (sec.)
-  		total iterations: 56
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 3.566e-03 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 8 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 8 -- 
-||F|| = 3.566e-03  step = 1.000e+00  dx = 8.168e+01
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 7.921699e-05
-                  iter:   26           residual = 9.863172e-07
-  
-  
-  		Solution time: 0.619793 (sec.)
-  		total iterations: 26
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 2.138e-06 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 9 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 9 -- 
-||F|| = 2.138e-06  step = 1.000e+00  dx = 1.289e+00
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.198945e-05
-                  iter:   24           residual = 7.260357e-07
-  
-  
-  		Solution time: 0.586682 (sec.)
-  		total iterations: 24
-  
-
-************************************************************************
--- Nonlinear Solver Step 10 -- 
-||F|| = 1.612e-12  step = 1.000e+00  dx = 3.921e-04 (Converged!)
+||F|| = 1.888e-10  step = 1.000e+00  dx = 2.464e-02 (Converged!)
 ************************************************************************
 
 ************************************************************************
 -- Final Status Test Results --
 Converged....OR Combination -> 
-  Converged....F-Norm = 1.612e-12 < 1.000e-08
+  Converged....F-Norm = 1.888e-10 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   ??...........Number of Iterations = -1 < 70
   ??...........Finite Number Check (Two-Norm F) = Unknown
 ************************************************************************
 Responses after nonlinear solve:
   Continuation parameter: gate_2_Voltage; Value: 1.00000000e+00
-    source_channel_Current = 3.82048726e-06 
-    drain_channel_Current = -3.82048726e-06 
-    substrate_substrateregion_Current = -7.17435468e-19 
+    source_channel_Current = 2.43578843e-06 
+    drain_channel_Current = -2.43578843e-06 
+    substrate_substrateregion_Current = -1.14874200e-17 
     drain_Voltage = 2.00000000e+00 
     gate_1_Voltage = 1.00000000e+00 
     gate_2_Voltage = 1.00000000e+00 
@@ -3205,7 +1895,7 @@ Responses after nonlinear solve:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 End of Continuation Step 2 : Parameter: Varying Voltage = 1.000e+00 from 5.000e-01
---> Step Converged in 10 Nonlinear Solver Iterations!
+--> Step Converged in 4 Nonlinear Solver Iterations!
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -3226,8 +1916,8 @@ End of Continuation Step 2 : Parameter: Varying Voltage = 1.000e+00 from 5.000e-
         Solve Measure Numerator = Norm Residual   [default]
         Solve Measure Denominator = Norm Initial Residual   [default]
         Output -> 
-         Cumulative Iteration Count = 1886   [unused]
-         Last Iteration Count = 24   [unused]
+         Cumulative Iteration Count = 289   [unused]
+         Last Iteration Count = 25   [unused]
        Stratimikos Linear Solver -> 
         Stratimikos -> 
          Linear Solver Type = AztecOO   [unused]
@@ -3316,8 +2006,8 @@ End of Continuation Step 2 : Parameter: Varying Voltage = 1.000e+00 from 5.000e-
       Output Precision = 3
       Output Processor = 0
       MyPID = 0   [default]
-      Output Stream = Teuchos::RCP<std::ostream>{ptr=0x59d42ac743b0,node=0x59d42abec6f0,strong_count=9,weak_count=0}
-      Error Stream = Teuchos::RCP<std::ostream>{ptr=0x59d42ac743b0,node=0x59d42abec6f0,strong_count=9,weak_count=0}
+      Output Stream = Teuchos::RCP<std::ostream>{ptr=0x55ea181803b0,node=0x55ea180f86f0,strong_count=9,weak_count=0}
+      Error Stream = Teuchos::RCP<std::ostream>{ptr=0x55ea181803b0,node=0x55ea180f86f0,strong_count=9,weak_count=0}
       Output Information -> 
        Error = 1
        Warning = 1
@@ -3334,13 +2024,13 @@ End of Continuation Step 2 : Parameter: Varying Voltage = 1.000e+00 from 5.000e-
        Test Details = 0   [default]
      Solver Options -> 
       Status Test Check Type = Minimal
-      User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x59d61b1b2120,node=0x59d61b1b2150,strong_count=3,weak_count=0}
+      User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x55ec086bdf50,node=0x55ec086bdf80,strong_count=3,weak_count=0}
       Observer = Teuchos::RCP<NOX::Observer>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
       User Defined Merit Function = Teuchos::RCP<NOX::MeritFunction::Generic>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
       Fixed Point Iteration Type = Seidel   [default]
      Output -> 
-      Nonlinear Iterations = 10   [unused]
-      2-Norm of Residual = 1.61206e-12   [unused]
+      Nonlinear Iterations = 4   [unused]
+      2-Norm of Residual = 1.88774e-10   [unused]
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Start of Continuation Step 3 : Parameter: Varying Voltage = 1.500e+00 from 1.000e+00
@@ -3374,17 +2064,17 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.101312e-05
-                  iter:   24           residual = 7.240734e-07
+                  iter:   20           residual = 2.908238e-06
+                  iter:   22           residual = 7.859090e-07
   
   
-  		Solution time: 0.583958 (sec.)
-  		total iterations: 24
+  		Solution time: 0.517238 (sec.)
+  		total iterations: 22
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
-  **...........F-Norm = 1.810e+01 < 1.000e-08
+  **...........F-Norm = 6.191e+00 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   **...........Number of Iterations = 1 < 70
   **...........Finite Number Check (Two-Norm F) = Finite
@@ -3392,7 +2082,7 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
 
 ************************************************************************
 -- Nonlinear Solver Step 1 -- 
-||F|| = 1.810e+01  step = 1.000e+00  dx = 8.147e+03
+||F|| = 6.191e+00  step = 1.000e+00  dx = 2.959e+03
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -3407,17 +2097,17 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 6.368063e-05
-                  iter:   25           residual = 6.126543e-07
+                  iter:   20           residual = 6.538032e-05
+                  iter:   27           residual = 7.892726e-07
   
   
-  		Solution time: 0.603742 (sec.)
-  		total iterations: 25
+  		Solution time: 0.633861 (sec.)
+  		total iterations: 27
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
-  **...........F-Norm = 1.177e+00 < 1.000e-08
+  **...........F-Norm = 1.812e-01 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   **...........Number of Iterations = 2 < 70
   **...........Finite Number Check (Two-Norm F) = Finite
@@ -3425,7 +2115,7 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
 
 ************************************************************************
 -- Nonlinear Solver Step 2 -- 
-||F|| = 1.177e+00  step = 1.000e+00  dx = 6.426e+03
+||F|| = 1.812e-01  step = 1.000e+00  dx = 2.108e+03
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -3440,17 +2130,17 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 4.891614e-05
-                  iter:   27           residual = 5.795564e-07
+                  iter:   20           residual = 6.055314e-05
+                  iter:   26           residual = 9.677408e-07
   
   
-  		Solution time: 0.664952 (sec.)
-  		total iterations: 27
+  		Solution time: 0.612949 (sec.)
+  		total iterations: 26
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
-  **...........F-Norm = 1.949e-02 < 1.000e-08
+  **...........F-Norm = 4.871e-04 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   **...........Number of Iterations = 3 < 70
   **...........Finite Number Check (Two-Norm F) = Finite
@@ -3458,7 +2148,7 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
 
 ************************************************************************
 -- Nonlinear Solver Step 3 -- 
-||F|| = 1.949e-02  step = 1.000e+00  dx = 4.772e+02
+||F|| = 4.871e-04  step = 1.000e+00  dx = 6.869e+01
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -3473,65 +2163,32 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 5.323893e-05
-                  iter:   27           residual = 7.777489e-07
+                  iter:   20           residual = 3.202280e-05
+                  iter:   27           residual = 3.195567e-07
   
   
-  		Solution time: 0.651200 (sec.)
+  		Solution time: 0.632838 (sec.)
   		total iterations: 27
   
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........F-Norm = 5.470e-06 < 1.000e-08
-               (Unscaled Two-Norm, Absolute Tolerance)
-  **...........Number of Iterations = 4 < 70
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
 
 ************************************************************************
 -- Nonlinear Solver Step 4 -- 
-||F|| = 5.470e-06  step = 1.000e+00  dx = 5.353e+00
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.292884e-05
-                  iter:   24           residual = 6.625601e-07
-  
-  
-  		Solution time: 0.580407 (sec.)
-  		total iterations: 24
-  
-
-************************************************************************
--- Nonlinear Solver Step 5 -- 
-||F|| = 3.907e-12  step = 1.000e+00  dx = 9.758e-04 (Converged!)
+||F|| = 6.186e-09  step = 1.000e+00  dx = 1.965e-01 (Converged!)
 ************************************************************************
 
 ************************************************************************
 -- Final Status Test Results --
 Converged....OR Combination -> 
-  Converged....F-Norm = 3.907e-12 < 1.000e-08
+  Converged....F-Norm = 6.186e-09 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   ??...........Number of Iterations = -1 < 70
   ??...........Finite Number Check (Two-Norm F) = Unknown
 ************************************************************************
 Responses after nonlinear solve:
   Continuation parameter: gate_2_Voltage; Value: 1.50000000e+00
-    source_channel_Current = 6.75586304e-06 
-    drain_channel_Current = -6.75586304e-06 
-    substrate_substrateregion_Current = -7.25390590e-18 
+    source_channel_Current = 5.17477118e-06 
+    drain_channel_Current = -5.17477118e-06 
+    substrate_substrateregion_Current = -2.59663153e-17 
     drain_Voltage = 2.00000000e+00 
     gate_1_Voltage = 1.50000000e+00 
     gate_2_Voltage = 1.50000000e+00 
@@ -3540,7 +2197,7 @@ Responses after nonlinear solve:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 End of Continuation Step 3 : Parameter: Varying Voltage = 1.500e+00 from 1.000e+00
---> Step Converged in 5 Nonlinear Solver Iterations!
+--> Step Converged in 4 Nonlinear Solver Iterations!
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -3561,8 +2218,8 @@ End of Continuation Step 3 : Parameter: Varying Voltage = 1.500e+00 from 1.000e+
         Solve Measure Numerator = Norm Residual   [default]
         Solve Measure Denominator = Norm Initial Residual   [default]
         Output -> 
-         Cumulative Iteration Count = 2013   [unused]
-         Last Iteration Count = 24   [unused]
+         Cumulative Iteration Count = 391   [unused]
+         Last Iteration Count = 27   [unused]
        Stratimikos Linear Solver -> 
         Stratimikos -> 
          Linear Solver Type = AztecOO   [unused]
@@ -3651,8 +2308,8 @@ End of Continuation Step 3 : Parameter: Varying Voltage = 1.500e+00 from 1.000e+
       Output Precision = 3
       Output Processor = 0
       MyPID = 0   [default]
-      Output Stream = Teuchos::RCP<std::ostream>{ptr=0x59d42ac743b0,node=0x59d42abec6f0,strong_count=9,weak_count=0}
-      Error Stream = Teuchos::RCP<std::ostream>{ptr=0x59d42ac743b0,node=0x59d42abec6f0,strong_count=9,weak_count=0}
+      Output Stream = Teuchos::RCP<std::ostream>{ptr=0x55ea181803b0,node=0x55ea180f86f0,strong_count=9,weak_count=0}
+      Error Stream = Teuchos::RCP<std::ostream>{ptr=0x55ea181803b0,node=0x55ea180f86f0,strong_count=9,weak_count=0}
       Output Information -> 
        Error = 1
        Warning = 1
@@ -3669,13 +2326,13 @@ End of Continuation Step 3 : Parameter: Varying Voltage = 1.500e+00 from 1.000e+
        Test Details = 0   [default]
      Solver Options -> 
       Status Test Check Type = Minimal
-      User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x59d61b1b2120,node=0x59d61b1b2150,strong_count=3,weak_count=0}
+      User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x55ec086bdf50,node=0x55ec086bdf80,strong_count=3,weak_count=0}
       Observer = Teuchos::RCP<NOX::Observer>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
       User Defined Merit Function = Teuchos::RCP<NOX::MeritFunction::Generic>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
       Fixed Point Iteration Type = Seidel   [default]
      Output -> 
-      Nonlinear Iterations = 5   [unused]
-      2-Norm of Residual = 3.90696e-12   [unused]
+      Nonlinear Iterations = 4   [unused]
+      2-Norm of Residual = 6.18642e-09   [unused]
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Start of Continuation Step 4 : Parameter: Varying Voltage = 2.000e+00 from 1.500e+00
@@ -3709,17 +2366,17 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.229671e-05
-                  iter:   24           residual = 5.027718e-07
+                  iter:   20           residual = 1.049356e-05
+                  iter:   25           residual = 7.856034e-07
   
   
-  		Solution time: 0.594732 (sec.)
-  		total iterations: 24
+  		Solution time: 0.585302 (sec.)
+  		total iterations: 25
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
-  **...........F-Norm = 2.588e+01 < 1.000e-08
+  **...........F-Norm = 1.415e+01 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   **...........Number of Iterations = 1 < 70
   **...........Finite Number Check (Two-Norm F) = Finite
@@ -3727,7 +2384,7 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
 
 ************************************************************************
 -- Nonlinear Solver Step 1 -- 
-||F|| = 2.588e+01  step = 1.000e+00  dx = 2.000e+04
+||F|| = 1.415e+01  step = 1.000e+00  dx = 7.999e+03
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -3742,17 +2399,17 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 1.452511e-05
-                  iter:   25           residual = 4.237782e-07
+                  iter:   20           residual = 5.494555e-05
+                  iter:   26           residual = 7.450333e-07
   
   
-  		Solution time: 0.607586 (sec.)
-  		total iterations: 25
+  		Solution time: 0.606108 (sec.)
+  		total iterations: 26
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
-  **...........F-Norm = 6.076e-01 < 1.000e-08
+  **...........F-Norm = 1.129e+00 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   **...........Number of Iterations = 2 < 70
   **...........Finite Number Check (Two-Norm F) = Finite
@@ -3760,7 +2417,7 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
 
 ************************************************************************
 -- Nonlinear Solver Step 2 -- 
-||F|| = 6.076e-01  step = 1.000e+00  dx = 4.151e+03
+||F|| = 1.129e+00  step = 1.000e+00  dx = 6.102e+03
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -3775,17 +2432,17 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 3.837067e-05
-                  iter:   25           residual = 9.939919e-07
+                  iter:   20           residual = 4.850293e-05
+                  iter:   26           residual = 9.798641e-07
   
   
-  		Solution time: 0.604928 (sec.)
-  		total iterations: 25
+  		Solution time: 0.612996 (sec.)
+  		total iterations: 26
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
-  **...........F-Norm = 1.153e-03 < 1.000e-08
+  **...........F-Norm = 1.840e-02 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   **...........Number of Iterations = 3 < 70
   **...........Finite Number Check (Two-Norm F) = Finite
@@ -3793,7 +2450,7 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
 
 ************************************************************************
 -- Nonlinear Solver Step 3 -- 
-||F|| = 1.153e-03  step = 1.000e+00  dx = 7.041e+01
+||F|| = 1.840e-02  step = 1.000e+00  dx = 4.608e+02
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -3808,32 +2465,191 @@ Current step size  = 5.000e-01   Previous step size = 5.000e-01
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 8.793372e-06
-                  iter:   23           residual = 9.286973e-07
+                  iter:   20           residual = 1.089527e-04
+                  iter:   26           residual = 8.414729e-07
   
   
-  		Solution time: 0.545852 (sec.)
-  		total iterations: 23
+  		Solution time: 0.615571 (sec.)
+  		total iterations: 26
   
+************************************************************************
+-- Status Test Results --
+**...........OR Combination -> 
+  **...........F-Norm = 3.271e-06 < 1.000e-08
+               (Unscaled Two-Norm, Absolute Tolerance)
+  **...........Number of Iterations = 4 < 70
+  **...........Finite Number Check (Two-Norm F) = Finite
+************************************************************************
 
 ************************************************************************
 -- Nonlinear Solver Step 4 -- 
-||F|| = 1.916e-09  step = 1.000e+00  dx = 1.049e-01 (Converged!)
+||F|| = 3.271e-06  step = 1.000e+00  dx = 4.579e+00
+************************************************************************
+
+       CALCULATING FORCING TERM
+       Method: Constant
+       Forcing Term: 1e-06
+  
+  		*******************************************************
+  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
+  		***** Preconditioned GMRES solution
+  		***** User-defined preconditioner
+  		***** No scaling
+  		*******************************************************
+  
+                  iter:    0           residual = 1.000000e+00
+                  iter:   20           residual = 2.139228e-05
+                  iter:   40           residual = 1.972396e-06
+  
+  
+  	***************************************************************
+  
+  	Warning: the GMRES Hessenberg matrix is ill-conditioned.  This may 
+  	indicate that the application matrix is singular. In this case, GMRES
+  	may have a least-squares solution.
+  
+  	Solver:			gmres
+  	number of iterations:	49
+  
+  	Actual residual =  6.1474e-12	Recursive residual =  6.1474e-12
+  
+  	Calculated Norms				Requested Norm
+  	--------------------------------------------	--------------
+  
+  	||r||_2 / ||r0||_2:		1.879368e-06	1.000000e-06
+  
+  	***************************************************************
+  
+  
+  
+  		Solution time: 1.175813 (sec.)
+  		total iterations: 49
+  
+************************************************************************
+-- Status Test Results --
+**...........OR Combination -> 
+  **...........F-Norm = 5.801e-08 < 1.000e-08
+               (Unscaled Two-Norm, Absolute Tolerance)
+  **...........Number of Iterations = 5 < 70
+  **...........Finite Number Check (Two-Norm F) = Finite
+************************************************************************
+
+************************************************************************
+-- Nonlinear Solver Step 5 -- 
+||F|| = 5.801e-08  step = 1.000e+00  dx = 1.569e-01
+************************************************************************
+
+       CALCULATING FORCING TERM
+       Method: Constant
+       Forcing Term: 1e-06
+  
+  		*******************************************************
+  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
+  		***** Preconditioned GMRES solution
+  		***** User-defined preconditioner
+  		***** No scaling
+  		*******************************************************
+  
+                  iter:    0           residual = 1.000000e+00
+                  iter:   20           residual = 8.926728e-01
+                  iter:   40           residual = 1.083017e-04
+  
+  
+  	***************************************************************
+  
+  	Warning: the GMRES Hessenberg matrix is ill-conditioned.  This may 
+  	indicate that the application matrix is singular. In this case, GMRES
+  	may have a least-squares solution.
+  
+  	Solver:			gmres
+  	number of iterations:	59
+  
+  	Actual residual =  6.2824e-12	Recursive residual =  6.2824e-12
+  
+  	Calculated Norms				Requested Norm
+  	--------------------------------------------	--------------
+  
+  	||r||_2 / ||r0||_2:		1.083005e-04	1.000000e-06
+  
+  	***************************************************************
+  
+  
+  
+  		Solution time: 1.436605 (sec.)
+  		total iterations: 59
+  
+************************************************************************
+-- Status Test Results --
+**...........OR Combination -> 
+  **...........F-Norm = 9.212e-07 < 1.000e-08
+               (Unscaled Two-Norm, Absolute Tolerance)
+  **...........Number of Iterations = 6 < 70
+  **...........Finite Number Check (Two-Norm F) = Finite
+************************************************************************
+
+************************************************************************
+-- Nonlinear Solver Step 6 -- 
+||F|| = 9.212e-07  step = 1.000e+00  dx = 9.690e+00
+************************************************************************
+
+       CALCULATING FORCING TERM
+       Method: Constant
+       Forcing Term: 1e-06
+  
+  		*******************************************************
+  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=38253,domainDim=38253}
+  		***** Preconditioned GMRES solution
+  		***** User-defined preconditioner
+  		***** No scaling
+  		*******************************************************
+  
+                  iter:    0           residual = 1.000000e+00
+                  iter:   20           residual = 4.235196e-06
+                  iter:   40           residual = 4.149469e-06
+  
+  
+  	***************************************************************
+  
+  	Warning: the GMRES Hessenberg matrix is ill-conditioned.  This may 
+  	indicate that the application matrix is singular. In this case, GMRES
+  	may have a least-squares solution.
+  
+  	Solver:			gmres
+  	number of iterations:	44
+  
+  	Actual residual =  3.8113e-12	Recursive residual =  3.8113e-12
+  
+  	Calculated Norms				Requested Norm
+  	--------------------------------------------	--------------
+  
+  	||r||_2 / ||r0||_2:		4.137331e-06	1.000000e-06
+  
+  	***************************************************************
+  
+  
+  
+  		Solution time: 1.046614 (sec.)
+  		total iterations: 44
+  
+
+************************************************************************
+-- Nonlinear Solver Step 7 -- 
+||F|| = 4.196e-12  step = 1.000e+00  dx = 9.456e+00 (Converged!)
 ************************************************************************
 
 ************************************************************************
 -- Final Status Test Results --
 Converged....OR Combination -> 
-  Converged....F-Norm = 1.916e-09 < 1.000e-08
+  Converged....F-Norm = 4.196e-12 < 1.000e-08
                (Unscaled Two-Norm, Absolute Tolerance)
   ??...........Number of Iterations = -1 < 70
   ??...........Finite Number Check (Two-Norm F) = Unknown
 ************************************************************************
 Responses after nonlinear solve:
   Continuation parameter: gate_2_Voltage; Value: 2.00000000e+00
-    source_channel_Current = 8.70430882e-06 
-    drain_channel_Current = -8.70430882e-06 
-    substrate_substrateregion_Current = 2.66429780e-16 
+    source_channel_Current = 7.66230416e-06 
+    drain_channel_Current = -7.66230416e-06 
+    substrate_substrateregion_Current = 8.94079203e-18 
     drain_Voltage = 2.00000000e+00 
     gate_1_Voltage = 2.00000000e+00 
     gate_2_Voltage = 2.00000000e+00 
@@ -3842,7 +2658,7 @@ Responses after nonlinear solve:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 End of Continuation Step 4 : Parameter: Varying Voltage = 2.000e+00 from 1.500e+00
---> Step Converged in 4 Nonlinear Solver Iterations!
+--> Step Converged in 7 Nonlinear Solver Iterations!
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 

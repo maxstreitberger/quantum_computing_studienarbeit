@@ -54,7 +54,7 @@ start Material Block channelSiliconParameter
       start mgauss doping named Function3
             Type is donor
             #10
-            spatial range is -0.205 to -0.055 in x
+            spatial range is 0.055 to 0.205 in x
             #20
             #spatial range is  0.060 to  0.210 in x
 	      spatial range is -0.01 to  0.0 in z
@@ -149,8 +149,8 @@ Closure Models ->
     Y ERFC_ON = 0   [unused]
     Z ERFC_ON = 0   [unused]
     Doping Type = Donor   [unused]
-    Xmin = -0.205   [unused]
-    Xmax = -0.055   [unused]
+    Xmin = 0.055   [unused]
+    Xmax = 0.205   [unused]
     Zmin = -0.01   [unused]
     Zmax = 0   [unused]
     Ymin = -0.025   [unused]
@@ -615,8 +615,8 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 9185, 9185, 9185, 0
      Printing -> 
       Output Precision = 3
       Output Processor = 0
-      Output Stream = Teuchos::RCP<std::ostream>{ptr=0x58082ec45680,node=0x58082ec5fb80,strong_count=18,weak_count=0}
-      Error Stream = Teuchos::RCP<std::ostream>{ptr=0x58082ec45680,node=0x58082ec5fb80,strong_count=18,weak_count=0}
+      Output Stream = Teuchos::RCP<std::ostream>{ptr=0x5aa900ace690,node=0x5aa900ae8b90,strong_count=18,weak_count=0}
+      Error Stream = Teuchos::RCP<std::ostream>{ptr=0x5aa900ace690,node=0x5aa900ae8b90,strong_count=18,weak_count=0}
       MyPID = 0   [default]
       Output Information -> 
        Error = 1
@@ -634,15 +634,15 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 9185, 9185, 9185, 0
        Test Details = 0   [default]
      Solver Options -> 
       Status Test Check Type = Minimal
-      User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x580a1d6ca5e0,node=0x580a1d7bd380,strong_count=2,weak_count=0}
-      User Defined Merit Function = Teuchos::RCP<NOX::MeritFunction::Generic>{ptr=0x580a1d7d00b0,node=0x580a1d7fed30,strong_count=2,weak_count=0}
+      User Defined Pre/Post Operator = Teuchos::RCP<NOX::Observer>{ptr=0x5aaaef5bdf60,node=0x5aaaef66d410,strong_count=2,weak_count=0}
+      User Defined Merit Function = Teuchos::RCP<NOX::MeritFunction::Generic>{ptr=0x5aaaef6707e0,node=0x5aaaef67fd40,strong_count=2,weak_count=0}
       Observer = Teuchos::RCP<NOX::Observer>{ptr=0,node=0,strong_count=0,weak_count=0}   [default]
       Fixed Point Iteration Type = Seidel   [default]
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
   **...........AND Combination -> 
-    **...........F-Norm = 2.827e+02 < 1.000e-08
+    **...........F-Norm = 3.443e+02 < 1.000e-08
                  (Unscaled Two-Norm, Absolute Tolerance)
     ??...........WRMS-Norm = 1.000e+12 < 1
   **...........Number of Iterations = 0 < 30
@@ -651,7 +651,7 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 9185, 9185, 9185, 0
 
 ************************************************************************
 -- Nonlinear Solver Step 0 -- 
-||F|| = 2.827e+02  step = 0.000e+00  dx = 0.000e+00
+||F|| = 3.443e+02  step = 0.000e+00  dx = 0.000e+00
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -666,18 +666,17 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 9185, 9185, 9185, 0
  		*******************************************************
  
                  iter:    0           residual = 1.000000e+00
-                 iter:   20           residual = 1.439311e-06
-                 iter:   21           residual = 6.319060e-07
+                 iter:   20           residual = 7.096559e-07
  
  
- 		Solution time: 0.030317 (sec.)
- 		total iterations: 21
+ 		Solution time: 0.029123 (sec.)
+ 		total iterations: 20
  
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
   **...........AND Combination -> 
-    **...........F-Norm = 5.453e+00 < 1.000e-08
+    **...........F-Norm = 1.515e+00 < 1.000e-08
                  (Unscaled Two-Norm, Absolute Tolerance)
     ??...........WRMS-Norm = 1.000e+12 < 1
   **...........Number of Iterations = 1 < 30
@@ -686,7 +685,7 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 9185, 9185, 9185, 0
 
 ************************************************************************
 -- Nonlinear Solver Step 1 -- 
-||F|| = 5.453e+00  step = 1.000e+00  dx = 3.362e+06
+||F|| = 1.515e+00  step = 1.000e+00  dx = 3.690e+06
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -701,17 +700,17 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 9185, 9185, 9185, 0
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   16           residual = 6.599482e-07
+                  iter:   18           residual = 4.408486e-07
   
   
-  		Solution time: 0.018038 (sec.)
-  		total iterations: 16
+  		Solution time: 0.020445 (sec.)
+  		total iterations: 18
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
   **...........AND Combination -> 
-    **...........F-Norm = 1.978e+00 < 1.000e-08
+    **...........F-Norm = 5.021e-01 < 1.000e-08
                  (Unscaled Two-Norm, Absolute Tolerance)
     ??...........WRMS-Norm = 1.000e+12 < 1
   **...........Number of Iterations = 2 < 30
@@ -720,7 +719,7 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 9185, 9185, 9185, 0
 
 ************************************************************************
 -- Nonlinear Solver Step 2 -- 
-||F|| = 1.978e+00  step = 1.000e+00  dx = 6.272e+04
+||F|| = 5.021e-01  step = 1.000e+00  dx = 4.868e+04
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -735,17 +734,17 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 9185, 9185, 9185, 0
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   18           residual = 9.321637e-07
+                  iter:   20           residual = 4.557567e-07
   
   
-  		Solution time: 0.020536 (sec.)
-  		total iterations: 18
+  		Solution time: 0.022890 (sec.)
+  		total iterations: 20
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
   **...........AND Combination -> 
-    **...........F-Norm = 6.923e-01 < 1.000e-08
+    **...........F-Norm = 1.326e-01 < 1.000e-08
                  (Unscaled Two-Norm, Absolute Tolerance)
     ??...........WRMS-Norm = 1.000e+12 < 1
   **...........Number of Iterations = 3 < 30
@@ -754,7 +753,7 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 9185, 9185, 9185, 0
 
 ************************************************************************
 -- Nonlinear Solver Step 3 -- 
-||F|| = 6.923e-01  step = 1.000e+00  dx = 4.960e+04
+||F|| = 1.326e-01  step = 1.000e+00  dx = 4.336e+04
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -769,17 +768,18 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 9185, 9185, 9185, 0
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 3.510728e-07
+                  iter:   20           residual = 1.392033e-06
+                  iter:   21           residual = 5.246810e-07
   
   
-  		Solution time: 0.022501 (sec.)
-  		total iterations: 20
+  		Solution time: 0.023576 (sec.)
+  		total iterations: 21
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
   **...........AND Combination -> 
-    **...........F-Norm = 2.126e-01 < 1.000e-08
+    **...........F-Norm = 1.749e-02 < 1.000e-08
                  (Unscaled Two-Norm, Absolute Tolerance)
     ??...........WRMS-Norm = 1.000e+12 < 1
   **...........Number of Iterations = 4 < 30
@@ -788,7 +788,7 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 9185, 9185, 9185, 0
 
 ************************************************************************
 -- Nonlinear Solver Step 4 -- 
-||F|| = 2.126e-01  step = 1.000e+00  dx = 3.930e+04
+||F|| = 1.749e-02  step = 1.000e+00  dx = 2.389e+04
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -803,18 +803,18 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 9185, 9185, 9185, 0
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 2.461576e-06
-                  iter:   21           residual = 7.168032e-07
+                  iter:   20           residual = 2.435938e-06
+                  iter:   22           residual = 5.468201e-07
   
   
-  		Solution time: 0.023640 (sec.)
-  		total iterations: 21
+  		Solution time: 0.024872 (sec.)
+  		total iterations: 22
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
   **...........AND Combination -> 
-    **...........F-Norm = 4.385e-02 < 1.000e-08
+    **...........F-Norm = 4.184e-04 < 1.000e-08
                  (Unscaled Two-Norm, Absolute Tolerance)
     ??...........WRMS-Norm = 1.000e+12 < 1
   **...........Number of Iterations = 5 < 30
@@ -823,7 +823,7 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 9185, 9185, 9185, 0
 
 ************************************************************************
 -- Nonlinear Solver Step 5 -- 
-||F|| = 4.385e-02  step = 1.000e+00  dx = 2.319e+04
+||F|| = 4.184e-04  step = 1.000e+00  dx = 4.554e+03
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -838,18 +838,18 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 9185, 9185, 9185, 0
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 6.065234e-06
-                  iter:   22           residual = 6.509247e-07
+                  iter:   20           residual = 3.755165e-06
+                  iter:   22           residual = 8.296525e-07
   
   
-  		Solution time: 0.025000 (sec.)
+  		Solution time: 0.024831 (sec.)
   		total iterations: 22
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
   **...........AND Combination -> 
-    **...........F-Norm = 3.089e-03 < 1.000e-08
+    **...........F-Norm = 2.586e-07 < 1.000e-08
                  (Unscaled Two-Norm, Absolute Tolerance)
     ??...........WRMS-Norm = 1.000e+12 < 1
   **...........Number of Iterations = 6 < 30
@@ -858,7 +858,7 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 9185, 9185, 9185, 0
 
 ************************************************************************
 -- Nonlinear Solver Step 6 -- 
-||F|| = 3.089e-03  step = 1.000e+00  dx = 7.299e+03
+||F|| = 2.586e-07  step = 1.000e+00  dx = 1.182e+02
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -873,27 +873,28 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 9185, 9185, 9185, 0
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 7.488263e-06
-                  iter:   22           residual = 9.091854e-07
+                  iter:   20           residual = 4.158148e-06
+                  iter:   22           residual = 8.379772e-07
   
   
-  		Solution time: 0.025339 (sec.)
+  		Solution time: 0.024868 (sec.)
   		total iterations: 22
   
 ************************************************************************
 -- Status Test Results --
 **...........OR Combination -> 
   **...........AND Combination -> 
-    **...........F-Norm = 1.828e-05 < 1.000e-08
+    Converged....F-Norm = 2.401e-13 < 1.000e-08
                  (Unscaled Two-Norm, Absolute Tolerance)
-    ??...........WRMS-Norm = 1.000e+12 < 1
+    **...........WRMS-Norm = 4.413e+01 < 1
+                 (Min Step Size:  1.000e+00 >= 0)
   **...........Number of Iterations = 7 < 30
   **...........Finite Number Check (Two-Norm F) = Finite
 ************************************************************************
 
 ************************************************************************
 -- Nonlinear Solver Step 7 -- 
-||F|| = 1.828e-05  step = 1.000e+00  dx = 5.869e+02
+||F|| = 2.401e-13  step = 1.000e+00  dx = 7.361e-02
 ************************************************************************
 
        CALCULATING FORCING TERM
@@ -908,97 +909,26 @@ Degree of freedom load balancing: Max, Min, Mean, StdDev = 9185, 9185, 9185, 0
   		*******************************************************
   
                   iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 7.458517e-06
-                  iter:   22           residual = 9.368964e-07
+                  iter:   20           residual = 6.271753e-06
+                  iter:   22           residual = 8.554943e-07
   
   
-  		Solution time: 0.025015 (sec.)
+  		Solution time: 0.024923 (sec.)
   		total iterations: 22
   
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........AND Combination -> 
-    Converged....F-Norm = 6.526e-10 < 1.000e-08
-                 (Unscaled Two-Norm, Absolute Tolerance)
-    **...........WRMS-Norm = 5.260e+05 < 1
-                 (Min Step Size:  1.000e+00 >= 0)
-  **...........Number of Iterations = 8 < 30
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
 
 ************************************************************************
 -- Nonlinear Solver Step 8 -- 
-||F|| = 6.526e-10  step = 1.000e+00  dx = 3.440e+00
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=9185,domainDim=9185}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   20           residual = 7.451479e-06
-                  iter:   22           residual = 9.521918e-07
-  
-  
-  		Solution time: 0.025055 (sec.)
-  		total iterations: 22
-  
-************************************************************************
--- Status Test Results --
-**...........OR Combination -> 
-  **...........AND Combination -> 
-    Converged....F-Norm = 2.290e-14 < 1.000e-08
-                 (Unscaled Two-Norm, Absolute Tolerance)
-    **...........WRMS-Norm = 4.483e+00 < 1
-                 (Min Step Size:  1.000e+00 >= 0)
-  **...........Number of Iterations = 9 < 30
-  **...........Finite Number Check (Two-Norm F) = Finite
-************************************************************************
-
-************************************************************************
--- Nonlinear Solver Step 9 -- 
-||F|| = 2.290e-14  step = 1.000e+00  dx = 1.194e-04
-************************************************************************
-
-       CALCULATING FORCING TERM
-       Method: Constant
-       Forcing Term: 1e-06
-  
-  		*******************************************************
-  		***** Problem: Thyra::TpetraLinearOp<double, int, long long, Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial, Kokkos::HostSpace> >{rangeDim=9185,domainDim=9185}
-  		***** Preconditioned GMRES solution
-  		***** User-defined preconditioner
-  		***** No scaling
-  		*******************************************************
-  
-                  iter:    0           residual = 1.000000e+00
-                  iter:   16           residual = 5.296216e-07
-  
-  
-  		Solution time: 0.017493 (sec.)
-  		total iterations: 16
-  
-
-************************************************************************
--- Nonlinear Solver Step 10 -- 
-||F|| = 2.178e-14  step = 1.000e+00  dx = 2.749e-10 (Converged!)
+||F|| = 2.393e-14  step = 1.000e+00  dx = 3.626e-08 (Converged!)
 ************************************************************************
 
 ************************************************************************
 -- Final Status Test Results --
 Converged....OR Combination -> 
   Converged....AND Combination -> 
-    Converged....F-Norm = 2.178e-14 < 1.000e-08
+    Converged....F-Norm = 2.393e-14 < 1.000e-08
                  (Unscaled Two-Norm, Absolute Tolerance)
-    Converged....WRMS-Norm = 2.433e-06 < 1
+    Converged....WRMS-Norm = 2.711e-05 < 1
                  (Min Step Size:  1.000e+00 >= 0)
   ??...........Number of Iterations = -1 < 30
   ??...........Finite Number Check (Two-Norm F) = Unknown

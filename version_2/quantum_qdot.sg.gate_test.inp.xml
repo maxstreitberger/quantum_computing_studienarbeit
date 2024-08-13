@@ -36,8 +36,8 @@
           <Parameter name="Y ERFC_ON" type="bool" value="false" />
           <Parameter name="Z ERFC_ON" type="bool" value="false" />
           <Parameter name="Doping Type" type="string" value="Donor" />
-          <Parameter name="Xmin" type="double" value="-0.205" />
-          <Parameter name="Xmax" type="double" value="-0.055" />
+          <Parameter name="Xmin" type="double" value="0.055" />
+          <Parameter name="Xmax" type="double" value="0.205" />
           <Parameter name="Zmin" type="double" value="-0.01" />
           <Parameter name="Zmax" type="double" value="0.0" />
           <Parameter name="Ymin" type="double" value="-0.025" />
